@@ -3,7 +3,7 @@ import React from "react";
 import "./Footer.css";
 const Footer = () => {
   return (
-    <>
+    <div className="container mx-auto">
       <footer className="py-12 bg-gray-50 xl:py-24 dark:bg-gray-800">
         <div className="px-4 mx-auto w-full max-w-8xl">
           <div className="grid gap-12 xl:grid-cols-6 xl:gap-24">
@@ -365,7 +365,7 @@ const Footer = () => {
           </div>
         </div>
       </footer> */}
-    </>
+    </div>
   );
 };
 

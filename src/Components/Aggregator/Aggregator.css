@@ -2,6 +2,40 @@
   font-family: "PoppinsFonts";
   src: url("../../Assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro1";
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+.itemcount {
+  font-family: "Neue Haas Grotesk Display Pro1";
+}
+/* card */
+.cardtitle {
+  font-family: "Neue Haas Grotesk Display Pro";
+  color: black;
+  font-size: 1.3rem;
+}
+.cardid {
+  font-family: "Neue Haas Grotesk Display Pro";
+  color: #6549f6;
+}
+.cardprice {
+  font-family: "Neue Haas Grotesk Display Pro";
+}
+.cardfloor {
+  font-family: "Neue Haas Grotesk Display Pro";
+  color: #c4c4c4;
+}
 .aggregatortitle {
   font-family: "PoppinsFonts";
   font-style: normal;
