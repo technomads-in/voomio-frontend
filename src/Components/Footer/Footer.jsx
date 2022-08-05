@@ -12,7 +12,7 @@ const Footer = () => {
                 <img
                   src="/images/Octopas.svg"
                   className="mr-3 h-8"
-                  alt="Voomio  Logo"
+                  alt="Voomio Logo"
                 />
               </div>
               <p className="mb-5 max-w-sm text-[#250C50] text-2xl">
@@ -23,7 +23,6 @@ const Footer = () => {
                   href="!#"
                   className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
                 >
-                  <div>fcjkjgsfkhg</div>
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
