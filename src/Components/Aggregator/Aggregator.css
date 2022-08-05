@@ -19,6 +19,10 @@
 .itemcount {
   font-family: "Neue Haas Grotesk Display Pro1";
 }
+/* popup */
+.popuptittle {
+  font-family: "Neue Haas Grotesk Display Pro";
+}
 /* card */
 .cardtitle {
   font-family: "Neue Haas Grotesk Display Pro";
