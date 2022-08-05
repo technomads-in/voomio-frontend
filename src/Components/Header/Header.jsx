@@ -4,6 +4,8 @@ import "./Header.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import Details from "../Details/Details";
 let Buffer = require("buffer/").Buffer;
 
 const Header = () => {
@@ -104,6 +106,7 @@ const Header = () => {
 
   return (
     <>
+      
       {/* Header */}
       <nav className="headerbackground">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -253,12 +256,12 @@ const Header = () => {
                   >
                     Ranking
                   </a>
-                  <a
-                    href="/"
+                  <Link
+                    to="/create"
                     className="font-bold px-3 py-2 rounded-md menufont text-white "
                   >
                     Create
-                  </a>
+                  </Link>
                   <button
                     onClick={openModel}
                     className="buttonborder menufont text-white font-bold py-2 px-12"
