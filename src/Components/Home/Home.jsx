@@ -1,15 +1,34 @@
 // eslint-disable-next-line
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Carousel from "react-elastic-carousel";
 import "./Home.css";
 
+function getWindowSize() {
+  const { innerWidth } = window;
+  return innerWidth;
+}
 const Home = () => {
   const navigate = useNavigate();
   const [isDropdown, setIsDropdown] = useState(false);
   const [isPast, setIsPast] = useState(false);
   const [isAll, setIsAll] = useState(false);
   const [isChain, setIsChain] = useState(false);
+  const [open, setopen] = useState(false);
+  const [windowSize, setWindowSize] = useState(getWindowSize());
 
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+  // console.log(windowSize);
   // Dropdown
   const openDropdown = () => {
     setIsDropdown(!isDropdown);
@@ -93,8 +112,30 @@ const Home = () => {
       videotext: "CryptoGuruTV",
       videoview: "1M views - 8 hours ago",
     },
+    {
+      id: "4",
+      videoimage: "/images/nftstobuy.png",
+      videotitle: "These upcoming NFTS will 10x!",
+      videotext: "CryptoGuruTV",
+      videoview: "1M views - 8 hours ago",
+    },
+    {
+      id: "5",
+      videoimage: "/images/justinebiber.png",
+      videotitle: "These upcoming NFTS will 10x!",
+      videotext: "CryptoGuruTV",
+      videoview: "1M views - 8 hours ago",
+    },
   ];
 
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 1 },
+    { width: 850, itemsToShow: 3 },
+    { width: 1150, itemsToShow: 4, itemsToScroll: 1 },
+    { width: 1450, itemsToShow: 5 },
+    { width: 1750, itemsToShow: 6 },
+  ];
   // third topcreator
   const topCreatorsItems = [
     {
@@ -145,17 +186,97 @@ const Home = () => {
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
     },
+    {
+      id: "5",
+      createrImage: "/images/monkeyrounded.png",
+      createrText: "Gordon Gonner",
+      createrSubText: "@gordongonner",
+      createrFollowing: "12",
+      createrFollowingText: "Following",
+      createrFollowers: "1.2m",
+      createrFollowersText: "Followers",
+      createrFollowingCollection: "15",
+      createrFollowingCollectionText: "Collections",
+    },
   ];
+
+  //topnft
+  const topnft = [
+    {
+      id: "1",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+537.25%",
+      ethereumprice: "993.79",
+    },
+    {
+      id: "2",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+437.25%",
+      ethereumprice: "593.79",
+    },
+    {
+      id: "3",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+237.25%",
+      ethereumprice: "793.79",
+    },
+    {
+      id: "4",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+137.25%",
+      ethereumprice: "293.79",
+    },
+    {
+      id: "5",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+137.25%",
+      ethereumprice: "293.79",
+    },
+    {
+      id: "6",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+137.25%",
+      ethereumprice: "293.79",
+    },
+    {
+      id: "7",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+137.25%",
+      ethereumprice: "293.79",
+    },
+    {
+      id: "8",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+137.25%",
+      ethereumprice: "293.79",
+    },
+    {
+      id: "9",
+      src: "/images/Ellipse 69.svg",
+      topnftName: "CryptoPunks",
+      Topvalue: "+137.25%",
+      ethereumprice: "293.79",
+    },
+  ];
+  // console.log((open || 650 < getWindowSize()))
   return (
     <>
-      {/* first bloges */}
+      {/* Oneplace bloges  start*/}
       <div className="homebackgroundimage md:py-20 overflow-x-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0">
+        <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0 mt-32">
           <div className="hidden lg:block">
             {" "}
             <img src="/images/Group.svg" alt="" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <div className="flex justify-center lg:justify-start">
               {" "}
               <h1 className="font-bold hometitle text-5xl  xl:text-8xl text-white mb-4  ">
@@ -190,16 +311,17 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* Oneplace bloges  end*/}
 
-      {/* second bloges */}
+      {/* Trending bloges start*/}
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-10 mb-1">
         <div className="relative flex flex-col md:flex-row justify-between h-16 mb-5">
-          <h1 className="secondtitle font-bold">Trending</h1>
+          <h1 className="secondtitle font-bold pb-10">Trending</h1>
           <div className="text-left mb-10">
             <div className="dropdownborder rounded-2xl">
               <button
                 type="button"
-                className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50"
+                className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50 text-[#6549F6]"
                 id="menu-button"
                 aria-expanded="true"
                 aria-haspopup="true"
@@ -230,7 +352,7 @@ const Home = () => {
                 aria-labelledby="menu-button"
                 tabIndex={-1}
               >
-                <div className="py-1" role="none">
+                <div className="py-1 text-[#6549F6]" role="none">
                   <a
                     href="/"
                     className="menufont block px-4 py-2 text-sm"
@@ -275,7 +397,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* new card */}
+
+      {/* Trending card */}
       <div>
         <div
           className="container max-w-7xl mx-auto px-4 mt-10"
@@ -287,8 +410,8 @@ const Home = () => {
                 className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
                 key={i.id}
               >
-                <div className=" relative network-box">
-                  <div className="absolute left-0 -top-6">
+                <div className=" relative network-box mt-16">
+                  <div className="absolute left-0 -top-6 ">
                     <div className="relative inline-block text-left ">
                       {/* <div className="dropdownborder cardborder rounded-3xl">
                         <div
@@ -343,8 +466,10 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* Trending bloges start*/}
 
-      {/* thired bloges */}
+      {/* Alpha bloges start*/}
+
       <div className=" md:p-20">
         <div
           className="container max-w-7xl mx-auto px-4 mt-10"
@@ -353,28 +478,35 @@ const Home = () => {
           <div className="font-bold text-[#222222] secondtitle mb-16 px-9">
             Alpha
           </div>
-          <div className="flex flex-wrap justify-center gap-2">
-            {secondVideo.map((i) => (
-              <div className="max-w-sm rounded overflow-hidden" key={i.id}>
-                <img
-                  className="w-full"
-                  src={i.videoimage}
-                  alt="Sunset in the mountains"
-                />
-                <div className="px-6 py-4">
-                  <div className="font-bold text-xl mb-2 text-[#222222]">
-                    {i.videotitle}
+
+          <div className="">
+            <Carousel breakPoints={breakPoints}>
+              {secondVideo.map((i) => (
+                <div
+                  className="max-w-sm rounded overflow-hidden p-2"
+                  key={i.id}
+                >
+                  <img
+                    className="w-full"
+                    src={i.videoimage}
+                    alt="Sunset in the mountains"
+                  />
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2 text-[#222222]">
+                      {i.videotitle}
+                    </div>
+                    <p className="text-[#222222] text-base">{i.videotext}</p>
+                    <p className="text-[#222222] text-base">{i.videoview}</p>
                   </div>
-                  <p className="text-[#222222] text-base">{i.videotext}</p>
-                  <p className="text-[#222222] text-base">{i.videoview}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </Carousel>
           </div>
         </div>
       </div>
+      {/* Alpha bloges end*/}
 
-      {/* fourth bloges */}
+      {/* Top Creators bloges start*/}
       <div className=" md:p-20">
         <div
           className="container max-w-7xl mx-auto  mt-10"
@@ -384,119 +516,141 @@ const Home = () => {
             Top Creators
           </div>
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5 ">
-            {topCreatorsItems.map((i) => (
-              <div className="rounded-xl network-box" key={i.id}>
-                <div className="rounded-lg max-w-sm bg-[#e9ae65] ">
-                  <div className="px-10 py-8">
-                    <div className="flex justify-center">
-                      <img
-                        className="border p-1 rounded-full bg-white "
-                        src={i.createrImage}
-                        alt=""
-                      />
-                    </div>
-                    <div className="my-5">
-                      <h5 className="topcreatorstitle flex justify-center">
-                        {i.createrText}
-                      </h5>
-                      <h5 className="topcreatorssubtitle flex justify-center border p-2 rounded-full bg-white">
-                        {i.createrSubText}
-                      </h5>
-                    </div>
-                  </div>
-                  <div className="bg-white  rounded-lg">
-                    <div className="flex justify-between px-7 py-2">
-                      <div>
-                        <div className="topcreatorssubtext">
-                          {i.createrFollowing}
-                        </div>
-                        <div className="topcreatorssubfolow">
-                          {i.createrFollowingText}
-                        </div>
+          <div className="">
+            <Carousel breakPoints={breakPoints}>
+              {topCreatorsItems.map((i, index) => (
+                <div className="rounded-xl topcreators-box" key={index}>
+                  <div className="rounded-lg  bg-[#e9ae65] ">
+                    <div className="px-10 py-8">
+                      <div className="flex justify-center">
+                        <img
+                          className="border p-1 rounded-full bg-white "
+                          src={i.createrImage}
+                          alt=""
+                        />
                       </div>
-                      <div>
-                        <div className="topcreatorssubtext">
-                          {i.createrFollowers}
-                        </div>
-                        <div className="topcreatorssubfolow">
-                          {i.createrFollowersText}
-                        </div>
-                      </div>{" "}
-                      <div>
-                        <div className="topcreatorssubtext">
-                          {i.createrFollowingCollection}
-                        </div>
-                        <div className="topcreatorssubfolow">
-                          {i.createrFollowingCollectionText}
-                        </div>
+                      <div className="my-5">
+                        <h5 className="topcreatorstitle flex justify-center">
+                          {i.createrText}
+                        </h5>
+                        <h5 className="topcreatorssubtitle flex justify-center border p-2 rounded-full bg-white">
+                          {i.createrSubText}
+                        </h5>
                       </div>
                     </div>
-                    <div className="flex space-x-2 justify-center my-4">
-                      <button
-                        type="button"
-                        className=" px-14 py-2 follow text-white rounded-full hover:shadow-lg topcreatorsfollowing  transition duration-150 ease-in-out"
-                      >
-                        <i className="fa-solid fa-plus mr-2"></i>Follow
-                      </button>
-                    </div>
-                    <div className="flex  space-x-2 justify-center">
-                      <button
-                        type="button"
-                        className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full hover:shadow-lg transition duration-150 ease-in-out mb-8"
-                      >
-                        0x007..373xys..
-                      </button>
+                    <div className="bg-white  rounded-lg">
+                      <div className="flex justify-between lg:px-1 xl:flex-row md:flex-row lg:flex-col xl:px-7 py-2 px-6 flex-col">
+                        <div>
+                          <div className="topcreatorssubtext">
+                            {i.createrFollowing}
+                          </div>
+                          <div className="topcreatorssubfolow">
+                            {i.createrFollowingText}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="topcreatorssubtext">
+                            {i.createrFollowers}
+                          </div>
+                          <div className="topcreatorssubfolow">
+                            {i.createrFollowersText}
+                          </div>
+                        </div>{" "}
+                        <div>
+                          <div className="topcreatorssubtext">
+                            {i.createrFollowingCollection}
+                          </div>
+                          <div className="topcreatorssubfolow">
+                            {i.createrFollowingCollectionText}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex space-x-2 justify-center my-4">
+                        <button
+                          type="button"
+                          className=" px-14 py-2 follow text-white rounded-full hover:shadow-lg topcreatorsfollowing  transition duration-150 ease-in-out"
+                        >
+                          <i className="fa-solid fa-plus mr-2"></i>Follow
+                        </button>
+                      </div>
+                      <div className="flex  space-x-2 justify-center">
+                        <button
+                          type="button"
+                          className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full hover:shadow-lg transition duration-150 ease-in-out mb-8"
+                        >
+                          0x007..373xys..
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </Carousel>
           </div>
         </div>
       </div>
+      {/* Top Creators bloges end*/}
 
-      {/* fifth bloges */}
-      <div className="overflow-x-auto pt-36 ">
+      {/* Top NFT  bloges  start*/}
+      <div className="pt-36 ">
         <div
           className="container max-w-7xl mx-auto px-4 mt-10 network-box"
           style={{ cursor: "auto" }}
         >
-          <div className="font-bold text-center secondtitle text-[#222222] mb-5 p-9 ">
-            Top NFT
+          <div className="flex sm:justify-center items-center font-bold justify-between secondtitle text-[#222222] mb-5 p-9 ">
+            <h1>Top NFT</h1>
+            <div className="sm:hidden block">
+              <img
+                src="/images/Vector.svg"
+                alt=""
+                className={open ? "hidden" : "block "}
+                onClick={() => setopen(true)}
+              />
+              {open ? (
+                <img
+                  src="/images/close.svg"
+                  alt=""
+                  className={open ? "block " : "hidden "}
+                  onClick={() => setopen(false)}
+                />
+              ) : null}
+            </div>
           </div>
-          <div className="flex flex-row gap-2 justify-center">
+          <div className={`flex sm:flex-row flex-col gap-2 justify-center `}>
             <div>
-              <div className="relative inline-block text-left mb-10">
-                <div className="dropdownborder rounded-xl">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50"
-                    id="menu-button"
-                    aria-expanded="true"
-                    aria-haspopup="true"
-                    onClick={past}
-                  >
-                    Past 24hrs
-                    {/* Heroicon name: solid/chevron-down */}
-                    <svg
-                      className="-mr-1 ml-2 h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
+              <div className="relative inline-block text-left sm:mb-10 mb-2">
+                {open || 650 < windowSize ? (
+                  <div className="dropdownborder rounded-xl text-[#6549F6]">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center w-full rounded-md shadow-sm px-7 py-2 text-sm font-medium menufont z-50"
+                      id="menu-button"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                      onClick={past}
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                      Past 24hrs
+                      {/* Heroicon name: solid/chevron-down */}
+                      <svg
+                        className="-mr-1 ml-2 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                ) : null}
+
                 {isPast ? (
                   <div
-                    className="origin-top-right z-50 absolute  mt-2 w-36 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
+                    className="origin-top-right z-50 absolute  mt-2 w-36 rounded-xl shadow-lg bg-white ring-1 text-[#6549F6] ring-black ring-opacity-5 focus:outline-none dropdownborder"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="menu-button"
@@ -547,36 +701,39 @@ const Home = () => {
               </div>
             </div>
             <div>
-              <div className="relative inline-block text-left mb-10">
-                <div className="dropdownborder rounded-xl">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50"
-                    id="menu-button"
-                    aria-expanded="true"
-                    aria-haspopup="true"
-                    onClick={all}
-                  >
-                    All Categories
-                    {/* Heroicon name: solid/chevron-down */}
-                    <svg
-                      className="-mr-1 ml-2 h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
+              <div className="relative inline-block text-left sm:mb-10 mb-2">
+                {open || 650 < windowSize ? (
+                  <div className="dropdownborder rounded-xl text-[#6549F6]">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50"
+                      id="menu-button"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                      onClick={all}
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                      All Categories
+                      {/* Heroicon name: solid/chevron-down */}
+                      <svg
+                        className="-mr-1 ml-2 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                ) : null}
+
                 {isAll ? (
                   <div
-                    className="origin-top-right z-50 absolute  mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
+                    className="origin-top-right z-50 absolute  mt-2 w-40 rounded-xl shadow-lg text-[#6549F6] bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="menu-button"
@@ -628,35 +785,38 @@ const Home = () => {
             </div>
             <div>
               <div className="relative inline-block text-left mb-10">
-                <div className="dropdownborder rounded-xl">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50"
-                    id="menu-button"
-                    aria-expanded="true"
-                    aria-haspopup="true"
-                    onClick={chain}
-                  >
-                    All Chain
-                    {/* Heroicon name: solid/chevron-down */}
-                    <svg
-                      className="-mr-1 ml-2 h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
+                {open || 650 < windowSize ? (
+                  <div className="dropdownborder rounded-xl text-[#6549F6]">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center w-full rounded-md shadow-sm px-7 py-2 text-sm font-medium menufont z-50"
+                      id="menu-button"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                      onClick={chain}
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                      All Chain
+                      {/* Heroicon name: solid/chevron-down */}
+                      <svg
+                        className="-mr-1 ml-2 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                ) : null}
+
                 {isChain ? (
                   <div
-                    className="origin-top-right z-50 absolute  mt-2 w-32 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
+                    className="origin-top-right z-50 absolute  mt-2 w-32 rounded-xl shadow-lg text-[#6549F6] bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="menu-button"
@@ -707,73 +867,127 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center m-9">
-            <table id="customers">
-              <thead>
-                <tr>
-                  <th>Collection</th>
-                  <th className="flex">
-                    Volume{" "}
-                    <i className="fa-solid fa-sort-down ml-2 text-center"></i>
-                  </th>
-                  <th>24hr</th>
-                  <th>7d</th>
-                  <th>Floor Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[...Array(9).keys()].map((i) => (
-                  <tr className="">
-                    <td className="tabletext flex items-center gap-3 ">
-                      <div className="border-[2px] border-solid border-[#3C3C3B] p-4 rounded-full "></div>
-                      Sample Collection
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2">
+            {topnft.map((i, index) => (
+              <div
+                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item"
+                key={index}
+              >
+                <div className="sc-1xf18x6-0 sc-1twd32i-0 sc-1wwz3hp-0 sc-b4hiel-0 sc-cjf6mn-0 ttmcH kKpYwv kuGBEl iVtKaT euUQqP">
+                  <span
+                    fontSize="16px"
+                    className="sc-1xf18x6-0 sc-1aqfqq9-0 bntaok bVuOlt"
+                  >
+                    <div className="sc-7qr9y8-0 iUvoJs">{i.id}</div>
+                  </span>
+                </div>
+                <div className="sc-1xf18x6-0 hjciTd">
+                  <div className="sc-1xf18x6-0 sc-1twd32i-0 fOHEVH kKpYwv">
+                    <div
+                      className="sc-dy59cl-0 kdPOpy Image--isImageLoaded Image--isImageLoaderVisible"
+                      style={{ height: 50, width: 50 }}
+                    >
                       <img
-                        src="/images/verified.png"
+                        className="Image--image"
+                        src={i.src}
+                        style={{ objectFit: "cover" }}
                         alt=""
-                        className="w-4 h-4 "
                       />
-                    </td>
-                    <td>
-                      <i className="fa-brands fa-ethereum text-2xl"></i>
-                      <span className="text-[#5035da] font-bold text-lg pl-3 ">
-                        134
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="sc-1xf18x6-0 sc-3iovjc-1 haVRLx fcxCQq"
+                  >
+                    <img src="/images/BadgeCheck.svg" alt="" />
+                  </div>
+                </div>
+                <div className="sc-1xf18x6-0 sc-1twd32i-0 sc-1wwz3hp-0 sc-b4hiel-0 sc-1idymv7-1 haVRLx kKpYwv kuGBEl iVtKaT cjftsJ ml-2">
+                  <span
+                    width="100%"
+                    fontSize="14px"
+                    className="sc-1xf18x6-0 sc-1aqfqq9-0 sc-1idymv7-2 dEFzTB cSiicL"
+                  >
+                    <div className="sc-7qr9y8-0 iUvoJs">{i.topnftName}</div>
+                  </span>
+                  <span className="sc-1xf18x6-0 sc-1aqfqq9-0 sc-1idymv7-6 cwzfDK knRrSe">
+                    <div className="sc-1xf18x6-0 sc-1twd32i-0 iQOhGx kKpYwv">
+                      <div className="sc-1xf18x6-0 kqdgfc">Floor price:</div>－
+                    </div>
+                  </span>
+                </div>
+                <div className="sc-1xf18x6-0 sc-1idymv7-3 haVRLx dOqAvv">
+                  <div className="sc-1xf18x6-0 sc-1twd32i-0 sc-rss0by-0 gblfhv kKpYwv jGmHuk">
+                    <span
+                      color="seaGrass"
+                      fontSize="14px"
+                      fontWeight={400}
+                      className="sc-1xf18x6-0 sc-1aqfqq9-0 sc-12irlp3-3 ccpCib iedBRS"
+                    >
+                      <div className="sc-7qr9y8-0 iUvoJs" tabIndex={-1}>
+                        {i.Topvalue}
+                      </div>
+                    </span>
+                    <div className="sc-1xf18x6-0 sc-1twd32i-0 iQOhGx kKpYwv">
+                      <div
+                        display="inline-flex"
+                        height="22px"
+                        className="sc-1xf18x6-0 sc-1twd32i-0 gEYrEV kKpYwv"
+                      >
+                        <button
+                          aria-label="ETH logo"
+                          type="button"
+                          className="sc-ty1bh0-0 infdiL"
+                        >
+                          <div
+                            size={14}
+                            className="sc-1xf18x6-0 sc-1twd32i-0 sc-1wwz3hp-0 sc-b4hiel-0 sc-cjf6mn-0 sc-sbw25j-0 bhuNxV kKpYwv kuGBEl iVtKaT euUQqP jwEsBT"
+                          >
+                            <img
+                              src="/images/ethereum.png"
+                              size={14}
+                              className="sc-1xf18x6-0 sc-sbw25j-1 bhuNxV kGXfai"
+                              alt=""
+                            />
+                          </div>
+                        </button>
+                      </div>
+                      <span
+                        color="#8A939B"
+                        fontSize="14px"
+                        fontWeight={600}
+                        className="sc-1xf18x6-0 sc-1aqfqq9-0 sc-12irlp3-3 eatvNr cIKgGu"
+                      >
+                        <div className="sc-7qr9y8-0 iUvoJs" tabIndex={-1}>
+                          {i.ethereumprice}
+                        </div>
                       </span>
-                    </td>
-                    <td className="tableincrement font-bold">+13.13%</td>
-                    <td className="tableincrement font-bold">+13.13%</td>
-                    <td>
-                      {" "}
-                      <i className="fa-brands fa-ethereum text-2xl"></i>
-                      <span className="text-[#5035da] font-bold text-lg pl-3">
-                        134
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="pb-16 mt-10">
+            <button className="flex container mx-auto w-fit justify-center buttongradient m-15 text-white font-bold py-1 px-12 rounded-full">
+              Load more
+            </button>
           </div>
         </div>
-        <div className="mb-5">
-          {" "}
-          <button className="flex container mx-auto w-fit justify-center buttongradient  text-white font-bold py-1 px-12 rounded-full">
-            Load more
-          </button>
-        </div>
       </div>
+      {/* Top NFT  bloges  end*/}
 
-      {/* six bloges */}
-
-      <div className=" md:py-20">
+      {/* Gassless Minting bloges start*/}
+      <div className=" md:py-20 overflow-x-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0">
-          <div className="hidden lg:block w-72">
+          <div className="hidden lg:block">
             {" "}
             <img src="/images/Group 548.png" alt="" />
           </div>
           <div className="flex flex-col">
-            <div className="">
+            <div>
               {" "}
-              <h1 className="font-bold hometitle text-5xl  xl:text-8xl text-white mb-4  ">
+              <h1 className="font-bold hometitle text-5xl text-center xl:text-8xl text-white mb-4  ">
                 Gassless Minting
               </h1>
             </div>
@@ -841,11 +1055,12 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex justify-end h-4/5">
+          <div className="hidden lg:flex justify-end">
             <img src="/images/Group 548 (1).png" alt="rectangle" />
           </div>
         </div>
       </div>
+      {/* Gassless Minting bloges end*/}
     </>
   );
 };
