@@ -1,11 +1,10 @@
-// eslint-disable-next-line
 import React, { useRef, useState } from "react";
 import "./Header.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 let Buffer = require("buffer/").Buffer;
-
 const Header = () => {
   const [namiwallet, setNami] = useState(false);
   const [eternlwallet, setEternl] = useState(false);
@@ -16,7 +15,6 @@ const Header = () => {
     pollWallets();
     window.scrollTo(0, 0);
     const checkIfClickedOutside = (e) => {
-      console.log(ref.current);
       // If the menu is open and the clicked target is not within the menu,
       // then close the menu
       if (ref.current && !ref.current.contains(e.target)) {
@@ -34,7 +32,6 @@ const Header = () => {
   const openDropdown = () => {
     setIsDropdown(!isDropdown);
   };
-
   // Model
   const openModel = () => {
     setIsModel(!isModel);
@@ -78,7 +75,6 @@ const Header = () => {
       toast.error("User decline the request!");
     }
   };
-
   const pollWallets = () => {
     const wallets = [];
     for (const key in window.cardano) {
@@ -93,52 +89,86 @@ const Header = () => {
       setEternl(true);
     }
   };
-
   const nami_connect = () => {
     signhash("nami");
   };
-
   const eternl_connect = () => {
     signhash("eternl");
   };
-
+  const [open, setopen] = useState(false);
+  // const [close, setclose] = useState(true);
   return (
     <>
       {/* Header */}
-      <nav className="headerbackground">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-between h-16">
-            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-              {/* Mobile menu button*/}
-              <button
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-                onClick={() => {
-                  document
-                    .getElementById("mobile-menu")
-                    .classList.toggle("hidden");
-                }}
-              >
-                <img src="/images/humburger.png" alt="humber" className="w-8" />
-              </button>
+      <nav className={`${open ? " bg-purple-100 fixed left-0 right-0 z-50" : "headerbackground"}`}>
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 " >
+          <div className="relative left-0 right-0  sm:flex sm:items-center sm:justify-between h-16">
+            <div className="flex sm:hidden justify-between h-16 absolute left-0 right-0  ">
+              <div className="flex items-center gap-2 ">
+                <img
+                  className=" h-10 w-auto"
+                  src="/images/Octopas.svg"
+                  alt="Workflow"
+                />
+                {open ? (
+                  <img
+                    src="/images/VOOMIOdark.svg"
+                    alt=""
+                    className=" h-10 w-28 "
+                  />
+                ) : (
+                  <img
+                    className="  h-10 w-28"
+                    src="/images/VOOMIO.svg"
+                    alt="Workflow"
+                  />
+                )}
+              </div>
+              <div className="flex items-center gap-2 ">
+                <img src="/images/magnifying-glass 1.svg" alt="" />
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white "
+                  aria-controls="mobile-menu"
+                  aria-expanded="false"
+                  onClick={() => {
+                    document
+                      .getElementById("mobile-menu")
+                      .classList.toggle("hidden");
+                  }}
+                >
+                  <img
+                    src="/images/MenuAlt3Outline.svg"
+                    alt=""
+                    onClick={() => setopen(true)}
+                    className={open ? "hidden img1" : "block img1"}
+                  />
+                  {open ? (
+                    <img
+                      src="/images/X.svg"
+                      alt=""
+                      className={open ? "block img1" : "hidden img1"}
+                      onClick={() => setopen(false)}
+                    />
+                  ) : null}
+                </button>
+              </div>
             </div>
-            <div className="flex-1 flex items-center justify-end md:justify-center sm:items-stretch">
+            <div className="flex-1 flex items-center justify-start md:justify-center sm:items-stretch">
               <div className="flex-shrink-0 flex items-center space-x-3">
                 <img
-                  className="block h-9 w-auto"
+                  className="sm:block hidden h-9 w-auto"
                   src="/images/Octopas.svg"
                   alt="Workflow"
                 />
                 <img
-                  className="hidden lg:block h-5 w-40"
+                  className=" sm:block hidden h-5 w-16"
                   src="/images/VOOMIO.svg"
                   alt="Workflow"
                 />
               </div>
               <div className="hidden sm:block sm:ml-6 ">
-                <div className="flex space-x-4 ">
+                <div className="flex space-x-4 items-center">
                   <div className="relative inline-block text-left ">
                     <div className="flex relative w-full dropdownborder  rounded-3xl">
                       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -188,57 +218,56 @@ const Header = () => {
                           </svg>
                         </button>
                         {isDropdown ? (
-                        <div
-                          className="origin-top-right absolute  mt-2 w-20 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
-                          role="menu"
-                          aria-orientation="vertical"
-                          aria-labelledby="menu-button"
-                          tabIndex={-1}
-                        >
-                          <div className="py-1" role="none">
-                            <a
-                              href="/"
-                              className="menufont block px-4 py-2 text-sm"
-                              role="menuitem"
-                              tabIndex={-1}
-                              id="menu-item-0"
-                            >
-                              SOL
-                            </a>
-                            <a
-                              href="/"
-                              className="menufont block px-4 py-2 text-sm"
-                              role="menuitem"
-                              tabIndex={-1}
-                              id="menu-item-1"
-                            >
-                              ADA
-                            </a>
-                            <a
-                              href="/"
-                              className="menufont block px-4 py-2 text-sm"
-                              role="menuitem"
-                              tabIndex={-1}
-                              id="menu-item-2"
-                            >
-                              ETH
-                            </a>
-                            <form method="POST" action="#" role="none">
-                              <button
-                                type="submit"
-                                className="menufont block w-full text-left px-4 py-2 text-sm"
+                          <div
+                            className="origin-top-right absolute  mt-2 w-20 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
+                            role="menu"
+                            aria-orientation="vertical"
+                            aria-labelledby="menu-button"
+                            tabIndex={-1}
+                          >
+                            <div className="py-1" role="none">
+                              <a
+                                href="/"
+                                className="menufont block px-4 py-2 text-sm"
                                 role="menuitem"
                                 tabIndex={-1}
-                                id="menu-item-3"
+                                id="menu-item-0"
                               >
-                                ALL
-                              </button>
-                            </form>
+                                SOL
+                              </a>
+                              <a
+                                href="/"
+                                className="menufont block px-4 py-2 text-sm"
+                                role="menuitem"
+                                tabIndex={-1}
+                                id="menu-item-1"
+                              >
+                                ADA
+                              </a>
+                              <a
+                                href="/"
+                                className="menufont block px-4 py-2 text-sm"
+                                role="menuitem"
+                                tabIndex={-1}
+                                id="menu-item-2"
+                              >
+                                ETH
+                              </a>
+                              <form method="POST" action="#" role="none">
+                                <button
+                                  type="submit"
+                                  className="menufont block w-full text-left px-4 py-2 text-sm"
+                                  role="menuitem"
+                                  tabIndex={-1}
+                                  id="menu-item-3"
+                                >
+                                  ALL
+                                </button>
+                              </form>
+                            </div>
                           </div>
-                        </div>
-                      ) : null}
+                        ) : null}
                       </div>
-                 
                     </div>
                   </div>
                   <a
@@ -271,24 +300,27 @@ const Header = () => {
           </div>
         </div>
         {/* Mobile menu, show/hide based on menu state. */}
-        <div className="hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <a
-              href="/"
-              className=" menufont block px-3 py-2 rounded-md text-base font-medium"
+        <div
+          className=" flex hidden justify-center items-start text-center text-[#250C50] bg-purple-100 h-[100vh]  pt-20 ease-in duration-300 fixed z-50 w-[100%] "
+          id="mobile-menu"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 ">
+            <Link
+              to="/"
+              className=" menufont block px-3 py-5 rounded-md text-base font-medium "
               aria-current="page"
             >
               Explore
-            </a>
-            <a
-              href="/"
-              className="menufont  block px-3 py-2 rounded-md text-base font-medium"
+            </Link>
+            <Link
+              to="/aggregator"
+              className="menufont  block px-3 py-5 rounded-md text-base font-medium"
             >
               Ranking
-            </a>
+            </Link>
             <a
               href="/"
-              className="menufont block px-3 py-2 rounded-md text-base font-medium"
+              className="menufont block px-3 py-5 rounded-md text-base font-medium"
             >
               Create
             </a>
@@ -301,9 +333,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
       {/* Popup */}
-
       {isModel ? (
         <div className="fixed backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0">
           <div
@@ -370,5 +400,4 @@ const Header = () => {
     </>
   );
 };
-
 export default Header;
