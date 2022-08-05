@@ -12,6 +12,7 @@ function App() {
     <>
       <Header />
       <NftGenerator></NftGenerator>
+      {/* <Home /> */}
       {/*
       <Routes>
         <Route exact path="/" element={<Home />} />
