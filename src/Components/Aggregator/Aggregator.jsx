@@ -201,7 +201,7 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 5th element */}
-       <div className="flex justify-between container items-center mx-auto my-10 flex-wrap ">
+      <div className="flex justify-between container items-center mx-auto my-10 flex-wrap ">
         <div className="flex items-center gap-10">
           <img src="/images/AdjustmentsOutline.svg" alt="" />
           <div className="flex relative dropdownborder w-96 rounded-3xl">
@@ -396,7 +396,7 @@ const Aggregator = () => {
             </svg>
           </div>
         </div>
-      </div> 
+      </div>
 
       {/* nftCards */}
       <div className="container mx-auto my-5">
@@ -455,7 +455,7 @@ const Aggregator = () => {
         <div
           className={`${
             model ? "" : "hidden"
-          }fixed  backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0`}
+          }fixed animated fadeInDown backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0`}
         >
           <div className="relative bg-white dark:bg-blue-darkest rounded-xl shadow-xl px-7 sm:px-10 md:px-20 py-10 max-w-2xl w-11/12 md:w-full">
             <div className="flex items-center">

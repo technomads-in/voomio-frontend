@@ -144,7 +144,10 @@ const Header = () => {
                 <img
                   src="/images/magnifying-glass 1.svg"
                   alt=""
-                  onClick={() => {setopenserach(true); setopen(false)}}
+                  onClick={() => {
+                    setopenserach(true);
+                    setopen(false);
+                  }}
                   className={openserach ? "hidden " : "block "}
                 />
                 {openserach ? (
@@ -159,15 +162,18 @@ const Header = () => {
                   <img
                     src="/images/MenuAlt3Outline.svg"
                     alt=""
-                    onClick={() => {setopen(true);setopenserach(false)}}
+                    onClick={() => {
+                      setopen(true);
+                      setopenserach(false);
+                    }}
                     className={open ? "hidden " : "block "}
                   />
                 )}
 
-                {open  ? (
+                {open ? (
                   <img
                     src="/images/X.svg"
-                    alt=""                   
+                    alt=""
                     onClick={() => setopen(false)}
                     className={open ? "block " : "hidden "}
                   />
@@ -305,12 +311,12 @@ const Header = () => {
                   >
                     Ranking
                   </a>
-                  <a
-                    href="/"
+                  <Link
+                    to="/nftgenerator"
                     className="font-bold px-3 py-2 rounded-md menufont text-white "
                   >
                     Create
-                  </a>
+                  </Link>
                   <button
                     onClick={openModel}
                     className="buttonborder menufont text-white font-bold py-2 px-12"
@@ -340,12 +346,12 @@ const Header = () => {
               >
                 Ranking
               </Link>
-              <a
-                href="/"
+              <Link
+                to="/nftgenerator"
                 className="menufont block px-3 py-5 rounded-md text-base font-medium"
               >
                 Create
-              </a>
+              </Link>
               <button
                 onClick={openModel}
                 className="buttonborder menufont text-white font-bold py-2 px-12"
