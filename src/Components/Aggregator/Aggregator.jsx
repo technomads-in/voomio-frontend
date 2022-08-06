@@ -131,7 +131,7 @@ const Aggregator = () => {
     <>
       {/* 1st element */}
       <div>
-        <div className="relative">
+        <div className="relative pt-14">
           <img
             src="/images/yachet-club.png"
             alt=""
@@ -178,7 +178,7 @@ const Aggregator = () => {
         </p>
       </div>
       {/* 4th element */}
-      <div className="flex justify-start container mx-auto gap-10 flex-wrap">
+      <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap">
         <div>
           <p className="itemcount text-base">items</p>
           <h1 className="text-xl font-bold">10.0K</h1>
@@ -201,7 +201,7 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 5th element */}
-      <div className="flex justify-between container items-center mx-auto my-10">
+       <div className="flex justify-between container items-center mx-auto my-10 flex-wrap ">
         <div className="flex items-center gap-10">
           <img src="/images/AdjustmentsOutline.svg" alt="" />
           <div className="flex relative dropdownborder w-96 rounded-3xl">
@@ -230,7 +230,7 @@ const Aggregator = () => {
           </div>
         </div>
         <div>
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-10 xl:py-0 py-6 flex-wrap">
             <div className="inline-flex rounded-md shadow-sm" role="group">
               <button
                 type="button"
@@ -396,7 +396,7 @@ const Aggregator = () => {
             </svg>
           </div>
         </div>
-      </div>
+      </div> 
 
       {/* nftCards */}
       <div className="container mx-auto my-5">
@@ -540,24 +540,5 @@ const Aggregator = () => {
     </>
   );
 };
-<div className="grid md:grid-cols-2 place-items-center gap-1 ">
-  <div className=" ">
-    <div className="homebuttonborder rounded-lg flex justify-start  ">
-      <h1 className="text-8xl">0</h1>
-    </div>
-    <div className=" pt-4 pb-4"></div>
-  </div>
 
-  <div className=" py-3 px-3 text-center">
-    <p className="font-semibold text-base  leading-relaxed ">
-      Octopuss not detected
-    </p>
-    <p className="font-normal text-sm text-[#999999] pb-5">
-      Please connect your wallet.
-    </p>
-    <button className="py-2.5 px-12 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white">
-      Connect Wallet
-    </button>
-  </div>
-</div>;
 export default Aggregator;
