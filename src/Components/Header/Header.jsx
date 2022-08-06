@@ -299,12 +299,12 @@ const Header = () => {
                       </div>
                     </div>
                   </div>
-                  <a
-                    href="/"
+                  <Link
+                    to="/upload-nft"
                     className="font-bold px-3 py-2 rounded-md menufont text-white"
                   >
                     Explore
-                  </a>
+                  </Link>
                   <a
                     href="/"
                     className="font-bold px-3 py-2 rounded-md menufont text-white"
@@ -333,7 +333,7 @@ const Header = () => {
           <div className="  text-center text-[#250C50] bg-purple-100 h-[100vh]  pt-20  fixed z w-[100%]">
             <div className="px-2 pt-2 pb-3 space-y-1 ">
               <Link
-                to="/"
+                to="/upload-nft"
                 className=" menufont block px-3 py-5 rounded-md text-base font-medium "
                 aria-current="page"
               >

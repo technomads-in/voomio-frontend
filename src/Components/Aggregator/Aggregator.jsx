@@ -413,7 +413,7 @@ const Aggregator = () => {
               className="max-w-xs max-h-full bg-white rounded-lg border border-gray-200 shadow-md"
               key={i.id}
             >
-              <div className="relative">
+              <div className="relative hover:blur-sm">
                 <img className="max-h-80 " src={i.image} alt="" />
                 <div>
                   <img
