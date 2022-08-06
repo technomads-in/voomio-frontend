@@ -57,3 +57,6 @@
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
+.img1 {
+  transition: all 5s ease-in;
+}
