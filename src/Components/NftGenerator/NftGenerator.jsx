@@ -52,7 +52,7 @@ const NftGenerator = () => {
         <div className="text-[#7B61FF] pt-6 font-semibold text-3xl">
           Pricing
         </div>
-        <div className="text-[#000000]  font-semibold text-2xl pb-16 popuptittle">
+        <div className="text-[#000000]  font-semibold text-2xl pb-16 popuptitle">
           Select a subscription for the PFP & Collection Generator.
         </div>
         <div className="  md:flex md:pt-20">
@@ -74,12 +74,12 @@ const NftGenerator = () => {
                 </span>
               </div>
               {/* <div className=""> */}
-              <span className=" pl-5 font-normal text-base text-[#333333] popuptittle">
+              <span className=" pl-5 font-normal text-base text-[#333333] popuptitle">
                 {i.subTitle}
               </span>
               {/* </div> */}
               <div className="bg-[white]/60 hover:bg-[white]/60 rounded-xl">
-                <ul role="list" className="my-7 space-y-5 m-4 pt-5 popuptittle">
+                <ul role="list" className="my-7 space-y-5 m-4 pt-5 popuptitle">
                   <li className="flex space-x-2">
                     <i className="fa-solid fa-check text-[#22c55e]"></i>
                     <p className="pl-1 text-[#6B7280] text-base c font-medium leading-tight ">
