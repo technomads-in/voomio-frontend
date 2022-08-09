@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Details from "../Details/Details";
 let Buffer = require("buffer/").Buffer;
 
 const Header = () => {
@@ -107,6 +108,7 @@ const Header = () => {
 
   return (
     <>
+      
       {/* Header */}
       <nav
         className={`${
