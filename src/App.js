@@ -12,6 +12,7 @@ import UploadNft from "./Components/UploadNft/UploadNft";
 import Details from "./Components/Details/Details";
 
 
+
 function App() {
   return (
     <>
