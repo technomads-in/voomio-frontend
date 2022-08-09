@@ -293,7 +293,10 @@ const Home = () => {
               </h1>
             </div>
             <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
-              <button className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl">
+              <button
+                className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl"
+                onClick={() => navigate("/upload-nft")}
+              >
                 Explore
               </button>
               <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
@@ -405,10 +408,10 @@ const Home = () => {
           style={{ cursor: "auto" }}
         >
           <div className="flex flex-wrap justify-center mt-14">
-            {cardsItems.map((i) => (
+            {cardsItems.map((i, index) => (
               <div
                 className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
-                key={i.id}
+                key={index}
               >
                 <div className=" relative network-box mt-16">
                   <div className="absolute left-0 -top-6 ">
@@ -481,10 +484,10 @@ const Home = () => {
 
           <div className="">
             <Carousel breakPoints={breakPoints}>
-              {secondVideo.map((i) => (
+              {secondVideo.map((i, index) => (
                 <div
                   className="max-w-sm rounded overflow-hidden p-2"
-                  key={i.id}
+                  key={index}
                 >
                   <img
                     className="w-full"
@@ -1061,10 +1064,6 @@ const Home = () => {
         </div>
       </div>
       {/* Gassless Minting bloges end*/}
-      <h1>hello</h1>
-      <h1>hello</h1>
-      <h1>hello</h1>
-
     </>
   );
 };
