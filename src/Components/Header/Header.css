@@ -2,44 +2,58 @@
   font-family: "PoppinsFonts";
   src: url("../../Assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
 }
+
 .headerbackground {
-  background-color: #250c50;
+  background-color: #250C50;
   position: fixed;
   left: 0;
   right: 0;
   z-index: 9999999;
 }
+
 .menufont {
   font-size: 16px;
   line-height: 24px;
   font-family: "PoppinsFonts";
 }
+
 .buttonborder {
   background: linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
   border-radius: 30px;
 }
+
 .dropdownborder {
-  border: 2px solid #6549f6;
+  border: 2px solid #6549F6;
   background-image: linear-gradient(#fff, #fff),
     linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
+
 /* new Popup css */
 .bg-backdrop {
   background: rgba(0, 15, 32, 0.7);
 }
+
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
 }
+
 .text-gray-dark {
   --tw-text-opacity: 0.7;
   color: rgba(130, 130, 130, var(--tw-text-opacity));
 }
+
 .text-green {
   --tw-text-opacity: 1;
   color: rgba(39, 174, 96, var(--tw-text-opacity));
 }
-.img1 {
-  transition: all 5s ease-in;
+
+.border1 {
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
