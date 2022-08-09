@@ -12,17 +12,6 @@ function App() {
   return (
     <>
       <Header />
-<<<<<<< HEAD
-      <NftGenerator></NftGenerator>
-      {/* <Home /> */}
-      {/*
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/aggregator" element={<Aggregator />} />
-      </Routes>
-      <Footer /> */}
-=======
->>>>>>> 54e252f5b60a71cfa92cccc5f0a6f2bfe7b8dca3
       <ToastContainer
         position="top-right"
         autoClose={5000}
