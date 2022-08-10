@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Aggregator.css";
+// import "./Aggregator.css";
 
 const Aggregator = () => {
   const [isDropdown, setIsDropdown] = useState(false);
@@ -146,40 +146,58 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 2nd element */}
-      <div className="flex justify-between mx-auto container mt-40 flex-wrap">
-        <div className="flex items-center gap-1">
+      <div className="flex justify-between mx-auto container mt-40 flex-wrap ">
+        <div className="flex flex-col items-start gap-1">
           <h1 className="text-4xl font-bold w-">Mutant Ape Yatch Club</h1>
-          <img
-            src="/images/BadgeCheck.png"
-            alt="badge-check"
-            className="w-6 h-6"
-          />
         </div>
-        <div className="flex gap-8 items-center drop-shadow-xl">
-          <div>
-            <img src="/images/Group 552 (1).svg" alt="" className=" md:block hidden" />
-          </div>
-          <div>
-            <img src="/images/Group 555.svg" alt="" className=" md:block hidden" />
-          </div>
-          <div>
-            <img src="/images/Group 557.svg" alt="" className=" md:block hidden " />
-          </div>
-          <div>
-            <img src="/images/Group 558.svg" alt="" className=" md:block hidden" />
-          </div>
+        <div className="flex items-center gap-4 flex-wrap">
+          <button
+            type="button"
+            className="flex items-center px-14 py-2 follow text-white rounded-full  topcreatorsfollowing  transition duration-150 ease-in-out"
+          >
+            <i className="fa-solid fa-plus mr-2"></i>Follow
+          </button>
+          <button
+            type="button"
+            className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full transition duration-150 ease-in-out "
+          >
+            0x007..373xys..
+          </button>
+          <img src="/images/Group 559.svg" alt="" srcSet="" />
+          <img src="/images/Group 558.svg" alt="" className="" />
+        </div>
+      </div>
+      <div className="mx-auto container flex gap-5">
+        <div className=" text-[#6549F6]">@extrasoho</div>
+        <div className="border bg-[#F4EEFF] text-[#6549F6] font-bold rounded-xl text-xs flex items-center px-8">
+          JOINED MAY 2022
         </div>
       </div>
       {/* 3rd element */}
-      <div className="mx-auto container flex justify-start my-10">
+      <div className="mx-auto container flex md:flex-row flex-col md:justify-start justify-center my-10 gap-10">
         <p className="text-base lg:w-5/12 ">
           The MUTANT APE YACHT CLUB is a collection of up to 20,000 Mutant Apes
           that can only be created by exposing an existing Bored Ape to a vial
           of MUTANT SERUM or by minting a Mutant Ape in the public sale.
         </p>
+
+        <div>
+          <p className="itemcount text-base">Following</p>
+          <h1 className="text-xl font-bold">10.0K</h1>
+        </div>
+        <div>
+          <p className="itemcount text-base">Followers</p>
+          <h1 className="text-xl font-bold">6.3K</h1>
+        </div>
+        <div>
+          <img src="/images/Group 552 (1).svg" alt="" className=" " />
+        </div>
+        <div>
+          <img src="/images/Group 555.svg" alt="" className=" " />
+        </div>
       </div>
       {/* 4th element */}
-      <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap">
+      {/* <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap">
         <div>
           <p className="itemcount text-base">items</p>
           <h1 className="text-xl font-bold">10.0K</h1>
@@ -200,24 +218,24 @@ const Aggregator = () => {
             <i className="fa-brands fa-ethereum text-black"></i> 87
           </h1>
         </div>
-      </div>
-      <div className="flex  mx-auto container flex-wrap  gap-10 pt-10 md:justify-start justify-center">
+      </div> */}
+      <div className="flex  mx-auto container flex-wrap  gap-10 pt-10 md:justify-start justify-center mb-3">
         <div
           className={`${active === 1 ? "active" : "deActive"}`}
           onClick={() => setsetactive(1)}
         >
           Collection
         </div>
-        <div className={`${active === 2 ? "active font-bold " : "deActive"}`} onClick={() => setsetactive(2)}>
-          Community
-        </div>
-        <div className={`${active === 3 ? "active" : "deActive"}`} onClick={() => setsetactive(3)}>
-          Activity
+        <div
+          className={`${active === 2 ? "active font-bold " : "deActive"}`}
+          onClick={() => setsetactive(2)}
+        >
+          Created
         </div>
       </div>
       <div className="w-auto h-auto border-b-2 mb-3 mx-auto container" />
       {/* 5th element */}
-      <div className="flex justify-between container items-center mx-auto my-10">
+      <div className="flex justify-between container items-center mx-auto my-10 flex-wrap ">
         <div className="flex items-center gap-10">
           <img src="/images/AdjustmentsOutline.svg" alt="" />
           <div className="flex relative dropdownborder w-96 rounded-3xl">
@@ -412,7 +430,7 @@ const Aggregator = () => {
             </svg>
           </div>
         </div>
-      </div> 
+      </div>
 
       {/* nftCards */}
       <div className="container mx-auto my-5">
@@ -467,7 +485,7 @@ const Aggregator = () => {
       </div>
 
       {/* octopuss popup */}
-      {/* {model && (
+      {model && (
         <div
           className={`${
             model ? "" : "hidden"
@@ -520,7 +538,10 @@ const Aggregator = () => {
                   <p className="font-normal text-md text-[#999999] pb-5">
                     Please connect your wallet.
                   </p>
-                  <button className="px-7 popuptitle py-2 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white">
+                  <button
+                    className="px-7 popuptitle py-2 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white"
+                    onClick={() => setopenwallet(true)}
+                  >
                     Connect Wallet
                   </button>
                 </div>
@@ -552,11 +573,8 @@ const Aggregator = () => {
             </button>{" "}
           </div>
         </div>
-      )} */}
-
-      {/* connected wallet */}
-      {/* octopuss popup */}
-      {model && (
+      )}
+      {opebwallet && (
         <div
           className={`${
             model ? "" : "hidden"
@@ -604,10 +622,10 @@ const Aggregator = () => {
               </div>
 
               {/* <div className=" border-[#7B61FF] rounded-2xl border-2 px-10 py-1 ">
-                <button className="popuptitle text-xl text-[#7B61FF]">
-                  Connect
-                </button>
-              </div> */}
+            <button className="popuptitle text-xl text-[#7B61FF]">
+              Connect
+            </button>
+          </div> */}
             </div>
             <div className="flex justify-between items-center border-b border-[#D9D9D9]">
               <div className="flex items-center gap-5">
@@ -664,6 +682,8 @@ const Aggregator = () => {
           </div>
         </div>
       )}
+      {/* connected wallet */}
+      {/* octopuss popup */}
     </>
   );
 };

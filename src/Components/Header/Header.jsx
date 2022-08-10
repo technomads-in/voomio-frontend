@@ -4,14 +4,22 @@ import "./Header.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Address, Value } from "@emurgo/cardano-serialization-lib-asmjs";
 let Buffer = require("buffer/").Buffer;
 
 const Header = () => {
+  const getItem = JSON.parse(localStorage.getItem("wallet"));
   const [namiwallet, setNami] = useState(false);
   const [eternlwallet, setEternl] = useState(false);
   const [isDropdown, setIsDropdown] = useState(false);
   const [isModel, setIsModel] = useState(false);
+  const [connect, setConnect] = useState(false);
+  const [balance, setBalance] = useState(0);
+  const [changeAddress, setchangeAddress] = useState(null);
+
+
+
   const ref = useRef();
   useEffect(() => {
     pollWallets();
@@ -48,15 +56,26 @@ const Header = () => {
           "utf8"
         ).toString("hex");
         var api = await window.cardano.nami.enable();
+        // console.log("api", api);
         var paymentAddr = await api.getChangeAddress();
+        // console.log("paymentAddr",paymentAddr)
+        var changeAddress = Address.from_bytes(
+          Buffer.from(paymentAddr, "hex")
+        ).to_bech32();
+        setchangeAddress(changeAddress);
         if (JSON.parse(localStorage.getItem("wallet")) == null) {
           var result = await api.signData(paymentAddr, message);
           localStorage.setItem(
             "wallet",
-            JSON.stringify({ wallet: "nami", token: result })
+            JSON.stringify({ wallet: "nami", token: result, changeAddress })
           );
         }
         toast.success("Login successful!");
+        setIsModel(false);
+        if (API === "nami") {
+          getBalance1();
+          setConnect(true);
+        }
       } else if (API === "eternl") {
         var message = Buffer.from(
           "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d Let me Trade",
@@ -64,13 +83,22 @@ const Header = () => {
         ).toString("hex");
         var api = await window.cardano.eternl.enable();
         var paymentAddr = await api.getRewardAddresses();
+        var changeAddress1 = Address.from_bytes(
+          Buffer.from(paymentAddr, "hex")
+        ).to_bech32();
+        setchangeAddress(changeAddress1);
+        if (API === "eternl") {
+          getBalance();
+          setConnect(true);
+        }
         if (JSON.parse(localStorage.getItem("wallet")) == null) {
           var result = await api.signData(paymentAddr, message);
           localStorage.setItem(
             "wallet",
-            JSON.stringify({ wallet: "eternl", token: result })
+            JSON.stringify({ wallet: "eternl", token: result, changeAddress })
           );
           toast.success("Login successful!");
+          setIsModel(false);
         }
       }
     } catch (err) {
@@ -104,29 +132,112 @@ const Header = () => {
   const [open, setopen] = useState(false);
   const [openserach, setopenserach] = useState(false);
   // const [close, setclose] = useState(true);
+  let location = useLocation();
+  // -----------------------------------------------getBalance------------------------------------------------------------------------------
 
+  const getBalance = async () => {
+    try {
+      var api = await window.cardano.eternl.enable();
+      const balanceCBORHex = await api.getBalance();
+      const balance = Value.from_bytes(Buffer.from(balanceCBORHex, "hex"))
+        .coin()
+        .to_str();
+      setBalance(balance / 1000000);
+
+      console.log(balance);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getBalance1 = async () => {
+    try {
+      var api = await window.cardano.nami.enable();
+      const balanceCBORHex = await api.getBalance();
+      const balance = Value.from_bytes(Buffer.from(balanceCBORHex, "hex"))
+        .coin()
+        .to_str();
+      setBalance(balance / 1000000);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const navigate = useNavigate();
   return (
     <>
       
       {/* Header */}
-      <nav className="headerbackground">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-between h-16">
-            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-              {/* Mobile menu button*/}
-              <button
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-                onClick={() => {
-                  document
-                    .getElementById("mobile-menu")
-                    .classList.toggle("hidden");
-                }}
-              >
-                <img src="/images/humburger.png" alt="humber" className="w-8" />
-              </button>
+      <nav
+        className={`${
+          open
+            ? " bg-purple-100 fixed left-0 right-0 z-10"
+            : openserach
+            ? " bg-white fixed left-0 right-0 z-20"
+            : "headerbackground"
+        } `}
+      >
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
+          <div className="relative left-0 right-0  sm:flex sm:items-center sm:justify-between h-16">
+            <div className="flex sm:hidden justify-between h-16 absolute left-0 right-0  ">
+              <div className="flex items-center gap-2 ">
+                <img
+                  className=" h-10 w-auto"
+                  src="/images/Octopas.svg"
+                  alt="Workflow"
+                />
+                {open || openserach ? (
+                  <img
+                    src="/images/VOOMIOdark.svg"
+                    alt=""
+                    className=" h-10 w-28 "
+                  />
+                ) : (
+                  <img
+                    className="h-10 w-28"
+                    src="/images/VOOMIO.svg"
+                    alt="Workflow"
+                  />
+                )}
+              </div>
+              <div className="flex items-center gap-2 ">
+                <img
+                  src="/images/magnifying-glass 1.svg"
+                  alt=""
+                  onClick={() => {
+                    setopenserach(true);
+                    setopen(false);
+                  }}
+                  className={openserach ? "hidden " : "block "}
+                />
+                {openserach ? (
+                  <img
+                    src="/images/X.svg"
+                    alt=""
+                    className={openserach ? "block " : "hidden "}
+                    onClick={() => setopenserach(false)}
+                  />
+                ) : null}
+                {openserach ? null : (
+                  <img
+                    src="/images/MenuAlt3Outline.svg"
+                    alt=""
+                    onClick={() => {
+                      setopen(true);
+                      setopenserach(false);
+                    }}
+                    className={open ? "hidden " : "block "}
+                  />
+                )}
+
+                {open ? (
+                  <img
+                    src="/images/X.svg"
+                    alt=""
+                    onClick={() => setopen(false)}
+                    className={open ? "block " : "hidden "}
+                  />
+                ) : null}
+              </div>
             </div>
             <div className="flex-1 flex items-center justify-end md:justify-center sm:items-stretch">
               <div className="flex-shrink-0 flex items-center space-x-3">
@@ -135,11 +246,19 @@ const Header = () => {
                   src="/images/Octopas.svg"
                   alt="Workflow"
                 />
-                <img
-                  className=" sm:block hidden h-5 w-16"
-                  src="/images/VOOMIO.svg"
-                  alt="Workflow"
-                />
+                {location.pathname === "/" ? (
+                  <img
+                    className="sm:block hidden h-5 w-16"
+                    src="/images/VOOMIO.svg"
+                    alt="Workflow"
+                  />
+                ) : (
+                  <img
+                    src="/images/VOOMIOdark.svg"
+                    alt=""
+                    className=" sm:block hidden h-5 w-16 "
+                  />
+                )}
               </div>
               <div className="hidden sm:block sm:ml-6 ">
                 <div className="flex space-x-4 items-center">
@@ -249,28 +368,91 @@ const Header = () => {
                   </div>
                   <Link
                     to="/upload-nft"
-                    className="font-bold px-3 py-2 rounded-md menufont text-white"
+                    className={`font-bold px-3 py-2 rounded-md menufont ${
+                      location.pathname === "/"
+                        ? "text-white"
+                        : "text-[#250C50]"
+                    }`}
                   >
                     Explore
                   </Link>
                   <a
                     href="/"
-                    className="font-bold px-3 py-2 rounded-md menufont text-white"
+                    className={`font-bold px-3 py-2 rounded-md menufont ${
+                      location.pathname === "/"
+                        ? "text-white"
+                        : "text-[#250C50]"
+                    }`}
                   >
                     Ranking
                   </a>
                   <Link
                     to="/nftgenerator"
-                    className="font-bold px-3 py-2 rounded-md menufont text-white "
+                    className={`font-bold px-3 py-2 rounded-md menufont ${
+                      location.pathname === "/"
+                        ? "text-white"
+                        : "text-[#250C50]"
+                    }`}
                   >
                     Create
                   </Link>
-                  <button
-                    onClick={openModel}
-                    className="buttonborder menufont text-white font-bold py-2 px-12"
-                  >
-                    Connect Wallet
-                  </button>
+                  {/* {location.pathname === "/" ? (
+                    <button
+                      onClick={openModel}
+                      className="buttonborder menufont text-white font-bold py-2 px-12"
+                    >
+                      Connect Wallet
+                    </button>
+                  ) : (
+                    <>
+                      <img src="/images/BellOutline.svg" alt="" srcset="" />
+                      <img
+                        src="/images/ShoppingBagOutline.svg"
+                        alt=""
+                        srcset=""
+                      />
+                      <img
+                        src="/images/EmojiHappyOutline.svg"
+                        alt=""
+                        srcset=""
+                      />
+                    </>
+                  )} */}
+
+                  {location.pathname !== "/" ? (
+                    <>
+                      <img src="/images/BellOutline.svg" alt="" srcset="" />
+                      <img
+                        src="/images/ShoppingBagOutline.svg"
+                        alt=""
+                        srcset=""
+                      />
+                      <img
+                        src="/images/EmojiHappyOutline.svg"
+                        alt=""
+                        srcset=""
+                      />
+                    </>
+                  ) : connect ? (
+                    <>
+                      <div className="dropdownborder rounded-full">
+                        <div className="p-2">
+                          {" "}
+                          {getItem?.changeAddress?.slice(0, 6) +
+                            "..." +
+                            getItem?.changeAddress?.slice(-4)}
+                        </div>
+                      </div>
+                      {navigate("/profile")}
+                    </>
+                  ) : (
+                    <button
+                      onClick={() => openModel()}
+                      className="buttonborder menufont text-white font-bold py-2 px-12"
+                    >
+                      Connect Wallet
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
