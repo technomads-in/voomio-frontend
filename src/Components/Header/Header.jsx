@@ -4,7 +4,6 @@ import "./Header.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 let Buffer = require("buffer/").Buffer;
 
 const Header = () => {
@@ -107,74 +106,28 @@ const Header = () => {
 
   return (
     <>
+      
       {/* Header */}
-      <nav
-        className={`${
-          open
-            ? " bg-purple-100 fixed left-0 right-0 z-10"
-            : openserach
-            ? " bg-white fixed left-0 right-0 z-20"
-            : "headerbackground"
-        } `}
-      >
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
-          <div className="relative left-0 right-0  sm:flex sm:items-center sm:justify-between h-16">
-            <div className="flex sm:hidden justify-between h-16 absolute left-0 right-0  ">
-              <div className="flex items-center gap-2 ">
-                <img
-                  className=" h-10 w-auto"
-                  src="/images/Octopas.svg"
-                  alt="Workflow"
-                />
-                {open || openserach ? (
-                  <img
-                    src="/images/VOOMIOdark.svg"
-                    alt=""
-                    className=" h-10 w-28 "
-                  />
-                ) : (
-                  <img
-                    className="h-10 w-28"
-                    src="/images/VOOMIO.svg"
-                    alt="Workflow"
-                  />
-                )}
-              </div>
-              <div className="flex items-center gap-2 ">
-                <img
-                  src="/images/magnifying-glass 1.svg"
-                  alt=""
-                  onClick={() => {setopenserach(true); setopen(false)}}
-                  className={openserach ? "hidden " : "block "}
-                />
-                {openserach ? (
-                  <img
-                    src="/images/X.svg"
-                    alt=""
-                    className={openserach ? "block " : "hidden "}
-                    onClick={() => setopenserach(false)}
-                  />
-                ) : null}
-                {openserach ? null : (
-                  <img
-                    src="/images/MenuAlt3Outline.svg"
-                    alt=""
-                    onClick={() => {setopen(true);setopenserach(false)}}
-                    className={open ? "hidden " : "block "}
-                  />
-                )}
-
-                {open  ? (
-                  <img
-                    src="/images/X.svg"
-                    alt=""                   
-                    onClick={() => setopen(false)}
-                    className={open ? "block " : "hidden "}
-                  />
-                ) : null}
-              </div>
+      <nav className="headerbackground">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="relative flex items-center justify-between h-16">
+            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              {/* Mobile menu button*/}
+              <button
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+                onClick={() => {
+                  document
+                    .getElementById("mobile-menu")
+                    .classList.toggle("hidden");
+                }}
+              >
+                <img src="/images/humburger.png" alt="humber" className="w-8" />
+              </button>
             </div>
-            <div className="flex-1 flex items-center justify-start md:justify-center sm:items-stretch">
+            <div className="flex-1 flex items-center justify-end md:justify-center sm:items-stretch">
               <div className="flex-shrink-0 flex items-center space-x-3">
                 <img
                   className="sm:block hidden h-9 w-auto"
@@ -293,24 +246,24 @@ const Header = () => {
                       </div>
                     </div>
                   </div>
-                  <a
-                    href="/"
+                  <Link
+                    to="/upload-nft"
                     className="font-bold px-3 py-2 rounded-md menufont text-white"
                   >
                     Explore
-                  </a>
+                  </Link>
                   <a
                     href="/"
                     className="font-bold px-3 py-2 rounded-md menufont text-white"
                   >
                     Ranking
                   </a>
-                  <a
-                    href="/"
+                  <Link
+                    to="/nftgenerator"
                     className="font-bold px-3 py-2 rounded-md menufont text-white "
                   >
                     Create
-                  </a>
+                  </Link>
                   <button
                     onClick={openModel}
                     className="buttonborder menufont text-white font-bold py-2 px-12"
@@ -323,84 +276,35 @@ const Header = () => {
           </div>
         </div>
         {/* Mobile menu, show/hide based on menu state. */}
-        {open ? (
-          <div className="  text-center text-[#250C50] bg-purple-100 h-[100vh]  pt-20  fixed z w-[100%]">
-            <div className="px-2 pt-2 pb-3 space-y-1 ">
-              <Link
-                to="/"
-                className=" menufont block px-3 py-5 rounded-md text-base font-medium "
-                aria-current="page"
-              >
-                Explore
-              </Link>
-              <Link
-                to="/aggregator"
-                className="menufont  block px-3 py-5 rounded-md text-base font-medium "
-                onClick={() => setopen(false)}
-              >
-                Ranking
-              </Link>
-              <a
-                href="/"
-                className="menufont block px-3 py-5 rounded-md text-base font-medium"
-              >
-                Create
-              </a>
-              <button
-                onClick={openModel}
-                className="buttonborder menufont text-white font-bold py-2 px-12"
-              >
-                Connect Wallet
-              </button>
-            </div>
+        <div className="hidden" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <a
+              href="/"
+              className=" menufont block px-3 py-2 rounded-md text-base font-medium"
+              aria-current="page"
+            >
+              Explore
+            </a>
+            <a
+              href="/"
+              className="menufont  block px-3 py-2 rounded-md text-base font-medium"
+            >
+              Ranking
+            </a>
+            <a
+              href="/"
+              className="menufont block px-3 py-2 rounded-md text-base font-medium"
+            >
+              Create
+            </a>
+            <button
+              onClick={openModel}
+              className="buttonborder menufont text-white font-bold py-2 px-12"
+            >
+              Connect Wallet
+            </button>
           </div>
-        ) : (
-          ""
-        )}
-        {/* search button */}
-        {openserach ? (
-          <div className="text-left bg-white h-[100vh] fixed z-50 w-[100%]">
-            <div className="border1 drop-shadow-sm flex justify-around">
-              <img
-                src="/images/magnifying-glass 1 (1).svg"
-                alt=""
-                className="pl-3"
-              />
-              <input
-                type="text"
-                id="simple-search"
-                className="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w pl-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-                required
-              />
-              <button
-                type="button"
-                className="inline-flex justify-center shadow-sm px-4 py-2 text-sm font-medium menufont border-l-2 border-gray-00"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-                onClick={openDropdown}
-              >
-                ADA
-                <svg
-                  className="-mr-1 ml-2 h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
+        </div>
       </nav>
 
       {/* Popup */}

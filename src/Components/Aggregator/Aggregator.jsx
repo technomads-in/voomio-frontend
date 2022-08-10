@@ -201,7 +201,7 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 5th element */}
-       <div className="flex justify-between container items-center mx-auto my-10 flex-wrap ">
+      <div className="flex justify-between container items-center mx-auto my-10">
         <div className="flex items-center gap-10">
           <img src="/images/AdjustmentsOutline.svg" alt="" />
           <div className="flex relative dropdownborder w-96 rounded-3xl">
@@ -413,7 +413,7 @@ const Aggregator = () => {
               className="max-w-xs max-h-full bg-white rounded-lg border border-gray-200 shadow-md"
               key={i.id}
             >
-              <div className="relative">
+              <div className="relative hover:blur-sm">
                 <img className="max-h-80 " src={i.image} alt="" />
                 <div>
                   <img
@@ -449,94 +449,6 @@ const Aggregator = () => {
           ))}
         </div>
       </div>
-
-      {/* octopuss popup */}
-      {model && (
-        <div
-          className={`${
-            model ? "" : "hidden"
-          }fixed  backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0`}
-        >
-          <div className="relative bg-white dark:bg-blue-darkest rounded-xl shadow-xl px-7 sm:px-10 md:px-20 py-10 max-w-2xl w-11/12 md:w-full">
-            <div className="flex items-center">
-              <img
-                className="w-16 h-16 rounded-full mr-4"
-                src="/images/mutent.png"
-                alt="Avatar"
-              />{" "}
-              <div className="flex flex-col items-center">
-                <div className="flex gap-1">
-                  {" "}
-                  <p className=" leading-none text-xl popuptittle">
-                    Mutant Ape Yacht...
-                  </p>
-                  <img
-                    src="/images/BadgeCheck.png"
-                    alt="badge-check"
-                    className="w-4 h-4"
-                  />
-                </div>
-                <div className="flex items-center gap-2 text-l">
-                  <h1 className="cardfloor">Floor</h1>
-                  <i className="fa-brands fa-ethereum"></i>
-                  <h1 className="cardprice">70</h1>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-between my-10">
-              <div>
-                <div className="homebuttonborder rounded-lg flex">
-                  <h1 className="text-8xl">0</h1>
-                  <div className="pt-24 pr-5 pl-20 text-[#6549F6]">
-                    Items
-                    <img className="" src="/images/path.png" alt=""></img>
-                  </div>
-                  <div className=" pt-24  pr-5 text-[#d6c3fa] text-base font-medium not-italic">
-                    ETH
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="py-3 px-3 text-center">
-                  <p className="font-semibold text-xl  leading-relaxed popuptittle ">
-                    Octopuss not detected
-                  </p>
-                  <p className="font-normal text-md text-[#999999] pb-5">
-                    Please connect your wallet.
-                  </p>
-                  <button className="px-7 popuptittle py-2 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white">
-                    Connect Wallet
-                  </button>
-                </div>
-              </div>
-            </div>
-            <button className=" rounded-3xl bg-[#f4eeff]">
-              <p className="py-3 px-16  text-base	 font-normal text-[#d6c3fa]   ">
-                Review transaction
-              </p>
-            </button>
-            <button
-              type="button"
-              onClick={octopussPopup}
-              className="absolute text-2xl px-2.5 text-gray-dark dark:text-gray-lightest top-3 right-3 hover:opacity-100 opacity-70"
-            >
-              <svg
-                aria-hidden="true"
-                className="w-10 h-10"
-                fill="#6549F6"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </button>{" "}
-          </div>
-        </div>
-      )}
     </>
   );
 };
