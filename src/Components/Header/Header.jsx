@@ -4,6 +4,7 @@ import "./Header.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 let Buffer = require("buffer/").Buffer;
 
 const Header = () => {
