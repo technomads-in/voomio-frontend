@@ -217,7 +217,7 @@ const Aggregator = () => {
       </div>
       <div className="w-auto h-auto border-b-2 mb-3 mx-auto container" />
       {/* 5th element */}
-      <div className="flex justify-between container items-center mx-auto my-10">
+      <div className="flex justify-between container items-center mx-auto my-10 flex-wrap ">
         <div className="flex items-center gap-10">
           <img src="/images/AdjustmentsOutline.svg" alt="" />
           <div className="flex relative dropdownborder w-96 rounded-3xl">
@@ -412,7 +412,7 @@ const Aggregator = () => {
             </svg>
           </div>
         </div>
-      </div> 
+      </div>
 
       {/* nftCards */}
       <div className="container mx-auto my-5">
@@ -467,7 +467,7 @@ const Aggregator = () => {
       </div>
 
       {/* octopuss popup */}
-      {/* {model && (
+      {model && (
         <div
           className={`${
             model ? "" : "hidden"
@@ -520,7 +520,10 @@ const Aggregator = () => {
                   <p className="font-normal text-md text-[#999999] pb-5">
                     Please connect your wallet.
                   </p>
-                  <button className="px-7 popuptitle py-2 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white">
+                  <button
+                    className="px-7 popuptitle py-2 rounded-3xl  text-xl bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white"
+                    onClick={() => setopenwallet(true)}
+                  >
                     Connect Wallet
                   </button>
                 </div>
@@ -552,11 +555,8 @@ const Aggregator = () => {
             </button>{" "}
           </div>
         </div>
-      )} */}
-
-      {/* connected wallet */}
-      {/* octopuss popup */}
-      {model && (
+      )}
+      {opebwallet && (
         <div
           className={`${
             model ? "" : "hidden"
@@ -604,10 +604,10 @@ const Aggregator = () => {
               </div>
 
               {/* <div className=" border-[#7B61FF] rounded-2xl border-2 px-10 py-1 ">
-                <button className="popuptitle text-xl text-[#7B61FF]">
-                  Connect
-                </button>
-              </div> */}
+            <button className="popuptitle text-xl text-[#7B61FF]">
+              Connect
+            </button>
+          </div> */}
             </div>
             <div className="flex justify-between items-center border-b border-[#D9D9D9]">
               <div className="flex items-center gap-5">
@@ -664,6 +664,8 @@ const Aggregator = () => {
           </div>
         </div>
       )}
+      {/* connected wallet */}
+      {/* octopuss popup */}
     </>
   );
 };

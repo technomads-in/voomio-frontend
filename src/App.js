@@ -5,10 +5,9 @@ import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Aggregator from "./Components/Aggregator/Aggregator";
-
 import NftGenerator from "./Components/NftGenerator/NftGenerator";
 import UploadNft from "./Components/UploadNft/UploadNft";
-
+import Profile from "./Components/Profile/Profile"
 function App() {
   return (
     <>
@@ -29,9 +28,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/aggregator" element={<Aggregator />} />
-
         <Route exact path="/nftgenerator" element={<NftGenerator />} />
         <Route exact path="/upload-nft" element={<UploadNft />} />
+        <Route exact path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </>

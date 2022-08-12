@@ -20,10 +20,12 @@
 .itemcount {
   font-family: "Neue Haas Grotesk Display Pro1";
 }
+
 /* popup */
 .popuptitle {
   font-family: "Neue Haas Grotesk Display Pro";
 }
+
 /* card */
 .cardtitle {
   font-family: "Neue Haas Grotesk Display Pro";
@@ -152,10 +154,7 @@ input[type="text"] {
   width: 180px;
   height: 4px;
   background: linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
-
 }
-
-
 
 /* fadein */
 .animated {
@@ -182,6 +181,7 @@ input[type="text"] {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -191,4 +191,24 @@ input[type="text"] {
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
+}
+
+.active {
+  border-bottom: 8px solid #6549F6;
+  margin-bottom: -13px;
+  font-family: 'Neue Haas Grotesk Text Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  color: #6549F6;
+}
+
+.deActive {
+  font-family: 'Neue Haas Grotesk Text Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  color: #250C50;
 }
