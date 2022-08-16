@@ -1,8 +1,20 @@
 // eslint-disable-next-line
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Aos from "aos";
 import Carousel from "react-elastic-carousel";
+import onePlaceRight1 from "../../Assets/VoomioImages/one-place-left.svg";
+import onePlaceRight2 from "../../Assets/VoomioImages/oneplaceright-1.svg";
+import onePlaceleft1 from "../../Assets/VoomioImages/oneplaceCyberKongsleft.svg";
+import onePlaceleft2 from "../../Assets/VoomioImages/DegenToonz.svg";
+import tradingMonkey from "../../Assets/VoomioImages/tradingmonkey.svg";
+import tradingCrypto from "../../Assets/VoomioImages/tradingcrypto.svg";
+import tradingDoodles from "../../Assets/VoomioImages/tradingdoodles.svg";
+import tradingMoonbirds from "../../Assets/VoomioImages/tradingmoonbirds.svg";
+import ethereum from "../../Assets/Images/ethereum.png";
+import verified from "../../Assets/Images/verified.png";
 import "./Home.css";
+import DropDown from "../DropDown/DropDown";
 
 function getWindowSize() {
   const { innerWidth } = window;
@@ -18,12 +30,23 @@ const Home = () => {
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {
+    Aos.init();
     function handleWindowResize() {
       setWindowSize(getWindowSize());
     }
+    function onScroll() {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        document
+          .getElementById("trading-card")
+          .classList.add("trading-animation");
+      }
+    }
 
+    window.addEventListener("scroll", onScroll);
     window.addEventListener("resize", handleWindowResize);
-
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
@@ -49,42 +72,38 @@ const Home = () => {
   const cardsItems = [
     {
       id: "1",
-      sharevalue: "+13.13%",
-      mainimage: "/images/Rectangle 531 (4).png",
+      mainimage: tradingMonkey,
       cardmaintext: "Mutant Ape Yatch Club",
-      verifiedimage: "/images/verified.png",
+      verifiedimage: verified,
       cardsubtitle: "Floor",
-      etereumimage: "/images/ethereum.png",
+      etereumimage: ethereum,
       cardprice: "70",
     },
     {
       id: "2",
-      sharevalue: "+69.13%",
-      mainimage: "/images/cartoon.png",
+      mainimage: tradingCrypto,
       cardmaintext: "CryptoPunks",
-      verifiedimage: "/images/verified.png",
+      verifiedimage: verified,
       cardsubtitle: "Floor",
-      etereumimage: "/images/ethereum.png",
+      etereumimage: ethereum,
       cardprice: "70",
     },
     {
       id: "3",
-      sharevalue: "+14.58%",
-      mainimage: "/images/doodle.png",
+      mainimage: tradingDoodles,
       cardmaintext: "Doodles",
-      verifiedimage: "/images/verified.png",
+      verifiedimage: verified,
       cardsubtitle: "Floor",
-      etereumimage: "/images/ethereum.png",
+      etereumimage: ethereum,
       cardprice: "70",
     },
     {
       id: "4",
-      sharevalue: "+14.58%",
-      mainimage: "/images/moonbirds.png",
+      mainimage: tradingMoonbirds,
       cardmaintext: "Moonbirds",
-      verifiedimage: "/images/verified.png",
+      verifiedimage: verified,
       cardsubtitle: "Floor",
-      etereumimage: "/images/ethereum.png",
+      etereumimage: ethereum,
       cardprice: "70",
     },
   ];
@@ -266,48 +285,59 @@ const Home = () => {
       ethereumprice: "293.79",
     },
   ];
-  // console.log((open || 650 < getWindowSize()))
+
   return (
     <>
       {/* Oneplace bloges  start*/}
-      <div className="homebackgroundimage md:py-20 overflow-x-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0 mt-32">
-          <div className="hidden lg:block">
+      <div className="homebackgroundimage md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3  md:py-20">
+          <div className="hidden lg:flex relative justify-start">
             {" "}
-            <img src="/images/Group.svg" alt="" />
+            <img
+              src={onePlaceleft2}
+              alt="dronze"
+              className="one-place-slide-animation -mx-60"
+            />
+            <img
+              src={onePlaceleft1}
+              alt="crypto"
+              className="absolute -bottom-16 left-28 one-place-slide-up-animation"
+            />
           </div>
-          <div className="flex flex-col ">
-            <div className="flex justify-center lg:justify-start">
-              {" "}
-              <h1 className="font-bold hometitle text-5xl  xl:text-8xl text-white mb-4  ">
-                <span className="mr-3">One</span>
-                place, <br />
-                It’s all here.
-              </h1>
-            </div>
-            <div className="flex justify-center lg:justify-start">
-              <h1 className="text-x md:text-xl w-64 lg:w-full">
-                Voomio is an omni-friendly shop for buying and selling NFTs.
-                With everything from multi-wallet purchasing to gassless minting
-                we’re sure you’re going to love it here.
-              </h1>
-            </div>
-            <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
-              <button className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl">
+          <div className="flex flex-col justify-center">
+            <h1 className="one-place-title text-6xl xl:text-8xl md:mt-0 mt-20">
+              One place, it’s all here.
+            </h1>
+            <p className="one-place-paragraph my-10 text-xl xl:text-2xl">
+              Voomio is an omni-friendly shop for buying and selling NFTs. With
+              everything from multi-wallet purchasing to gassless minting we’re
+              sure you’re going to love it here.
+            </p>
+            <div className="flex flex-col items-center md:flex-row gap-10">
+              <button class="one-place-button text-white  py-2.5 px-14 rounded-full 2xl:text-2xl">
                 Explore
               </button>
               <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
                 <button
                   type="button"
-                  className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
+                  className="hometitle px-12 py-2 font-bold 2xl:text-2xl "
                 >
                   Create
                 </button>
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex justify-end">
-            <img src="/images/Group 548.svg" alt="rectangle" />
+          <div className="relative hidden lg:flex justify-end">
+            <img
+              src={onePlaceRight1}
+              alt="dronze"
+              className="z-50 w-60 one-place-slide-animation -mx-20"
+            />
+            <img
+              src={onePlaceRight2}
+              alt="crypto"
+              className="absolute -bottom-28 right-0 w-80 one-place-slide-up-animation -mx-14"
+            />
           </div>
         </div>
       </div>
@@ -316,170 +346,79 @@ const Home = () => {
       {/* Trending bloges start*/}
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-10 mb-1">
         <div className="relative flex flex-col md:flex-row justify-between h-16 mb-5">
-          <h1 className="secondtitle font-bold pb-10">Trending</h1>
-          <div className="text-left mb-10">
-            <div className="dropdownborder rounded-2xl">
-              <button
-                type="button"
-                className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50 text-[#6549F6]"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-                onClick={openDropdown}
-              >
-                Past 24hrs
-                {/* Heroicon name: solid/chevron-down */}
-                <svg
-                  className="-mr-1 ml-2 h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            {isDropdown ? (
-              <div
-                className="origin-top-right z-50 absolute  mt-2 w-36 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="menu-button"
-                tabIndex={-1}
-              >
-                <div className="py-1 text-[#6549F6]" role="none">
-                  <a
-                    href="/"
-                    className="menufont block px-4 py-2 text-sm"
-                    role="menuitem"
-                    tabIndex={-1}
-                    id="menu-item-0"
-                  >
-                    Past 24hrs
-                  </a>
-                  <a
-                    href="/"
-                    className="menufont block px-4 py-2 text-sm"
-                    role="menuitem"
-                    tabIndex={-1}
-                    id="menu-item-1"
-                  >
-                    Past 24hrs
-                  </a>
-                  <a
-                    href="/"
-                    className="menufont block px-4 py-2 text-sm"
-                    role="menuitem"
-                    tabIndex={-1}
-                    id="menu-item-2"
-                  >
-                    Past 24hrs
-                  </a>
-                  <form method="POST" action="#" role="none">
-                    <button
-                      type="submit"
-                      className="menufont block w-full text-left px-4 py-2 text-sm"
-                      role="menuitem"
-                      tabIndex={-1}
-                      id="menu-item-3"
-                    >
-                      ALL
-                    </button>
-                  </form>
-                </div>
-              </div>
-            ) : null}
-          </div>
+          <h1 className="trading-main-title pb-10">Trending</h1>
+          <DropDown
+            title={"Past 24 Hours"}
+            item1={"Past 1 Week"}
+            item2={"Past 1 Month"}
+            item3={"All"}
+          />
         </div>
       </div>
-
       {/* Trending card */}
-      <div>
-        <div
-          className="container max-w-7xl mx-auto px-4 mt-10"
-          style={{ cursor: "auto" }}
-        >
-          <div className="flex flex-wrap justify-center mt-14">
-            {cardsItems.map((i, index) => (
-              <div
-                className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
-                key={index}
-              >
-                <div className=" relative network-box mt-16">
-                  <div className="absolute left-0 -top-6 ">
-                    <div className="relative inline-block text-left ">
-                      {/* <div className="dropdownborder cardborder rounded-3xl">
-                        <div
-                          className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium  cardincrement"
-                          aria-expanded="true"
-                          aria-haspopup="true"
-                        >
-                          {i.sharevalue}
-                        </div>
-                      </div> */}
-                    </div>
+      <div
+        id="trading-card"
+        className="container max-w-7xl mx-auto px-4 mt-10 "
+        style={{ cursor: "auto" }}
+      >
+        <div className="flex flex-wrap justify-center mt-14">
+          {cardsItems.map((i, index) => (
+            <div
+              className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
+              key={index}
+            >
+              <div className=" relative network-box mt-16">
+                <img
+                  alt="John Doe"
+                  src={i.mainimage}
+                  className="rounded-xl shadow-lg w-full h-auto align-middle border-none undefined"
+                />
+                <div className="pt-6 text-center">
+                  <div className="flex gap-2 pl-6">
+                    <h1 className="trading-title  mt-0 mb-2">
+                      {i.cardmaintext}
+                    </h1>
+                    <img src={i.verifiedimage} alt="" className="w-5 h-5" />
                   </div>
-                  <img
-                    alt="John Doe"
-                    src={i.mainimage}
-                    className="rounded-xl shadow-lg w-full h-auto align-middle border-none undefined"
-                  />
-                  <div className="pt-6 text-center">
-                    <div className="flex gap-2 pl-6">
-                      <h1 className="text-base font-bold leading-normal mt-0 mb-2">
-                        {i.cardmaintext}
+                  <div className="flex items-center justify-end gap-2 pr-5 pb-5">
+                    <div>
+                      <h1 className="trading-floor font-bold">
+                        {i.cardsubtitle}
                       </h1>
-                      <img
-                        src="/images/verified.png"
-                        alt=""
-                        className="w-5 h-5"
-                      />
                     </div>
-                    <div className="flex items-center justify-end gap-2 pr-5 pb-5">
+                    <div className="flex items-center">
                       <div>
-                        <h1 className="cardtitle font-bold">
-                          {i.cardsubtitle}
-                        </h1>
+                        <img src={i.etereumimage} alt="etherum" />
                       </div>
-                      <div className="flex items-center">
-                        <div>
-                          <img src={i.etereumimage} alt="etherum" />
-                        </div>
-                        <div className="cardprice font-bold">{i.cardprice}</div>
-                      </div>
+                      <div className="trading-price">{i.cardprice}</div>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-            <button
-              className="buttongradient my-10 text-white font-bold py-1 px-12 rounded-full"
-              onClick={() => navigate("/aggregator")}
-            >
-              Load more
-            </button>
-          </div>
+            </div>
+          ))}
+          <button
+            className="buttongradient my-10 text-white font-bold py-1 px-12 rounded-full"
+            onClick={() => navigate("/aggregator")}
+          >
+            Load more
+          </button>
         </div>
       </div>
-      {/* Trending bloges start*/}
+      {/* Trending bloges end*/}
 
       {/* Alpha bloges start*/}
-
       <div className=" md:p-20">
         <div
           className="container max-w-7xl mx-auto px-4 mt-10"
           style={{ cursor: "auto" }}
         >
-          <div className="font-bold text-[#222222] secondtitle mb-16 px-9">
-            Alpha
-          </div>
-
-          <div className="">
+          <div className="alpha-title mb-16 px-9">Alpha</div>
+          <div
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+          >
             <Carousel breakPoints={breakPoints}>
               {secondVideo.map((i, index) => (
                 <div
@@ -492,11 +431,9 @@ const Home = () => {
                     alt="Sunset in the mountains"
                   />
                   <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2 text-[#222222]">
-                      {i.videotitle}
-                    </div>
-                    <p className="text-[#222222] text-base">{i.videotext}</p>
-                    <p className="text-[#222222] text-base">{i.videoview}</p>
+                    <div className="alpha-video-title">{i.videotitle}</div>
+                    <p className="alpha-video-text">{i.videotext}</p>
+                    <p className="alpha-video-text">{i.videoview}</p>
                   </div>
                 </div>
               ))}
@@ -512,11 +449,12 @@ const Home = () => {
           className="container max-w-7xl mx-auto  mt-10"
           style={{ cursor: "auto" }}
         >
-          <div className=" font-bold text-[#222222] secondtitle mb-16 px-9  ">
-            Top Creators
-          </div>
-
-          <div className="">
+          <div className="  trading-main-title mb-16 px-9  ">Top Creators</div>
+          <div
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1000"
+          >
             <Carousel breakPoints={breakPoints}>
               {topCreatorsItems.map((i, index) => (
                 <div className="rounded-xl topcreators-box" key={index}>
@@ -538,8 +476,8 @@ const Home = () => {
                         </h5>
                       </div>
                     </div>
-                    <div className="bg-white  rounded-lg">
-                      <div className="flex justify-between lg:px-1 xl:flex-row md:flex-row lg:flex-col xl:px-7 py-2 px-6 flex-col">
+                    <div className="bg-white rounded-lg">
+                      <div className="flex justify-between lg:px-1 xl:flex-row md:flex-row lg:flex-col xl:px-7 py-2 px-6 flex-col gap-2">
                         <div>
                           <div className="topcreatorssubtext">
                             {i.createrFollowing}
@@ -568,7 +506,7 @@ const Home = () => {
                       <div className="flex space-x-2 justify-center my-4">
                         <button
                           type="button"
-                          className=" px-14 py-2 follow text-white rounded-full hover:shadow-lg topcreatorsfollowing  transition duration-150 ease-in-out"
+                          className=" px-14 py-2 follow text-white rounded-full  text-base font-bold"
                         >
                           <i className="fa-solid fa-plus mr-2"></i>Follow
                         </button>
@@ -576,7 +514,7 @@ const Home = () => {
                       <div className="flex  space-x-2 justify-center">
                         <button
                           type="button"
-                          className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full hover:shadow-lg transition duration-150 ease-in-out mb-8"
+                          className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full mb-8"
                         >
                           0x007..373xys..
                         </button>
@@ -980,9 +918,28 @@ const Home = () => {
       {/* Gassless Minting bloges start*/}
       <div className=" md:py-20 overflow-x-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0">
-          <div className="hidden lg:block">
+          <div className="hidden lg:block relative">
             {" "}
-            <img src="/images/Group 548.png" alt="" />
+            <img
+              src={onePlaceleft2}
+              alt="dronze"
+              className="one-place-slide-animation -mx-60 absolute"
+            />
+            <img
+              src={onePlaceleft1}
+              alt="crypto"
+              className="absolute top-96 left-28 one-place-slide-up-animation z-50"
+            />
+            <img
+              src={onePlaceRight1}
+              alt="dronze"
+              className=" w-80 one-place-slide-animation -mx-6 top-[480px] absolute z-10"
+            />
+            <img
+              src={onePlaceRight2}
+              alt="crypto"
+              className="absolute  w-80 one-place-slide-up-animation top-[700px] -mx-14"
+            />
           </div>
           <div className="flex flex-col">
             <div>
