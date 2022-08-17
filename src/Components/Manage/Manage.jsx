@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import "./Manage.css"
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { Scrollbar } from "swiper";
+
 const Manage = () => {
+    const [isDropdown, setIsDropdown] = useState(false);
     const [isCard, setIsCard] = useState(true);
     const [CardActive, setCardActive] = useState(1)
     const [show, setshow] = useState(-1)
+    const [Popup, setPopup] = useState(-1)
     const [tabActive, settabActive] = useState(1)
     const [tabActiveTwo, settabActiveTwo] = useState(0)
 
@@ -27,6 +28,11 @@ const Manage = () => {
         settabActiveTwo(1)
 
     }
+    const openDropdown = () => {
+        setIsDropdown(!isDropdown);
+        setPopup(!Popup)
+
+    };
     const handleDrop = (i) => {
         console.log("1", i);
         if (i === show) {
@@ -38,6 +44,7 @@ const Manage = () => {
 
 
     }
+
     const dropData = [{
         id: 1,
         name: "Body - Lorem"
@@ -121,24 +128,34 @@ const Manage = () => {
             backcolor: "010101",
 
         },
+        {
+            id: 3,
+            backcolor: "010101",
+
+        },
+        {
+            id: 4,
+            backcolor: "010101",
+
+        },
 
     ];
     const DropColor = [
         {
             id: 0,
             Title: `color`,
-            colorName: "FF0000"
+            colorName: `FF0000`
         },
         {
             id: 1,
             Title: `color`,
-            colorName: "FFD966"
+            colorName: `FFD966`
 
         },
         {
             id: 2,
             Title: `color`,
-            colorName: "FF0000"
+            colorName: `FF0000`
 
         },
     ]
@@ -192,8 +209,8 @@ const Manage = () => {
                         <div className='flex justify-between container md:pl-32 '>
                             <div className="pt-10  text-[#7B61FF] font-semibold text-3xl">Manage</div>
                             <div className="pt-10">
-
-                                <button id="dropdownDefault" data-dropdown-toggle="dropdown" className="text-[#6549F6] border-2 border-[#6549F6] bg-white  font-medium rounded-lg text-lg px-4 py-2.5 text-center inline-flex items-center" type="button" onClick={() => { handleDrop() }}>By design
+                                {/* bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] */}
+                                {/* <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={` ${Popup ? "bg-white text-[#6549F6]  border-2 border-[#6549F6]" : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white"}   font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between ${Popup ? "  rounded-t-lg " : ""} `} type="button" onClick={() => { openDropdown(); }}>By design
                                     <svg className="ml-2 w-4 h-4" aria-hidden="true"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7">
@@ -204,7 +221,7 @@ const Manage = () => {
 
 
 
-                                <div id="dropdown" className={` ${show ? " hidden" : "block"}  w-full bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 z-auto`} data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
+                                <div id="dropdown" className={` ${Popup ? " hidden" : "block dropdown-gradient-1 "}   bg-white rounded  z-0`} data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
                                     <ul className="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                         <li>
                                             <a href="#" className="block py-2 px-4 ">Dashboard</a>
@@ -219,8 +236,81 @@ const Manage = () => {
                                             <a href="#" className="block py-2 px-4 ">Sign out</a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
 
+                                <div className="text-left mb-10">
+
+                                    <button
+
+                                        type="button"
+                                        className={` ${Popup ? "bg-white text-[#250C50]  border-2 border-[#6549F6] " : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white "}   font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between w-36 `}
+                                        id="menu-button"
+                                        aria-expanded="true"
+                                        aria-haspopup="true"
+                                        onClick={openDropdown}
+                                    >
+                                        By design
+
+                                        <svg
+                                            className="-mr-1 ml-2 h-5 w-5"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+
+
+                                    {/* {isDropdown ? ( */}
+                                    <div
+
+                                        className={` ${Popup ? " hidden" : "block dropdown-gradient-1  border-2   rounded-b-lg"}   origin-top-right z-50 absolute   w-36 rounded-b-lg shadow-lg bg-white  `}
+                                        role="menu"
+                                        aria-orientation="vertical"
+                                        aria-labelledby="menu-button"
+                                        tabIndex={-1}
+                                    >
+                                        <div >
+                                            <div className="py-1 text-[#6549F6] " role="none" >
+                                                <a
+                                                    href="/"
+                                                    className=" block px-4 py-2 border-b-2 text-sm text-[#250C50] hover:text-[#6549F6]"
+                                                    role="menuitem"
+                                                    tabIndex={-1}
+                                                    id="menu-item-0"
+                                                >
+                                                    Item 1
+                                                </a>
+                                                <a
+                                                    href="/"
+                                                    className=" block px-4 py-2 border-b-2 text-sm text-[#250C50] hover:text-[#6549F6]"
+                                                    role="menuitem"
+                                                    tabIndex={-1}
+                                                    id="menu-item-1"
+                                                >
+                                                    Item 2
+                                                </a>
+                                                <a
+                                                    href="/"
+                                                    className=" block px-4 py-2  text-sm text-[#250C50] hover:text-[#6549F6]"
+                                                    role="menuitem"
+                                                    tabIndex={-1}
+                                                    id="menu-item-2"
+                                                >
+                                                    Item  3
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* ) : null} */}
+                                </div>
 
                             </div>
                         </div>
@@ -228,7 +318,7 @@ const Manage = () => {
 
                     {isCard ?
                         <>
-                            <div className="grid grid-cols-10 gap-4" >
+                            <div className="grid grid-cols-12 " >
                                 <div className="pb-5 pt-10 ">
                                     <div className="text-[#250C50] font-medium text-lg pb-5">Settings</div>
                                     <div className="text-[#6549F6] font-medium text-base pb-5">General</div>
@@ -236,7 +326,7 @@ const Manage = () => {
                                     <div className="text-[#6549F6] font-medium text-base pb-5">Rules</div>
                                 </div>
 
-                                <div className="col-span-2 pt-5">
+                                <div className="col-span-10 pt-5">
                                     <div className='pb-10 text-lg pl-3 flex font-semibold text-[#222222]'>Clothes
                                         <div className="pl-2 ">
                                             <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -263,13 +353,13 @@ const Manage = () => {
                                         {Price.map((i, d) => (
 
 
-                                            <div className=" pl-2 snap-x " key={i.id}>
-                                                <div className='border-2 rounded-xl border-[#6549F6]  scroll-ml-6 snap-start'>
+                                            <div className=" pl-4" key={i.id}>
+                                                <div className='border-2 rounded-xl border-[#6549F6] '>
                                                     <img className="w-70 h-50 pt-40 max-w-none" src="/images/ClothesLayer-6.png" alt="img" />
                                                 </div>
                                                 <div className="">
 
-                                                    Lorem Ipsum
+                                                    Lorem Ipsum{i.id}
 
                                                 </div>
                                                 <div className="flex">
@@ -283,9 +373,9 @@ const Manage = () => {
                                                 </div>
                                             </div>
                                         ))}
-                                        <div class="pseduo-track"></div>
+                                        <div className="pseduo-track"></div>
                                     </div>
-                                    <div className='pb-10 pt-10 text-lg flex font-semibold test-[#222222]'>Backgrounds
+                                    <div className='pb-10 pt-10 pl-3 text-lg flex font-semibold test-[#222222]'>Backgrounds
                                         <div className="pl-2 ">
                                             <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g filter="url(#filter0_d_2_8071)">
@@ -307,25 +397,33 @@ const Manage = () => {
                                             </svg>
                                         </div>
                                     </div>
-                                    <div className="flex">
+                                    <div className="flex outer-wrapper">
                                         {
                                             backcolor.map((i) => {
-                                                return <div className=" pl-2 snap-x " key={i.id}>
-                                                    <div className='border-2 rounded-xl border-[#6549F6]  scroll-ml-6 snap-start'>
+                                                return <div className=" pl-3 pr-1 " key={i.id}>
+                                                    <div className='border-2 rounded-xl border-[#6549F6]  '>
                                                         <div className={`w-80 h-80 max-w-none  bg-[#${i.backcolor}] rounded-xl`}></div>
 
                                                     </div>
                                                     <div className="">
 
-                                                        Lorem Ipsum
+                                                        Lorem Ipsum{i.id}
 
                                                     </div>
-                                                    <div className="flex">
-                                                        <img className=' ml-1' src="/images/dot.png"></img>
-                                                        <img className=' ml-1' src="/images/dot.png"></img>
-                                                        <img className=' ml-1' src="/images/dot.png"></img>
-                                                        <img className='w-4 h-4 ml-2' src="/images/whitedot.png"></img>
-                                                        <img className='w-4 h-4 ml-2' src="/images/whitedot.png"></img>
+                                                    <div className="flex justify-between">
+                                                        <div className="flex">
+                                                            <img className=' ml-1' src="/images/dot.png"></img>
+                                                            <img className=' ml-1' src="/images/dot.png"></img>
+                                                            <img className=' ml-1' src="/images/dot.png"></img>
+                                                            <img className='w-4 h-4 ml-2' src="/images/whitedot.png"></img>
+                                                            <img className='w-4 h-4 ml-2' src="/images/whitedot.png"></img>
+                                                        </div>
+                                                        <div>
+                                                            <button className="justify-between">
+
+                                                                <img className='w-5 h-5 ml-2' src="/images/Group3.svg"></img>
+                                                            </button>
+                                                        </div>
 
 
                                                     </div>
@@ -333,7 +431,7 @@ const Manage = () => {
                                             })
                                         }
 
-
+                                        <div className="pseduo-track"></div>
 
                                     </div>
 
@@ -353,7 +451,7 @@ const Manage = () => {
                                 {dropData.map((i, d) => (
 
                                     <div className="  pt-5 " key={i.id}>
-                                        <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-[#6549F6] w-full border-2 border-[#6549F6]${show === d ? " btn-gradient-1 rounded-t-lg" : ""} bg-white  font-medium rounded-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between ${show === d ? " bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] " : ""} `} type="button" onClick={() => { handleDrop(d); }}>
+                                        <button id="dropdownDefault" data-dropdown-toggle="dropdown" className={`text-[#6549F6] w-full border-2 border-[#6549F6]${show === d ? " dropdown-gradient-1 rounded bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] " : ""} bg-white  font-medium rounded-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between  `} type="button" onClick={() => { handleDrop(d); }}>
                                             {/* */}
                                             <div className={` ${show === d ? "text-white" : ""}`}>{i.name}</div>
 
@@ -365,7 +463,7 @@ const Manage = () => {
 
 
                                         {/* //  */}
-                                        <div id={d} className={` ${show === d ? "block btn-gradient-1" : "hidden"} z-10 w-full bg-white rounded `} data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
+                                        <div id={d} className={` ${show === d ? "block dropdown-gradient-1" : "hidden"} z-10 w-full bg-white rounded `} data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
                                             <div className="flex justify-between pt-2">
                                                 <div className="pl-5 flex text-[#000000] text-sm font-medium"> Name
                                                     <img src="/images/down-arrow.png" className='w-5 h-5 pt-1 pl-1'></img>
@@ -386,27 +484,17 @@ const Manage = () => {
 
                                                 {DropColor.map((i, d) => (
 
-                                                    <li className="flex justify-between">
-                                                        <a href="#" className="block pl-5 flex">
-                                                            <div className={`w-5 h-5 bg-[#${i.colorName}]  border-2`}></div><div className="pl-5">{i.Title}</div>
+                                                    <li className="flex justify-between pt-2 " key={i.id} >
+                                                        <a href="#" className="block pl-5 flex ">
+                                                            <div className={`w-5 h-5 bg-[#${i.colorName}]  border-2`}></div><div className="pl-5 hover:text-[#6549F6]">{i.Title}</div>
                                                         </a>
-                                                        <a href="#" className="block  ">863</a>
-                                                        <a href="#" className="block pr-16">8.7%</a>
+                                                        <a href="#" className="block hover:text-[#6549F6] ">863</a>
+                                                        <a href="#" className="block pr-16 hover:text-[#6549F6]">8.7%</a>
                                                     </li>
                                                 ))}
 
                                             </ul>
-                                            {/* <ul className={`py-1 font-normal text-base text-black }`} aria-labelledby="dropdownDefault">
 
-                                                <li className="flex justify-between">
-                                                    <a href="#" className="block pl-5 flex">
-                                                        <div className="w-5 h-5 bg-[#FF0000] border-2"><p className="pl-5">Color</p> </div>
-                                                    </a>
-                                                    <a href="#" className="block  ">863</a>
-                                                    <a href="#" className="block pr-20">8.7%</a>
-                                                </li>
-
-                                            </ul> */}
                                         </div>
 
                                     </div>

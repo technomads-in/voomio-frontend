@@ -12,7 +12,7 @@ function App() {
       {/* <UploadNft></UploadNft> */}
       {/* <Preview /> */}
       <Manage />
-      {/* <Generate></Generate> */}
+      <Generate></Generate>
       <ToastContainer
         position="top-right"
         autoClose={5000}
