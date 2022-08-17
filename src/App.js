@@ -5,14 +5,16 @@ import Header from "./Components/Header/Header";
 import Manage from "./Components/Manage/Manage";
 import UploadNft from "./Components/uploadNFT/UploadNft";
 import Generate from "./Components/Generate Token/Generate";
+import NftGenerator from "./Components/NftGenerator/NftGenerator";
 function App() {
   return (
     <>
       <Header></Header>
       {/* <UploadNft></UploadNft> */}
       {/* <Preview /> */}
+      {/* <NftGenerator></NftGenerator> */}
       <Manage />
-      <Generate></Generate>
+      {/* <Generate></Generate>  */}
       <ToastContainer
         position="top-right"
         autoClose={5000}
