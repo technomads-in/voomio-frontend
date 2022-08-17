@@ -1,21 +1,22 @@
-import { Routes, Route } from "react-router";
 import { ToastContainer } from "react-toastify";
+import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import Home from "./Components/Home/Home";
+import Preview from "./Components/uploadNFT/Preview";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Aggregator from "./Components/Aggregator/Aggregator";
-
 import NftGenerator from "./Components/NftGenerator/NftGenerator";
 import UploadNft from "./Components/UploadNft/UploadNft";
-
-import Details from "./Components/Details/Details";
-
 
 function App() {
   return (
     <>
-      <Header />
+      <Header></Header>
+      {/* <UploadNft></UploadNft> */}
+      {/* <Preview /> */}
+      {/* <NftGenerator></NftGenerator> */}
+      <Manage />
+      {/* <Generate></Generate>  */}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -31,13 +32,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/aggregator" element={<Aggregator />} />
-
         <Route exact path="/nftgenerator" element={<NftGenerator />} />
         <Route exact path="/upload-nft" element={<UploadNft />} />
-
-        <Route exact path="/create" element={<Details />} />
-
-
       </Routes>
       <Footer />
     </>

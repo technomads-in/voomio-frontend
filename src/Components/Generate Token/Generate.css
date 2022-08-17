@@ -1,0 +1,6 @@
+.btn-gradient-1 {
+  border-width: 2px;
+  border-radius: 5px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #7b61ff, #00dad9) 1;
+}
