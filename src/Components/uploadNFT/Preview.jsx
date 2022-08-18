@@ -194,32 +194,32 @@ const Preview = () => {
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-[#250C50] pt-6 text-lg itemcount">
+              <div className="text-[#250C50] pt-6 text-lg titleFont">
                 Current NFT
               </div>
-              <div className="text-[#6549F6]  text-lg pb-16 itemcount">
+              <div className="text-[#6549F6]  text-lg pb-16 titleFont">
                 Single-item
               </div>
             </div>
             <div className="flex items-center gap-10  ">
               <div className='flex flex-col justify-center items-center opacity-20'>
                 <img src="/images/upload.svg" alt="" className='h-10 w-10' />
-                <div className="itemcount text-[#7B61FF]">Upload</div>
+                <div className="titleFont text-[#7B61FF]">Upload</div>
               </div>
               <div className='flex flex-col justify-center items-center '>
                 <img src="/images/EyeOutline.svg" alt="" className='h-10 w-10' />
-                <div className="itemcount text-[#7B61FF]">Preview</div>
+                <div className="titleFont text-[#7B61FF]">Preview</div>
                 <img src="/images/path.svg" alt="" className='h-5 ' />
               </div>
               <div className='flex flex-col justify-center items-center opacity-20'>
 
                 <img src="/images/CogOutline.svg" alt="" className='h-10 w-10' />
-                <div className="itemcount text-[#7B61FF]">Manage</div>
+                <div className="titleFont text-[#7B61FF]">Manage</div>
               </div>
               <div className='flex flex-col justify-center items-center opacity-20'>
 
                 <img src="/images/star.png" alt="" className='h-10 w-10' />
-                <div className="itemcount text-[#7B61FF]">Generate</div>
+                <div className="titleFont text-[#7B61FF]">Generate</div>
 
               </div>
             </div>
@@ -229,9 +229,9 @@ const Preview = () => {
             <div></div>
             <div className='flex md:gap-10 gap-12 font-medium text-xl'>
               {/* <div className="px-5"> */}
-              <button className={`${tabActive ? "active" : "deActive"} itemcount `} onClick={cardClickClose} >Token Gallery</button>
+              <button className={`${tabActive ? "active" : "deActive"} titleFont `} onClick={cardClickClose} >Token Gallery</button>
               {/* </div> */}
-              <button className={`${tabActiveTwo ? "active" : "deActive"} itemcount`} onClick={cardClickOpen}>Metadata</button>
+              <button className={`${tabActiveTwo ? "active" : "deActive"} titleFont`} onClick={cardClickOpen}>Metadata</button>
 
             </div>
             <div className="border-[1px] "></div>
@@ -240,17 +240,17 @@ const Preview = () => {
           <div className="flex mt-20 gap-8">
             <div className="flex gap-24">
               <div className="pb-5 pt-10 ">
-                <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer itemcount">Settings</div>
+                <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer titleFont">Settings</div>
                 <div className=" pb-5">
-                  <Link to="/general" className="text-[#6549F6] font-medium text-base itemcount cursor-pointer">General</Link>
+                  <Link to="/general" className="text-[#6549F6] font-medium text-base titleFont cursor-pointer">General</Link>
                 </div>
                 <div className=" pb-5">
-                  <Link to="/general" className="text-[#6549F6] font-medium text-base itemcount cursor-pointer">Layers</Link>
+                  <Link to="/general" className="text-[#6549F6] font-medium text-base titleFont cursor-pointer">Layers</Link>
 
                 </div>
                 <div className=" pb-5">
 
-                  <Link to="/general" className="text-[#6549F6] font-medium text-base itemcount cursor-pointer">Rules</Link>
+                  <Link to="/general" className="text-[#6549F6] font-medium text-base titleFont cursor-pointer">Rules</Link>
                 </div>
               </div>
 
@@ -265,7 +265,7 @@ const Preview = () => {
                         id="Generate"
                         className="cursor-pointer text-[white] bg-gradient-to-r from-[#7B61FF] to-[#00DAD9]  font-medium text-base tracking-wide   px-4 rounded-full text-center"
                       >
-                        <div className="itemcount flex  px-2 py-3"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <div className="titleFont flex  px-2 py-3"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3.22222 1V5.44444M1 3.22222H5.44444M4.33333 16.5556V21M2.11111 18.7778H6.55556M12.1111 1L14.6511 8.61889L21 11L14.6511 13.3811L12.1111 21L9.57111 13.3811L3.22222 11L9.57111 8.61889L12.1111 1Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                           <div className="pl-2">Regenerate Tokens</div></div>
@@ -324,12 +324,12 @@ const Preview = () => {
                         onClick={() => {
                           handleDrop(d);
                         }}
-                      // className={` ${show === d ? "bg-white text-[#6549F6]  border-2 border-[#6549F6] " : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white "} itemcount  font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between `}
+                      // className={` ${show === d ? "bg-white text-[#6549F6]  border-2 border-[#6549F6] " : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white "} titleFont  font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between `}
                       >
                         {/* */}
                         <div
                           className={` ${show === d ? "text-white" : ""
-                            } itemcount `}
+                            } titleFont `}
                         >
                           {i.name}
                         </div>
