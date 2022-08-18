@@ -1006,7 +1006,7 @@ const Home = () => {
             ))}
           </div>
           <div className="pb-16 mt-10">
-            <button className="flex container mx-auto w-fit justify-center buttongradient m-15 text-white font-bold py-1 px-12 rounded-full">
+            <button className="flex container mx-auto w-fit justify-center buttongradient m-15 text-white font-bold py-1 px-12 rounded-full duration-300 hover:scale-[1.07] ease-in-out">
               Load more
             </button>
           </div>
