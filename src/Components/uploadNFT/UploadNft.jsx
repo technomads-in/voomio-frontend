@@ -317,6 +317,7 @@ const UploadNft = () => {
 					</div>
 				</div>
 			</div>
+
 		</>
 	);
 };
