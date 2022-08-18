@@ -1,35 +1,32 @@
 @font-face {
-  font-family: "PoppinsFonts";
-  src: url("../../Assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-family: "NewHaansFonts";
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.ttf")
+    format("truetype");
 }
-
-.headerbackground {
-  background-color: #250C50;
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 49;
+.dropdownborder {
+  border: 2px solid #6549f6;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
-
-.menufont {
-  font-size: 16px;
-  line-height: 24px;
-  font-family: "PoppinsFonts";
-}
-
 .buttonborder {
   background: linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
   border-radius: 30px;
 }
 
-.dropdownborder {
-  border: 2px solid #6549F6;
+.border-mobile-menu {
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
   background-image: linear-gradient(#fff, #fff),
     linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
 
+.font-apply {
+  font-family: "NewHaansFonts";
+}
 /* new Popup css */
 .bg-backdrop {
   background: rgba(0, 15, 32, 0.7);
@@ -56,4 +53,19 @@
     linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
   background-origin: border-box;
   background-clip: content-box, border-box;
+}
+/* Zoom in animation*/
+.zoom-in {
+  animation: zoom-in-zoom-out 1s ease-in;
+}
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }

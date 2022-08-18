@@ -4,14 +4,20 @@ import "./Header.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
+import octopuss from "../../Assets/VoomioImages/octopuss.svg";
+import magnifyGlass from "../../Assets/VoomioImages/magnifying-glass.svg";
+import MenuAlt3Outline from "../../Assets/VoomioImages/MenuAlt3Outline.svg";
+import close from "../../Assets/VoomioImages/X.svg";
+
 import { Link } from "react-router-dom";
-import Details from "../Details/Details";
 let Buffer = require("buffer/").Buffer;
 
 const Header = () => {
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [openMobilemenu, setOpenMobilemenu] = useState(false);
+  const [searchbtn, setSearchbtn] = useState(false);
   const [namiwallet, setNami] = useState(false);
   const [eternlwallet, setEternl] = useState(false);
-  const [isDropdown, setIsDropdown] = useState(false);
   const [isModel, setIsModel] = useState(false);
   const ref = useRef();
   useEffect(() => {
@@ -32,9 +38,6 @@ const Header = () => {
     // eslint-disable-next-line
   }, [isModel]);
   // Dropdown
-  const openDropdown = () => {
-    setIsDropdown(!isDropdown);
-  };
 
   // Model
   const openModel = () => {
@@ -102,308 +105,148 @@ const Header = () => {
   const eternl_connect = () => {
     signhash("eternl");
   };
-  const [open, setopen] = useState(false);
-  const [openserach, setopenserach] = useState(false);
-  // const [close, setclose] = useState(true);
 
   return (
     <>
-      
       {/* Header */}
       <nav
         className={`${
-          open
-            ? " bg-purple-100 fixed left-0 right-0 z-10"
-            : openserach
-            ? " bg-white fixed left-0 right-0 z-20"
-            : "headerbackground"
-        } `}
+          openMobilemenu
+            ? " bg-[purple] text-[#250C50] py-3 drop-shadow-2xl"
+            : searchbtn
+            ? "bg-white py-3 drop-shadow-2xl"
+            : " bg-[#250C50]  text-white py-3 drop-shadow-2xl "
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
-          <div className="relative left-0 right-0  sm:flex sm:items-center sm:justify-between h-16">
-            <div className="flex sm:hidden justify-between h-16 absolute left-0 right-0  ">
-              <div className="flex items-center gap-2 ">
-                <img
-                  className=" h-10 w-auto"
-                  src="/images/Octopas.svg"
-                  alt="Workflow"
-                />
-                {open || openserach ? (
-                  <img
-                    src="/images/VOOMIOdark.svg"
-                    alt=""
-                    className=" h-10 w-28 "
-                  />
-                ) : (
-                  <img
-                    className="h-10 w-28"
-                    src="/images/VOOMIO.svg"
-                    alt="Workflow"
-                  />
-                )}
-              </div>
-              <div className="flex items-center gap-2 ">
-                <img
-                  src="/images/magnifying-glass 1.svg"
-                  alt=""
-                  onClick={() => {
-                    setopenserach(true);
-                    setopen(false);
-                  }}
-                  className={openserach ? "hidden " : "block "}
-                />
-                {openserach ? (
-                  <img
-                    src="/images/X.svg"
-                    alt=""
-                    className={openserach ? "block " : "hidden "}
-                    onClick={() => setopenserach(false)}
-                  />
-                ) : null}
-                {openserach ? null : (
-                  <img
-                    src="/images/MenuAlt3Outline.svg"
-                    alt=""
-                    onClick={() => {
-                      setopen(true);
-                      setopenserach(false);
-                    }}
-                    className={open ? "hidden " : "block "}
-                  />
-                )}
-
-                {open ? (
-                  <img
-                    src="/images/X.svg"
-                    alt=""
-                    onClick={() => setopen(false)}
-                    className={open ? "block " : "hidden "}
-                  />
-                ) : null}
-              </div>
-            </div>
-            <div className="flex-1 flex items-center justify-start md:justify-center sm:items-stretch">
-              <div className="flex-shrink-0 flex items-center space-x-3">
-                <img
-                  className="sm:block hidden h-9 w-auto"
-                  src="/images/Octopas.svg"
-                  alt="Workflow"
-                />
-                <img
-                  className=" sm:block hidden h-5 w-16"
-                  src="/images/VOOMIO.svg"
-                  alt="Workflow"
-                />
-              </div>
-              <div className="hidden sm:block sm:ml-6 ">
-                <div className="flex space-x-4 items-center">
-                  <div className="relative inline-block text-left ">
-                    <div
-                      div
-                      className="flex relative w-full dropdownborder  rounded-3xl"
-                    >
-                      <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          aria-hidden="true"
-                          className="w-5 h-5 text-indigo-800 dark:text-7B61FF-400"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <input
-                        type="text"
-                        id="simple-search"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Search for assets or collections..."
-                        required
-                      />
-                      <div className="items-center">
-                        <button
-                          type="button"
-                          className="inline-flex justify-center w-full  shadow-sm px-4 py-2 text-sm font-medium menufont border-l-2 border-gray-00"
-                          id="menu-button"
-                          aria-expanded="true"
-                          aria-haspopup="true"
-                          onClick={openDropdown}
-                        >
-                          ADA
-                          <svg
-                            className="-mr-1 ml-2 h-5 w-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </button>
-                        {isDropdown ? (
-                          <div
-                            className="origin-top-right absolute  mt-2 w-20 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
-                            role="menu"
-                            aria-orientation="vertical"
-                            aria-labelledby="menu-button"
-                            tabIndex={-1}
-                          >
-                            <div className="py-1" role="none">
-                              <a
-                                href="/"
-                                className="menufont block px-4 py-2 text-sm"
-                                role="menuitem"
-                                tabIndex={-1}
-                                id="menu-item-0"
-                              >
-                                SOL
-                              </a>
-                              <a
-                                href="/"
-                                className="menufont block px-4 py-2 text-sm"
-                                role="menuitem"
-                                tabIndex={-1}
-                                id="menu-item-1"
-                              >
-                                ADA
-                              </a>
-                              <a
-                                href="/"
-                                className="menufont block px-4 py-2 text-sm"
-                                role="menuitem"
-                                tabIndex={-1}
-                                id="menu-item-2"
-                              >
-                                ETH
-                              </a>
-                              <form method="POST" action="#" role="none">
-                                <button
-                                  type="submit"
-                                  className="menufont block w-full text-left px-4 py-2 text-sm"
-                                  role="menuitem"
-                                  tabIndex={-1}
-                                  id="menu-item-3"
-                                >
-                                  ALL
-                                </button>
-                              </form>
-                            </div>
-                          </div>
-                        ) : null}
-                      </div>
-                    </div>
-                  </div>
-                  <Link
-                    to="/upload-nft"
-                    className="font-bold px-3 py-2 rounded-md menufont text-white"
-                  >
-                    Explore
-                  </Link>
-                  <a
-                    href="/"
-                    className="font-bold px-3 py-2 rounded-md menufont text-white"
-                  >
-                    Ranking
-                  </a>
-                  <Link
-                    to="/nftgenerator"
-                    className="font-bold px-3 py-2 rounded-md menufont text-white "
-                  >
-                    Create
-                  </Link>
-                  <button
-                    onClick={openModel}
-                    className="buttonborder menufont text-white font-bold py-2 px-12"
-                  >
-                    Connect Wallet
-                  </button>
-                </div>
-              </div>
+        <div className="container mx-auto flex lg:justify-center justify-between items-center  md:gap-2 lg:gap-10 lg:p-0 px-5">
+          <div className="flex justify-between items-center cursor-pointer ">
+            <div className="flex items-center gap-4 zoom-in">
+              <img src={octopuss} alt="" />
+              <h2 className="font-bold text-2xl ">VOOMIO</h2>
             </div>
           </div>
+          <div className="lg:hidden flex items-center gap-3 ">
+            <img
+              src={magnifyGlass}
+              alt=""
+              onClick={() => {
+                setSearchbtn(true);
+                setOpenMobilemenu(false);
+              }}
+              className={searchbtn ? "hidden " : "block "}
+            />
+            <img
+              src={MenuAlt3Outline}
+              alt=""
+              onClick={() => setOpenMobilemenu(true)}
+              className={openMobilemenu ? "hidden " : "block "}
+            />
+            {openMobilemenu || searchbtn ? (
+              <img
+                src={close}
+                alt=""
+                onClick={() => {
+                  setOpenMobilemenu(false);
+                  setSearchbtn(false);
+                }}
+              />
+            ) : null}
+          </div>
+          <div className="border-2 border-[#6549F6] rounded-full bg-white p-3 justify-center items-center gap-2  lg:flex hidden ">
+            <i className="fa-solid fa-magnifying-glass text-[#6549F6] cursor-pointer"></i>
+            <input
+              type="text"
+              name=""
+              className="border-0 border-white  outline-none text-black md:w-7 lg:w-20 xl:w-full"
+              placeholder="Search for assets or collections..."
+            />
+            <div
+              className="flex justify-center items-center gap-2 px-2 border-l-2 cursor-pointer relative"
+              onClick={() => setOpenDropdown(!openDropdown)}
+            >
+              <div className="text-[#000000] ">ETH</div>
+              <i className="fa-solid fa-angle-down text-[#000000]"></i>
+              {openDropdown ? (
+                <>
+                  <div className="border-2 border-[#6549F6] absolute top-11 rounded-md p-5 lg:flex hidden flex-col bg-white text-[#6549F6] gap-3 hover">
+                    <div>ETH</div>
+                    <div>SOL</div>
+                    <div>ADA</div>
+                  </div>
+                </>
+              ) : null}
+            </div>
+          </div>
+          <div className=" items-center lg:flex hidden gap-8 cursor-pointer font-apply ">
+            <h1 className="font-bold ">Explore</h1>
+            <h1 className="font-bold">Ranking</h1>
+            <h1 className="font-bold">Create</h1>
+            <button
+              className="buttonborder menufont text-white font-bold py-3 lg:px-10 md:px-5"
+              onClick={openModel}
+            >
+              Connect Wallet
+            </button>
+          </div>
         </div>
-        {/* Mobile menu, show/hide based on menu state. */}
-        {open ? (
-          <div className="  text-center text-[#250C50] bg-purple-100 h-[100vh]  pt-20  fixed z w-[100%]">
+        {/* =================Mobile menu, show/hide based on menu state.============ */}
+        {openMobilemenu && (
+          <div className=" text-center text-[#250C50] bg-purple-100 h-[100vh]  pt-20   z w-[100%] items-center ">
             <div className="px-2 pt-2 pb-3 space-y-1 ">
-              <Link
-                to="/upload-nft"
+              <a
+                href="/upload-nft"
                 className=" menufont block px-3 py-5 rounded-md text-base font-medium "
                 aria-current="page"
               >
                 Explore
-              </Link>
-              <Link
-                to="/aggregator"
+              </a>
+              <a
+                href="/aggregator"
                 className="menufont  block px-3 py-5 rounded-md text-base font-medium "
-                onClick={() => setopen(false)}
               >
                 Ranking
-              </Link>
-              <Link
-                to="/nftgenerator"
+              </a>
+              <a
+                href="/nftgenerator"
                 className="menufont block px-3 py-5 rounded-md text-base font-medium"
               >
                 Create
-              </Link>
-              <button
-                onClick={openModel}
-                className="buttonborder menufont text-white font-bold py-2 px-12"
-              >
+              </a>
+              <button className="buttonborder menufont text-white font-bold py-2 px-12">
                 Connect Wallet
               </button>
             </div>
           </div>
-        ) : (
-          ""
         )}
-        {/* search button */}
-        {openserach ? (
-          <div className="text-left bg-white h-[100vh] fixed z-50 w-[100%]">
-            <div className="border1 drop-shadow-sm flex justify-around">
-              <img
-                src="/images/magnifying-glass 1 (1).svg"
-                alt=""
-                className="pl-3"
-              />
-              <input
-                type="text"
-                id="simple-search"
-                className="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w pl-2 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search..."
-                required
-              />
-              <button
-                type="button"
-                className="inline-flex justify-center shadow-sm px-4 py-2 text-sm font-medium menufont border-l-2 border-gray-00"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-                onClick={openDropdown}
+        {/*============= search button ================*/}
+        {searchbtn ? (
+          <div className="text-left bg-white h-[100vh]  z-50 w-[100%] p-4 lg:hidden block">
+            <div className="border-mobile-menu drop-shadow-sm flex justify-around ">
+              <div className="flex items-center gap-4 p-3">
+                <i className="fa-solid fa-magnifying-glass"></i>
+                <input
+                  type="text"
+                  name=""
+                  className="outline-none w-28  "
+                  placeholder="Search..."
+                />
+              </div>
+              <div
+                className="flex justify-center items-center border-l-2 gap-4 p-3 cursor-pointer relative"
+                onClick={() => setOpenDropdown(!openDropdown)}
               >
-                ADA
-                <svg
-                  className="-mr-1 ml-2 h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
+                <div className="text-[#000000] ">ETH</div>
+                <i className="fa-solid fa-angle-down text-[#000000]"></i>
+                {openDropdown ? (
+                  <>
+                    <div className="border-2 border-[#6549F6] absolute top-14 rounded-md p-5 flex  flex-col bg-white text-[#6549F6] gap-3 hover ">
+                      <div>ETH</div>
+                      <div>SOL</div>
+                      <div>ADA</div>
+                    </div>
+                  </>
+                ) : null}
+              </div>
             </div>
           </div>
         ) : (
