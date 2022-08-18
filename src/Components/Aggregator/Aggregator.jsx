@@ -19,6 +19,7 @@ const Aggregator = () => {
   const [active, setsetactive] = useState(1);
   const octopussPopup = () => {
     setModel(!model);
+    setopenwallet(false);
   };
   const openmodel = (Collection) => {
     setdetails(Collection);
@@ -296,7 +297,7 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 3rd element */}
-      <div className="mx-auto container flex justify-start my-10">
+      <div className="mx-auto container flex justify-start my-10 itemcount">
         <p className="text-base lg:w-5/12 ">
           The MUTANT APE YACHT CLUB is a collection of up to 20,000 Mutant Apes
           that can only be created by exposing an existing Bored Ape to a vial
