@@ -12,7 +12,7 @@ const Manage = () => {
     const [tabActive, settabActive] = useState(1)
     const [tabActiveTwo, settabActiveTwo] = useState(0)
     const [popupOpen, setpopupOpen] = useState(false);
-
+    const [HideShow, setHideShow] = useState(true);
 
 
     const cardClickClose = () => {
@@ -330,10 +330,10 @@ const Manage = () => {
                         <>
                             <div className="grid grid-cols-12 " >
                                 <div className="pb-5 pt-10 ">
-                                    <div className="text-[#250C50] font-medium text-lg pb-5">Settings</div>
-                                    <div className="text-[#6549F6] font-medium text-base pb-5">General</div>
-                                    <div className="text-[#6549F6] font-medium text-base pb-5">Layers</div>
-                                    <div className="text-[#6549F6] font-medium text-base pb-5">Rules</div>
+                                    <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer">Settings</div>
+                                    <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">General</div>
+                                    <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Layers</div>
+                                    <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Rules</div>
                                 </div>
 
                                 <div className="col-span-10 pt-5">
@@ -367,9 +367,9 @@ const Manage = () => {
                                             <div className=" pl-4  " key={i.id} >
 
                                                 <div className='border-2 rounded-xl  border-[#6549F6] flex flex-col items-center
-                                                 justify-end w-[325px] h-[394px]'>
-{/* 
-                                                    <div className=' justify-center block '>
+                                                 justify-end w-[325px] h-[394px] relative'>
+
+                                                    <div className=' justify-center opacity-[0]  hover:absolute top-10 hover:opacity-[1] '>
                                                         <div className=" shadow w-72 rounded w-full justify-center ">
                                                             <div className='p-2 flex w-72 hover:bg-[#F4EEFF] hover:rounded '>
                                                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -404,7 +404,7 @@ const Manage = () => {
 
                                                             </div>
                                                         </div>
-                                                    </div> */}
+                                                    </div>
                                                     <img className="w-70 h-50 justify-end max-w-none " src="/images/ClothesLayer-6.png" alt="img" />
                                                 </div>
                                                 <div className="">
@@ -462,10 +462,52 @@ const Manage = () => {
                                         {
                                             backcolor.map((i) => {
                                                 return <div className=" pl-3 pr-1 " key={i.id}>
-                                                    <div className='border-2 rounded-xl border-[#6549F6]  '>
+                                                    <div className='border-2 rounded-xl  border-[#6549F6] flex flex-col items-center
+                                                 justify-end w-[325px] h-[394px] relative'>
+
+                                                        <div className=' justify-center opacity-[0]  hover:absolute top-10 hover:opacity-[1] '>
+                                                            <div className=" shadow w-72 rounded w-full justify-center ">
+                                                                <div className='p-2 flex w-72 hover:bg-[#F4EEFF] hover:rounded '>
+                                                                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <circle cx="9.5" cy="9.5" r="9.5" fill="black" />
+                                                                    </svg>
+                                                                    <div className='pl-5'>
+
+                                                                        Set Rarity
+                                                                    </div>
+
+                                                                </div>
+                                                                <div className='p-2 flex  hover:bg-[#F4EEFF] hover:rounded '>
+                                                                    <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M1.314 5.26H3.15L2.772 7.708H0.972L0.666 9.526H2.502L1.98 13H3.564L4.086 9.526H6.336L5.814 13H7.398L7.92 9.526H9.72L10.026 7.708H8.19L8.568 5.26H10.386L10.692 3.46H8.838L9.342 0.165999H7.776L7.272 3.46H5.004L5.508 0.165999H3.924L3.42 3.46H1.62L1.314 5.26ZM4.734 5.26H7.002L6.624 7.708H4.356L4.734 5.26Z" fill="black" />
+                                                                    </svg>
+
+                                                                    <div className='pl-5'>
+
+                                                                        Set Quantity
+                                                                    </div>
+
+                                                                </div>
+                                                                <div className='p-2 flex  hover:bg-[#F4EEFF] hover:rounded '>
+                                                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M3.834 8.348C5.724 8.348 7.038 6.89 7.038 4.622C7.038 2.318 5.706 0.895999 3.834 0.895999C1.98 0.895999 0.612 2.354 0.612 4.622C0.612 6.89 1.962 8.348 3.834 8.348ZM3.906 14H5.418L12.564 1.184H11.034L3.906 14ZM12.618 14.306C14.526 14.306 15.858 12.83 15.858 10.562C15.858 8.276 14.508 6.836 12.618 6.836C10.782 6.836 9.396 8.294 9.396 10.562C9.396 12.83 10.746 14.306 12.618 14.306ZM3.834 6.962C2.916 6.962 2.484 5.972 2.484 4.622C2.484 3.236 2.916 2.246 3.834 2.246C4.752 2.246 5.22 3.272 5.22 4.622C5.22 5.99 4.77 6.962 3.834 6.962ZM12.636 12.902C11.718 12.902 11.268 11.912 11.268 10.562C11.268 9.194 11.718 8.186 12.636 8.186C13.518 8.186 14.004 9.212 14.004 10.562C14.004 11.93 13.572 12.902 12.636 12.902Z" fill="black" />
+                                                                    </svg>
+
+                                                                    <div className='pl-5'>
+
+                                                                        Set Percentage
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className={`w-80 h-80 max-w-none  bg-[#${i.backcolor}] rounded-xl`}></div>
+                                                        {/* <img className="w-70 h-50 justify-end max-w-none " src="/images/ClothesLayer-6.png" alt="img" /> */}
+                                                    </div>
+                                                    {/* <div className='border-2 rounded-xl border-[#6549F6]  '>
                                                         <div className={`w-80 h-80 max-w-none  bg-[#${i.backcolor}] rounded-xl`}></div>
 
-                                                    </div>
+                                                    </div> */}
                                                     <div className="">
 
                                                         Lorem Ipsum{i.id}
@@ -502,10 +544,10 @@ const Manage = () => {
                         :
                         <div className="flex gap-8" >
                             <div className="pb-5 pt-32 ">
-                                <div className="text-[#250C50] font-medium text-lg pb-5">Settings</div>
-                                <div className="text-[#6549F6] font-medium text-base pb-5">General</div>
-                                <div className="text-[#6549F6] font-medium text-base pb-5">Layers</div>
-                                <div className="text-[#6549F6] font-medium text-base pb-5">Rules</div>
+                                <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer">Settings</div>
+                                <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">General</div>
+                                <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Layers</div>
+                                <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Rules</div>
                             </div>
                             <div className='grid grid-cols-1 w-full pt-10'>
 

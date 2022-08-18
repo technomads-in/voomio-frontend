@@ -5,7 +5,7 @@ import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Aggregator from "./Components/Aggregator/Aggregator";
-import Generate from "./Components/Generate Token/Generate";
+import Generate from "./Components/uploadNFT/Generate";
 import Manage from "./Components/Manage/Manage";
 import NftGenerator from "./Components/NftGenerator/NftGenerator";
 import UploadNft from "./Components/uploadNFT/UploadNft";
