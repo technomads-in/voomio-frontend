@@ -14,7 +14,6 @@ import tradingMoonbirds from "../../Assets/VoomioImages/tradingmoonbirds.svg";
 import ethereum from "../../Assets/Images/ethereum.png";
 import verified from "../../Assets/Images/verified.png";
 
-
 import "./Home.css";
 import DropDown from "../DropDown/DropDown";
 
@@ -1016,11 +1015,30 @@ const Home = () => {
       {/* Top NFT  bloges  end*/}
 
       {/* Gassless Minting bloges start*/}
-      <div className=" md:py-20 overflow-x-auto">
+      <div className=" md:py-20 overflow-hidden lg:h-[120vh]">
         <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0">
-          <div className="hidden lg:block">
+          <div className="hidden lg:block relative">
             {" "}
-            <img src="/images/Group 548.png" alt="" />
+            <img
+              src={onePlaceleft2}
+              alt=""
+              className="absolute -mx-60 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceleft1}
+              alt=""
+              className="absolute z-20 top-[340px] mx-28 one-place-slide-up-animation"
+            />
+            <img
+              src={onePlaceRight1}
+              alt=""
+              className="absolute top-[480px] -mx-7 z-10 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceRight2}
+              alt=""
+              className="absolute top-[690px] -mx-28 one-place-slide-up-animation"
+            />
           </div>
           <div className="flex flex-col">
             <div>
@@ -1093,8 +1111,29 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex justify-end">
-            <img src="/images/Group 548 (1).png" alt="rectangle" />
+
+          <div className="hidden lg:flex relative justify-end">
+            {" "}
+            <img
+              src={onePlaceleft2}
+              alt=""
+              className="absolute -mx-52 top-96 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceleft1}
+              alt=""
+              className="absolute z-20 top-[800px] -mx-10 one-place-slide-up-animation"
+            />
+            <img
+              src={onePlaceRight1}
+              alt=""
+              className="absolute -mx-28 z-10 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceRight2}
+              alt=""
+              className="absolute top-[250px] -mx-14 one-place-slide-up-animation"
+            />
           </div>
         </div>
       </div>
