@@ -1,5 +1,6 @@
 import './Generate.css'
 import { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Generate = () => {
    // upload image
@@ -188,14 +189,33 @@ const Generate = () => {
                   <div className='flex gap-24'>
                      <div className="flex justify-between  flex-wrap">
                         <div>
-                           <div className="text-[#250C50] pb-2 text-lg titleFont">
+                           <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer titleFont">
                               Settings
                            </div>
-                           <div className="text-[#6549F6]  text-md pb-5 titleFont">
-                              General
+                           <div className=" pb-5">
+                              <Link
+                                 to="/general"
+                                 className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
+                              >
+                                 General
+                              </Link>
                            </div>
-                           <div className="text-[#6549F6]  text-md pb-5 titleFont">Layers</div>
-                           <div className="text-[#6549F6]  text-md titleFont">Rules</div>
+                           <div className=" pb-5">
+                              <Link
+                                 to="/general"
+                                 className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
+                              >
+                                 Layers
+                              </Link>
+                           </div>
+                           <div className=" pb-5">
+                              <Link
+                                 to="/general"
+                                 className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
+                              >
+                                 Rules
+                              </Link>
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -338,7 +358,7 @@ const Generate = () => {
                            <div className="flex flex-col gap-3">
                               <div className="text-2xl font-bold">Preview</div>
                               <div>
-                                 <img src="/images/mrmonkey.png" alt="" className="h-64 w-64" />
+                                 <img src="/monkeysimages/mrmonkey.png" alt="" className="h-64 w-64" />
                               </div>
                               <div className="bg-[#6549F6] rounded-lg text-white flex items-center justify-center font-medium text-lg py-3">
                                  <div >Shuffle Order

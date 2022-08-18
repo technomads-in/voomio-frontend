@@ -435,7 +435,7 @@ const Manage = () => {
                                                  justify-end w-[325px] h-[394px] relative"
                                                 >
                                                     <div className=" justify-center opacity-[0]  hover:absolute top-10 hover:opacity-[1] ">
-                                                        <div className=" shadow w-72 rounded w-full justify-center ">
+                                                        <div className=" shadow w-72 rounded w-full justify-center cursor-pointer">
                                                             <div className="p-2 flex w-72 hover:bg-[#F4EEFF] hover:rounded ">
                                                                 <svg
                                                                     width="19"
