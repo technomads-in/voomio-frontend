@@ -256,13 +256,13 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 2nd element */}
-      <div className="flex justify-between mx-auto container mt-40 flex-wrap">
-        <div className="flex items-center gap-1">
+      <div className="flex justify-between mx-auto container mt-40 flex-wrap ">
+        <div className="flex items-center gap-1 ">
           <h1 className="text-4xl font-bold w-">Mutant Ape Yatch Club</h1>
           <img
             src="/images/BadgeCheck.png"
             alt="badge-check"
-            className="w-6 h-6"
+            className="w-6 h-6 "
           />
         </div>
         <div className="flex gap-8 items-center drop-shadow-xl">
@@ -270,34 +270,34 @@ const Aggregator = () => {
             <img
               src="/images/Group 552 (1).svg"
               alt=""
-              className=" md:block hidden"
+              className=" md:block hidden cursor-pointer"
             />
           </div>
           <div>
             <img
               src="/images/Group 555.svg"
               alt=""
-              className=" md:block hidden"
+              className=" md:block hidden cursor-pointer"
             />
           </div>
           <div>
             <img
               src="/images/Group 557.svg"
               alt=""
-              className=" md:block hidden "
+              className=" md:block hidden cursor-pointer"
             />
           </div>
           <div>
             <img
               src="/images/Group 558.svg"
               alt=""
-              className=" md:block hidden"
+              className=" md:block hidden cursor-pointer"
             />
           </div>
         </div>
       </div>
       {/* 3rd element */}
-      <div className="mx-auto container flex justify-start my-10 itemcount">
+      <div className="mx-auto container flex justify-start my-10 Club">
         <p className="text-base lg:w-5/12 ">
           The MUTANT APE YACHT CLUB is a collection of up to 20,000 Mutant Apes
           that can only be created by exposing an existing Bored Ape to a vial
@@ -307,29 +307,29 @@ const Aggregator = () => {
       {/* 4th element */}
       <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap">
         <div>
-          <p className="itemcount text-base">items</p>
+          <p className="Club text-base">items</p>
           <h1 className="text-xl font-bold">10.0K</h1>
         </div>
         <div>
-          <p className="itemcount text-base">Owners</p>
+          <p className="Club text-base">Owners</p>
           <h1 className="text-xl font-bold">6.3K</h1>
         </div>
         <div>
-          <p className="itemcount text-base text-[#6549F6] ">Total</p>
+          <p className="Club text-base text-[#6549F6] ">Total</p>
           <h1 className="text-xl font-bold text-[#6549F6]">
             <i className="fa-brands fa-ethereum text-black"></i> 433.3K
           </h1>
         </div>
         <div>
-          <p className="itemcount text-base text-[#6549F6] ">Floor</p>
+          <p className=" Club text-base text-[#6549F6] ">Floor</p>
           <h1 className="text-xl font-bold text-[#6549F6]">
             <i className="fa-brands fa-ethereum text-black"></i> 87
           </h1>
         </div>
       </div>
-      <div className="flex  mx-auto container flex-wrap  gap-10 pt-10 md:justify-start justify-center">
+      <div className="flex  mx-auto container flex-wrap  gap-10 pt-10 md:justify-start justify-center cursor-pointer">
         <div
-          className={`${active === 1 ? "active" : "deActive"}`}
+          className={`${active === 1 ? "active-agg " : "deActive-agg"}`}
           onClick={() => {
             setsetactive(1);
             openmodel("Collection");
@@ -338,7 +338,7 @@ const Aggregator = () => {
           Collection
         </div>
         <div
-          className={`${active === 2 ? "active font-bold " : "deActive"}`}
+          className={`${active === 2 ? "active-agg " : "deActive-agg"}`}
           onClick={() => {
             setsetactive(2);
             openmodel("Community");
@@ -347,7 +347,7 @@ const Aggregator = () => {
           Community
         </div>
         <div
-          className={`${active === 3 ? "active" : "deActive"}`}
+          className={`${active === 3 ? "active-agg" : "deActive-agg"}`}
           onClick={() => setsetactive(3)}
         >
           Activity
@@ -448,7 +448,7 @@ const Aggregator = () => {
                     </svg>
                   </button>
                 </div>
-                <div className="text-left">
+                <div className="text-left popuptitle text-[#6549f6] cursor-pointer">
                   <div className="dropdownborder rounded-lg">
                     <button
                       type="button"
@@ -521,6 +521,7 @@ const Aggregator = () => {
                   fill="none"
                   onClick={octopussPopup}
                   xmlns="http://www.w3.org/2000/svg"
+                  className="cursor-pointer"
                 >
                   <rect
                     width="216"
@@ -628,7 +629,7 @@ const Aggregator = () => {
 
             {openaccrodion ? (
               <div>
-                <div className="mt-10 flex">
+                <div className="mt-10 flex Club">
                   <img src="/images/Avatar.svg" alt="" />
                   <div className="flex flex-col">
                     <div className="flex pl-3">
@@ -642,7 +643,7 @@ const Aggregator = () => {
                     </div>
                   </div>
                 </div>
-                <div className="my-5 flex">
+                <div className="my-5 flex Club">
                   <img src="/images/Avatar.svg" alt="" />
                   <div className="flex flex-col">
                     <div className="flex pl-3">
@@ -656,7 +657,7 @@ const Aggregator = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center pl-6">
+                <div className="flex items-center pl-6 Club">
                   <img src="/images/Vector 64.svg" alt="" />
                   <img src="/images/Ellipse 2.svg" alt="" />
                   <div className="text-[#6549F6] pl-3 opacity-60">
@@ -667,7 +668,7 @@ const Aggregator = () => {
                   </div>
                 </div>
 
-                <div className=" flex">
+                <div className=" flex Club">
                   <img src="/images/Avatar.svg" alt="" />
                   <div className="flex flex-col">
                     <div className="flex pl-3">
@@ -681,7 +682,7 @@ const Aggregator = () => {
                     </div>
                   </div>
                 </div>
-                <div className="my-5 flex">
+                <div className="my-5 flex Club">
                   <img src="/images/Avatar.svg" alt="" />
                   <div className="flex flex-col">
                     <div className="flex pl-3">
@@ -695,7 +696,7 @@ const Aggregator = () => {
                     </div>
                   </div>
                 </div>
-                <div className="my-5 flex items-start">
+                <div className="my-5 flex items-start Club">
                   <img src="/images/Avatar.svg" alt="" />
                   <div className="flex flex-col">
                     <div className="flex pl-3">
@@ -714,20 +715,24 @@ const Aggregator = () => {
                     />
                   </div>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-3 ">
                   <div className="border-2 rounded-lg flex justify-between items-center p-3  w-3/5 border-[#6549F6]">
                     <input
                       type="text"
                       name=""
                       placeholder="Message..."
-                      className="w-3/5"
+                      className="w-3/5 popuptitle"
                     />
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 cursor-pointer">
                       <img src="/images/GIF.svg" alt="" />
                       <img src="/images/smile-boy.svg" alt="" />
                     </div>
                   </div>
-                  <img src="/images/Group 565.svg" alt="" srcSet="" />
+                  <img
+                    src="/images/Group 565.svg"
+                    alt=""
+                    className="cursor-pointer"
+                  />
                 </div>
               </div>
             ) : null}
@@ -763,21 +768,21 @@ const Aggregator = () => {
                       />
                     </div>
                     <div className="flex flex-col ">
-                      <div className="flex gap-7">
+                      <div className="flex gap-7 Club">
                         <div className="text-[#6549F6]">{item.username}</div>
                         <h1 className="text-[#B4BBC6]">{item.day}</h1>
                       </div>
                       <h1 className="font-bold lg:w-2/4 w-3/4">
                         {item.details}
                       </h1>
-                      <div className="flex gap-3 mt-3">
+                      <div className="flex gap-3 mt-3 popuptitle">
                         <img src="/images/ChatAlt2Outline.svg" alt="" />
-                        <h1 className="text-[#6549F6]">{item.comments}</h1>
+                        <h1 className="text-[#6549F6] ">{item.comments}</h1>
                         <img src="/images/ExclamationOutline.svg" alt="" />
                         <h1 className="text-[#D6C3FA]">Report</h1>
                       </div>
                       <div
-                        className="mt-5 py-4 border-2 rounded-full text-white w-40 text-center bg-[#6549F6] border-nonec cursor-pointer"
+                        className=" popuptitle mt-5 p-2 border-0 rounded-full text-white w-32 text-center bg-[#6549F6] border-nonec cursor-pointer"
                         onClick={() => {
                           setopencommentsection(!opencommentsection);
                         }}
@@ -796,7 +801,7 @@ const Aggregator = () => {
             <div className="mt-10">
               {Usersonline.map((item) => (
                 <>
-                  <div className=" flex gap-2 py-2" key={item.id}>
+                  <div className="Club flex gap-2 py-2" key={item.id}>
                     <img src={item.img} alt="" className="w-15 h-15" />
                     <h1>{item.username}</h1>
                     <img src={item.bluetick} alt="" />
@@ -992,9 +997,9 @@ const Aggregator = () => {
             </div>
             <div className="flex justify-between my-10">
               <div>
-                <div className="homebuttonborder rounded-lg flex">
+                <div className="homebuttonborder rounded-lg flex cursor-pointer">
                   <h1 className="text-8xl">0</h1>
-                  <div className="pt-24 pr-5 pl-20 text-[#6549F6]">
+                  <div className="pt-24 pr-5 pl-20 text-[#6549F6] " >
                     Items
                     <img className="" src="/images/path.png" alt=""></img>
                   </div>

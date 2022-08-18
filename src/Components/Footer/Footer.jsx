@@ -16,7 +16,7 @@ const Footer = () => {
                     alt="Voomio Logo"
                   />
                 </div>
-                <p className="mb-5 max-w-sm text-[#250C50] text-2xl">
+                <p className="mb-5 max-w-sm text-[#250C50] text-2xl Club">
                   Voomio is an omni-friendly shop for buying and selling NFTs.
                 </p>
                 <div className="flex mt-4 space-x-6 justify-center md:justify-start md:mt-0">
@@ -108,7 +108,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="Club">
                 <h3 className="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">
                   Solutions
                 </h3>
@@ -149,7 +149,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div>
+              <div className="Club">
                 <h3 className="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">
                   Support
                 </h3>
@@ -192,7 +192,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div>
+              <div className="Club">
                 <h3 className="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">
                   Comapany
                 </h3>
@@ -244,7 +244,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div>
+              <div className="Club">
                 <h3 className="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">
                   Legal
                 </h3>
@@ -279,7 +279,7 @@ const Footer = () => {
               </div>
             </div>
             <hr className="my-8 border-gray-200 dark:border-gray-700 lg:my-12" />
-            <span className="block text-center text-gray-600 dark:text-gray-400 font-">
+            <span className="block text-center text-[#9CA3AF] dark:text-gray-400 Club">
               © <span id="currentYear">2022</span>{" "}
               <a href="https://flowbite.com/">Voomio,</a> LLC.All Rights
               Reserved.

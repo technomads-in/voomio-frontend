@@ -115,7 +115,7 @@ const Header = () => {
             ? " bg-purple-100 text-[#250C50] py-3 drop-shadow-2xl lg:relative sticky top-0 z-10"
             : searchbtn
             ? "bg-white py-3 drop-shadow-2xl lg:relative sticky top-0 z-10"
-            : " bg-[#250C50] shadow-xl shadow-[#301d52] shadow-opacity-30 text-white py-3 drop-shadow-2xl lg:relative sticky top-0 z-10"
+            : " bg-[#250C50] shadow-xl shadow-[#250C50] shadow-opacity-30 text-white py-3 lg:relative sticky top-0 z-10"
         }`}
       >
         <div className="container mx-auto flex lg:justify-center justify-between items-center  md:gap-2 lg:gap-10 lg:p-0 px-5">

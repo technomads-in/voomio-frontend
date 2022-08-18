@@ -18,12 +18,22 @@
   font-weight: 400;
   font-style: normal;
 }
-
+@font-face {
+  font-family: "Neue Haas Grotesk Display Club";
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Roman.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
 @font-face {
   font-family: "PoppinsFontsBold";
   src: url("../../Assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
 }
 
+
+.Club {
+  font-family: "Neue Haas Grotesk Display Club";
+}
 .community-font {
   font-family: "PoppinsFontsBold";
 }
@@ -203,22 +213,18 @@ input[type="text"] {
   animation-name: fadeInDown;
 }
 
-.active {
+.active-agg {
   border-bottom: 8px solid #6549f6;
   margin-bottom: -13px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 27px;
   color: #6549f6;
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-size: 22px;
 }
 
-.deActive {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 27px;
+.deActive-agg {
   color: #250c50;
+  font-size: 22px;
+  font-family: "Neue Haas Grotesk Display Club";
 }
 
 /* .dropdown-menu {
