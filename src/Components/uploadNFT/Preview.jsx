@@ -1,8 +1,35 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import NftDetails from "./NftDetails";
 
 const Preview = () => {
-  const order = [
+  const [show, setshow] = useState(-1);
+  const [tabActiveTwo, settabActiveTwo] = useState(0)
+  const [openModal, setOpenModal] = useState(false);
+  const [tabActive, settabActive] = useState(1)
+  const backcolor = [
+    {
+      id: 0,
+      backcolor: "bg-[#FF0000]",
+    },
+    {
+      id: 1,
+      backcolor: "bg-[#FFA629]",
+    },
+    {
+      id: 2,
+      backcolor: "bg-[#4CFFBF]",
+    },
+    {
+      id: 3,
+      backcolor: "bg-[#4CFFBF]",
+    },
+    {
+      id: 4,
+      backcolor: "bg-[#4CFFBF]",
+    },
+  ];
+  const dropData = [
     {
       id: 1,
       name: "Body - Lorem",
@@ -13,7 +40,7 @@ const Preview = () => {
     },
     {
       id: 3,
-      name: "Color Background",
+      name: "Select network",
     },
     {
       id: 4,
@@ -32,7 +59,6 @@ const Preview = () => {
       name: "Texture",
     },
   ];
-
   const nft = [
     {
       id: 1,
@@ -135,9 +161,30 @@ const Preview = () => {
       number: "#1",
     },
   ];
+  const handleDrop = (i) => {
+    console.log("1", i);
+    if (i === show) {
+      setshow(-1);
+    } else {
+      setshow(i);
+    }
+  };
 
-  const [openModal, setOpenModal] = useState(false);
+  const cardClickClose = () => {
 
+
+
+
+    settabActive(1)
+    settabActiveTwo(0)
+  };
+  const cardClickOpen = () => {
+
+
+    settabActive(0)
+    settabActiveTwo(1)
+
+  }
   return (
     <>
       <div className="">
@@ -147,42 +194,63 @@ const Preview = () => {
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-[#250C50] pt-6 text-lg ">Current NFT</div>
-              <div className="text-[#6549F6]  text-lg pb-16 ">Single-item</div>
+              <div className="text-[#250C50] pt-6 text-lg itemcount">
+                Current NFT
+              </div>
+              <div className="text-[#6549F6]  text-lg pb-16 itemcount">
+                Single-item
+              </div>
             </div>
-            <div className="flex items-center gap-10">
-              <div>
-                <img src="/images/upload.svg" alt="" />
+            <div className="flex items-center gap-10  ">
+              <div className='flex flex-col justify-center items-center opacity-20'>
+                <img src="/images/upload.svg" alt="" className='h-10 w-10' />
+                <div className="itemcount text-[#7B61FF]">Upload</div>
               </div>
-              <div className="flex flex-col justify-center items-center">
-                <img src="/images/EyeOutline.svg" alt="" />
-                <img src="/images/path.svg" alt="" />
+              <div className='flex flex-col justify-center items-center '>
+                <img src="/images/EyeOutline.svg" alt="" className='h-10 w-10' />
+                <div className="itemcount text-[#7B61FF]">Preview</div>
+                <img src="/images/path.svg" alt="" className='h-5 ' />
               </div>
+              <div className='flex flex-col justify-center items-center opacity-20'>
 
-              <img src="/images/CogOutline.svg" alt="" />
-              <img src="/images/star.png" alt="" />
+                <img src="/images/CogOutline.svg" alt="" className='h-10 w-10' />
+                <div className="itemcount text-[#7B61FF]">Manage</div>
+              </div>
+              <div className='flex flex-col justify-center items-center opacity-20'>
+
+                <img src="/images/star.png" alt="" className='h-10 w-10' />
+                <div className="itemcount text-[#7B61FF]">Generate</div>
+
+              </div>
             </div>
           </div>
 
-          <div className="flex gap-8 ml-[132px]">
+          <div className=' gap-12 md:pl-[132px]'>
             <div></div>
-            <div className="flex gap-10 font-medium text-xl">
-              <div className="text-[#6549F6]">
-                <div>Token Gallery</div>
-                <div className="border-[#6549F6] border-t-4 mt-1"></div>
-              </div>
-              <div className="text-[#250C50]">Metadata</div>
+            <div className='flex md:gap-10 gap-12 font-medium text-xl'>
+              {/* <div className="px-5"> */}
+              <button className={`${tabActive ? "active" : "deActive"} itemcount `} onClick={cardClickClose} >Token Gallery</button>
+              {/* </div> */}
+              <button className={`${tabActiveTwo ? "active" : "deActive"} itemcount`} onClick={cardClickOpen}>Metadata</button>
+
             </div>
+            <div className="border-[1px] "></div>
           </div>
 
           <div className="flex mt-20 gap-8">
             <div className="flex gap-24">
-              <div className="flex justify-between  flex-wrap">
-                <div>
-                  <div className="text-[#250C50] pb-2 text-lg ">Settings</div>
-                  <div className="text-[#6549F6]  text-md pb-2 ">General</div>
-                  <div className="text-[#6549F6]  text-md pb-2 ">Layers</div>
-                  <div className="text-[#6549F6]  text-md ">Rules</div>
+              <div className="pb-5 pt-10 ">
+                <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer itemcount">Settings</div>
+                <div className=" pb-5">
+                  <Link to="/general" className="text-[#6549F6] font-medium text-base itemcount cursor-pointer">General</Link>
+                </div>
+                <div className=" pb-5">
+                  <Link to="/general" className="text-[#6549F6] font-medium text-base itemcount cursor-pointer">Layers</Link>
+
+                </div>
+                <div className=" pb-5">
+
+                  <Link to="/general" className="text-[#6549F6] font-medium text-base itemcount cursor-pointer">Rules</Link>
                 </div>
               </div>
 
@@ -190,7 +258,21 @@ const Preview = () => {
                 <div className="">
                   <div className="font-semibold text-lg">
                     <div className="mb-3">Tokens</div>
-                    <svg
+                    <div>
+                      <button
+                        // onClick={() => { handleSelect() }}
+                        type="button"
+                        id="Generate"
+                        className="cursor-pointer text-[white] bg-gradient-to-r from-[#7B61FF] to-[#00DAD9]  font-medium text-base tracking-wide   px-4 rounded-full text-center"
+                      >
+                        <div className="itemcount flex  px-2 py-3"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.22222 1V5.44444M1 3.22222H5.44444M4.33333 16.5556V21M2.11111 18.7778H6.55556M12.1111 1L14.6511 8.61889L21 11L14.6511 13.3811L12.1111 21L9.57111 13.3811L3.22222 11L9.57111 8.61889L12.1111 1Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                          <div className="pl-2">Regenerate Tokens</div></div>
+                        {/* <i className="fa-solid fa-arrow-up-from-bracket"></i>   */}
+                      </button>
+                    </div>
+                    {/* <svg
                       width="256"
                       height="54"
                       viewBox="0 0 256 54"
@@ -226,16 +308,111 @@ const Preview = () => {
                           <stop offset="1" stop-color="#00DAD9" />
                         </linearGradient>
                       </defs>
-                    </svg>
+                    </svg> */}
                   </div>
                   <div className="font-semibold text-lg mt-4">Filters</div>
-                  {order.map((i) => (
-                    <div className="flex flex-col" key={i.id}>
-                      <div className="flex items-center justify-between border-[#6549F6] text-[#6549F6] border-2 rounded-md font-medium text-base h-12 gap-4 px-4 w-64 border-box mt-4">
-                        <div>{i.name}</div>
-                        <div>
-                          <i className="fa-solid fa-chevron-down"></i>
+                  {dropData.map((i, d) => (
+                    <div className="  pt-5 " key={i.id}>
+                      <button
+                        id="dropdownDefault"
+                        data-dropdown-toggle="dropdown"
+                        className={`text-[#6549F6] w-full border-2 border-[#6549F6]${show === d
+                          ? " dropdown-gradient-1  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] "
+                          : ""
+                          } bg-white  font-medium  rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between  `}
+                        type="button"
+                        onClick={() => {
+                          handleDrop(d);
+                        }}
+                      // className={` ${show === d ? "bg-white text-[#6549F6]  border-2 border-[#6549F6] " : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white "} itemcount  font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between `}
+                      >
+                        {/* */}
+                        <div
+                          className={` ${show === d ? "text-white" : ""
+                            } itemcount `}
+                        >
+                          {i.name}
                         </div>
+
+                        <svg
+                          className=" w-4 h-4 "
+                          aria-hidden="true"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                          ></path>
+                        </svg>
+                      </button>
+
+                      {/* //  */}
+                      <div
+                        id={d}
+                        className={` ${show === d ? "block dropdown-gradient-1" : "hidden"
+                          } z-10 w-full bg-white text-[#6549F6]  border-2 border-[#6549F6] `}
+                        data-popper-reference-hidden=""
+                        data-popper-escaped=""
+                        data-popper-placement="bottom"
+                      >
+                        {/* <div className="flex justify-between pt-2">
+                          <div className="pl-5 flex text-[#000000] text-sm font-medium">
+
+                            Name
+                            <img
+                              src="/images/down-arrow.png"
+                              className="w-5 h-5 pt-1 pl-1"
+                            ></img>
+                          </div>
+                          <div className=" flex text-[#000000] text-sm font-medium pl-8">
+                            {" "}
+                            Quanity
+                            <img
+                              src="/images/down-arrow.png"
+                              className="w-5 h-5 pt-1 pl-1"
+                            ></img>
+                          </div>
+                          <div className=" flex text-[#000000] text-sm font-medium pr-5">
+                            {" "}
+                            Percentage
+                            <img
+                              src="/images/down-arrow.png"
+                              className="w-5 h-5 pt-1 pl-1"
+                            ></img>
+                          </div>
+                        </div> */}
+
+                        <ul
+                          className={`py-1 font-normal text-base text-black }`}
+                          aria-labelledby="dropdownDefault"
+                        >
+                          {backcolor.map((i, d) => (
+                            <li className="flex justify-between pt-2 " key={i.id}>
+                              <a href="#" className="block pl-5 flex ">
+                                <div
+                                  className={`w-5 h-5 ${i.backcolor}  border-2`}
+                                ></div>
+                                <div className="pl-5 hover:text-[#6549F6]">
+                                  {i.Title}
+                                </div>
+                              </a>
+                              <a href="#" className="block hover:text-[#6549F6] ">
+                                863
+                              </a>
+                              <a
+                                href="#"
+                                className="block pr-16 hover:text-[#6549F6]"
+                              >
+                                8.7%
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   ))}
@@ -263,7 +440,7 @@ const Preview = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       {openModal && <NftDetails closeModal={setOpenModal} />}
     </>
