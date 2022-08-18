@@ -58,6 +58,9 @@ const UploadNft = () => {
 		document.getElementById('sort-img').src = '/images/sort(1).png';
 		let showHide = document.getElementById('showHidden');
 		showHide.style.display = 'block';
+
+		const elem = document.getElementById('showOnClick');
+		elem.classList.toggle('hide');
 	};
 
 	const order = [
@@ -154,10 +157,16 @@ const UploadNft = () => {
 										className={dragActive ? 'drag-active' : ''}
 									>
 										<div>
-											<p>Drag and drop your file here or</p>
-											<button className='upload-button' onClick={onButtonClick}>
-												Upload a file
-											</button>
+											<p>Drag and drop or browse to choose your</p>
+											<p>collection folder</p>
+											<div className='mt-4 font-medium'>
+												<button
+													className='rounded-3xl bg-[#7B61FF] text-white w-36 py-2'
+													onClick={onButtonClick}
+												>
+													Choose Files...
+												</button>
+											</div>
 										</div>
 									</label>
 								)}
@@ -172,13 +181,6 @@ const UploadNft = () => {
 								)}
 							</form>
 						</div>
-
-						{useEffect(() => {
-							const timer = setTimeout(() => {
-								return ``;
-							}, 1000);
-							clearTimeout(timer);
-						}, [])}
 
 						<div id='wave' className='flex flex-col items-center'>
 							<div className='font-extrabold text-3xl text-[#D6C3FA]'>Uploading...</div>
@@ -204,7 +206,7 @@ const UploadNft = () => {
 								>
 									<div>
 										<div className='flex justify-center items-center mt-3'>
-											<i className='fa-solid fa-circle-check fa-4x text-[#87FDDD]'></i>
+											<i className='fa-solid fa-circle-check fa-4x text-[#87FDDD] zoom-in-zoom-out'></i>
 										</div>
 										<div className='font-semibold text-2xl'>Success!</div>
 										<div className='text-[#999999] font-normal text-base'>
@@ -232,37 +234,39 @@ const UploadNft = () => {
 
 									{/* preview and Attributes-order */}
 								</form>
-								<div id='showHidden' className='hidden'>
-									<div className='grid grid-cols-1 md:grid-cols-2 place-items-center md:place-items-start gap-20 mt-20 '>
-										{/* col-1 */}
-										<div className='flex flex-col gap-3'>
-											<div className='text-2xl font-bold'>Preview</div>
-											<div>
-												<img src='/images/mrmonkey.png' alt='' className='h-64 w-64' />
-											</div>
-											<div className='bg-[#6549F6] rounded-lg text-white flex items-center justify-center font-medium text-lg py-3'>
+								<div id='showOnClick' className='show'>
+									<div id='showHidden' className='hidden'>
+										<div className='grid grid-cols-1 md:grid-cols-2 place-items-center md:place-items-start gap-20 mt-20 neueHaasGrotesk'>
+											{/* col-1 */}
+											<div className='flex flex-col gap-3'>
+												<div className='text-2xl font-bold'>Preview</div>
 												<div>
-													Shuffle Order
-													<i className='fa-solid fa-shuffle pl-3 '></i>
+													<img src='/images/mrmonkey.png' alt='' className='h-64 w-64' />
+												</div>
+												<div className='bg-[#6549F6] rounded-lg text-white flex items-center justify-center font-medium text-lg py-3'>
+													<div>
+														Shuffle Order
+														<i className='fa-solid fa-shuffle pl-3 '></i>
+													</div>
 												</div>
 											</div>
-										</div>
 
-										{/* col-2 */}
-										<div>
-											<div className='flex flex-col gap-3'>
-												<div className='text-2xl font-bold'>Attributes Order</div>
-												{order.map((i) => (
-													<div
-														className='flex items-center justify-between border-[#6549F6] text-[#6549F6] border-2 rounded-md font-medium text-base h-12 gap-4 px-4 w-64 border-box'
-														key={i.id}
-													>
-														<div>{i.name} </div>
-														<div>
-															<img src='/images/sort.png' alt='' className='h-2 w-4' />
+											{/* col-2 */}
+											<div>
+												<div className='flex flex-col gap-3'>
+													<div className='text-2xl font-bold'>Attributes Order</div>
+													{order.map((i) => (
+														<div
+															className='flex items-center justify-between border-[#6549F6] text-[#6549F6] border-2 rounded-md font-medium text-base h-12 gap-4 px-4 w-64 border-box'
+															key={i.id}
+														>
+															<div>{i.name} </div>
+															<div>
+																<img src='/images/sort.png' alt='' className='h-2 w-4' />
+															</div>
 														</div>
-													</div>
-												))}
+													))}
+												</div>
 											</div>
 										</div>
 									</div>

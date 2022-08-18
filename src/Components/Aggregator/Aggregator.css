@@ -5,16 +5,14 @@
 
 @font-face {
   font-family: "Neue Haas Grotesk Display Pro";
-  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf")
-    format("truetype");
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Neue Haas Grotesk Display Pro1";
-  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf")
-    format("truetype");
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -23,9 +21,11 @@
   font-family: "PoppinsFontsBold";
   src: url("../../Assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
 }
+
 .community-font {
   font-family: "PoppinsFontsBold";
 }
+
 .itemcount {
   font-family: "Neue Haas Grotesk Display Pro1";
 }
