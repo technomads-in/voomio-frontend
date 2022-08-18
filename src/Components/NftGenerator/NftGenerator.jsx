@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./NftGenerator.css";
 
 const NftGenerator = () => {
   const [show, setshow] = useState(true);
