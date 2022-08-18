@@ -329,7 +329,7 @@ const Home = () => {
             </div>
             <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
               <button
-                className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl"
+                className="buttonborder-home  text-white font-bold py-2  px-12 2xl:text-2xl"
                 onClick={() => navigate("/upload-nft")}
               >
                 Explore
@@ -1076,7 +1076,7 @@ const Home = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
-              <button className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl">
+              <button className="buttonborder-home  text-white font-bold py-2  px-12 2xl:text-2xl">
                 Explore
               </button>
               <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">

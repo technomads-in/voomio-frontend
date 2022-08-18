@@ -13,7 +13,12 @@
 .hometitle {
   font-family: "PoppinsFonts";
   line-height: 1.2em;
-  background: linear-gradient(92.12deg, #FFFFFF -5.07%, #6549F6 38.89%, #00DAD9 90.46%);
+  background: linear-gradient(
+    92.12deg,
+    #ffffff -5.07%,
+    #6549f6 38.89%,
+    #00dad9 90.46%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -34,7 +39,6 @@
   text-align: center;
   filter: drop-shadow(5.26833px 5.26833px 13.1708px rgba(0, 0, 0, 0.1));
   background: white;
-
 }
 
 .secondtitle {
@@ -113,13 +117,13 @@
 }
 
 .follow {
-  background: linear-gradient(98.79deg, #9B53E0 20.34%, #8551E6 77.89%);
+  background: linear-gradient(98.79deg, #9b53e0 20.34%, #8551e6 77.89%);
 }
 
 /* table */
 
 .topnft-box {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 5.26833px 5.26833px 13.1708px rgba(0, 0, 0, 0.1);
   border-radius: 9.62727px;
 }
@@ -128,8 +132,6 @@
   border-radius: 18px;
   text-align: center;
   filter: drop-shadow(5.26833px 5.26833px 13.1708px rgba(0, 0, 0, 0.1));
-
-
 }
 
 #customers {
@@ -143,10 +145,7 @@
   /* 13px 0px 13px 20px */
 }
 
-
-
 @media (min-width: 768px) {
-
   #customers td,
   #customers th {
     /* border-radius: 10%; */
@@ -169,7 +168,7 @@
 
 .tableincrement {
   color: #00a825;
-  font-family: 'Neue Haas Grotesk Text Pro';
+  font-family: "Neue Haas Grotesk Text Pro";
   font-style: normal;
   font-size: 22px;
   line-height: 120%;
@@ -181,7 +180,6 @@
   font-weight: 500;
   /* font-size: 24.783px; */
   /* line-height: 120%; */
-
 }
 
 /* six bloges css */
@@ -284,7 +282,7 @@
 .knRrSe {
   font-weight: 400;
   font-size: 14px;
-  color: #6549F6;
+  color: #6549f6;
 }
 
 .cwzfDK {
@@ -313,7 +311,7 @@
 .cIKgGu {
   font-weight: 600;
   font-size: 14px;
-  color: #6549F6;
+  color: #6549f6;
 }
 
 .bhuNxV {
@@ -321,13 +319,12 @@
   height: 14px;
 }
 
-
 .eAyARa {
   box-sizing: border-box;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-size: 1.6em;
-  background: linear-gradient(98.79deg, #9B53E0 20.34%, #8551E6 77.89%);
+  background: linear-gradient(98.79deg, #9b53e0 20.34%, #8551e6 77.89%);
   border-radius: 154.863px;
   background-color: rgba(103, 58, 183, 0.1);
   color: white !important;
@@ -351,7 +348,7 @@
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-size: 1.6em;
-  background: linear-gradient(98.79deg, #9B53E0 20.34%, #8551E6 77.89%);
+  background: linear-gradient(98.79deg, #9b53e0 20.34%, #8551e6 77.89%);
   background-color: rgba(103, 58, 183, 0.1);
   color: white !important;
   box-shadow: 0 0 2px 0px #333;
