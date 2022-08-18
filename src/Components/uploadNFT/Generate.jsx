@@ -165,10 +165,10 @@ const Generate = () => {
                         <img src="/images/CogOutline.svg" alt="" />
                         <p className="text-[#6549F6]  text-lg itemcount ">Manage</p>
                      </div>
-                     <div className="flex flex-col items-center opacity-100">
+                     <div className="flex flex-col items-center opacity-50">
                         <img src="/images/star.png" alt="" className="" />
                         <p className="text-[#6549F6]  text-lg  itemcount ">Generate</p>
-                        <img src="/images/path.svg" alt="" />
+                        {/* <img src="/images/path.svg" alt="" /> */}
                      </div>
 
 

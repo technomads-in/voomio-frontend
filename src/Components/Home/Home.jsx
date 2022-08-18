@@ -13,6 +13,8 @@ import tradingDoodles from "../../Assets/VoomioImages/tradingdoodles.svg";
 import tradingMoonbirds from "../../Assets/VoomioImages/tradingmoonbirds.svg";
 import ethereum from "../../Assets/Images/ethereum.png";
 import verified from "../../Assets/Images/verified.png";
+
+
 import "./Home.css";
 import DropDown from "../DropDown/DropDown";
 
@@ -903,10 +905,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
             {topnft.map((i, index) => (
               <div
-                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item"
+                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item duration-300 hover:scale-[1.05] ease-in-out transition hover:shadow-xl rounded-xl cursor-pointer"
                 key={index}
               >
                 <div className="sc-1xf18x6-0 sc-1twd32i-0 sc-1wwz3hp-0 sc-b4hiel-0 sc-cjf6mn-0 ttmcH kKpYwv kuGBEl iVtKaT euUQqP">
@@ -1078,13 +1080,13 @@ const Home = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
-              <button className="buttonborder-home  text-white font-bold py-2  px-12 2xl:text-2xl">
+              <button className="buttonborder-home  text-white font-bold py-2  px-12 2xl:text-2xl duration-300 hover:scale-[1.07] ease-in-out transition">
                 Explore
               </button>
-              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
+              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0 duration-300 hover:scale-[1.07] ease-in-out transition">
                 <button
                   type="button"
-                  className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
+                  className="hometitle px-12  py-2 font-bold 2xl:text-2xl  "
                 >
                   Create
                 </button>
