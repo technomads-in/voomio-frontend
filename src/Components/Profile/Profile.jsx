@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./Aggregator.css";
-
+import { getAssests, getMetadata } from "../../api/blockfrostapi"
 const Aggregator = () => {
   const [isDropdown, setIsDropdown] = useState(false);
   const [isCard, setIsCard] = useState(false);
   const [model, setModel] = useState(false);
   const [opebwallet, setopenwallet] = useState(false);
   const [active, setsetactive] = useState(1);
+  const [MYNFTS, setMYNFT] = useState([]);
   const octopussPopup = () => {
     setModel(!model);
   };
@@ -22,112 +22,163 @@ const Aggregator = () => {
   const cardClickClose = () => {
     setIsCard(false);
   };
+  // NFT meta data
+  const filterdata = async (array) => {
+    let rawNFTS = [];
+    if (array.length > 0) {
+      for (var i = 0; i < array.length; i++) {
+        let data = await getMetadata(array[i]["unit"], localStorage.getItem('network'))
+        let temp = {
+          asset: array[i]["unit"],
+          assest_name: data.asset_name,
+          policy_id: data.policy_id,
+          fingerprint: data.fingerprint,
+          quantity: array[i].quantity,
+          itemno: i,
+        }
+        if (data.onchain_metadata != null) {
+          if (typeof (data.onchain_metadata.image) == "string") {
+            if (data.onchain_metadata.image.slice(0, 4) == 'ipfs') {
+              temp.image = "https://ipfs.io/ipfs/" + data.onchain_metadata.image.slice(7, 53);
+              temp.name = data.onchain_metadata.name;
+            } else if (data.onchain_metadata.image.slice(0, 4) == 'http') {
+              temp.image = data.onchain_metadata.image;
+              temp.name = data.onchain_metadata.name;
+            }
+          } else if (typeof (data.onchain_metadata.image) == "object") {
+            if (data.onchain_metadata.image[0].includes("ipfs")) {
+              temp.name = data.onchain_metadata.name;
+              temp.image = "https://ipfs.io/ipfs/" + data.onchain_metadata.image[0].slice(7) + data.onchain_metadata.image[1];
+            } else {
+              temp.name = data.onchain_metadata.name;
+              temp.image = data.onchain_metadata.image[0] + data.onchain_metadata.image[1]
+            }
+          }
+        } else if (data.onchain_metadata == null && data.metadata == null) {
+          temp.image = null;
+          temp.name = null;
+        }
+        else {
+          temp.image = "data:image/png;base64," + data.metadata.logo;
+          temp.name = data.metadata.name;
+        }
+        rawNFTS.push(temp);
+      }
+    }
+    console.log(rawNFTS);
+    setMYNFT(rawNFTS);
+  }
   // scroll to top
-  useEffect(() => {
+  useEffect(async () => {
+    if (localStorage.getItem('stake-addr')) {
+      let NFTS = await getAssests(localStorage.getItem('stake-addr'), localStorage.getItem('network'));
+      await filterdata(NFTS);
+    } else {
+    }
     window.scrollTo(0, 0);
-  }, []);
-  const aggrigatorItem = [
-    {
-      id: 1,
-      image: "/images/monkeynft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 2,
-      image: "/images/cryptomannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 3,
-      image: "/images/rainbowmannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 4,
-      image: "/images/moonbirdnft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 5,
-      image: "/images/monkeynft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 6,
-      image: "/images/cryptomannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 7,
-      image: "/images/rainbowmannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 8,
-      image: "/images/moonbirdnft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 9,
-      image: "/images/monkeynft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 10,
-      image: "/images/cryptomannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 11,
-      image: "/images/rainbowmannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 12,
-      image: "/images/moonbirdnft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 13,
-      image: "/images/monkeynft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 14,
-      image: "/images/cryptomannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 15,
-      image: "/images/rainbowmannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 16,
-      image: "/images/moonbirdnft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 17,
-      image: "/images/monkeynft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 18,
-      image: "/images/cryptomannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 19,
-      image: "/images/rainbowmannft.png",
-      icons: "/images/Octopas.svg",
-    },
-    {
-      id: 20,
-      image: "/images/moonbirdnft.png",
-      icons: "/images/Octopas.svg",
-    },
-  ];
+  },[]);
+  // const aggrigatorItem = [
+  //   {
+  //     id: 1,
+  //     image: "/images/monkeynft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/images/cryptomannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/images/rainbowmannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 4,
+  //     image: "/images/moonbirdnft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 5,
+  //     image: "/images/monkeynft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 6,
+  //     image: "/images/cryptomannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 7,
+  //     image: "/images/rainbowmannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 8,
+  //     image: "/images/moonbirdnft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 9,
+  //     image: "/images/monkeynft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 10,
+  //     image: "/images/cryptomannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 11,
+  //     image: "/images/rainbowmannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 12,
+  //     image: "/images/moonbirdnft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 13,
+  //     image: "/images/monkeynft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 14,
+  //     image: "/images/cryptomannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 15,
+  //     image: "/images/rainbowmannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 16,
+  //     image: "/images/moonbirdnft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 17,
+  //     image: "/images/monkeynft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 18,
+  //     image: "/images/cryptomannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 19,
+  //     image: "/images/rainbowmannft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  //   {
+  //     id: 20,
+  //     image: "/images/moonbirdnft.png",
+  //     icons: "/images/Octopas.svg",
+  //   },
+  // ];
   return (
     <>
       {/* 1st element */}
@@ -146,40 +197,58 @@ const Aggregator = () => {
         </div>
       </div>
       {/* 2nd element */}
-      <div className="flex justify-between mx-auto container mt-40 flex-wrap">
-        <div className="flex items-center gap-1">
+      <div className="flex justify-between mx-auto container mt-40 flex-wrap ">
+        <div className="flex flex-col items-start gap-1">
           <h1 className="text-4xl font-bold w-">Mutant Ape Yatch Club</h1>
-          <img
-            src="/images/BadgeCheck.png"
-            alt="badge-check"
-            className="w-6 h-6"
-          />
         </div>
-        <div className="flex gap-8 items-center drop-shadow-xl">
-          <div>
-            <img src="/images/Group 552 (1).svg" alt="" className=" md:block hidden" />
-          </div>
-          <div>
-            <img src="/images/Group 555.svg" alt="" className=" md:block hidden" />
-          </div>
-          <div>
-            <img src="/images/Group 557.svg" alt="" className=" md:block hidden " />
-          </div>
-          <div>
-            <img src="/images/Group 558.svg" alt="" className=" md:block hidden" />
-          </div>
+        <div className="flex items-center gap-4 flex-wrap">
+          <button
+            type="button"
+            className="flex items-center px-14 py-2 follow text-white rounded-full  topcreatorsfollowing  transition duration-150 ease-in-out"
+          >
+            <i className="fa-solid fa-plus mr-2"></i>Follow
+          </button>
+          <button
+            type="button"
+            className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full transition duration-150 ease-in-out "
+          >
+            0x007..373xys..
+          </button>
+          <img src="/images/Group 559.svg" alt="" srcSet="" />
+          <img src="/images/Group 558.svg" alt="" className="" />
+        </div>
+      </div>
+      <div className="mx-auto container flex gap-5">
+        <div className=" text-[#6549F6]">@extrasoho</div>
+        <div className="border bg-[#F4EEFF] text-[#6549F6] font-bold rounded-xl text-xs flex items-center px-8">
+          JOINED MAY 2022
         </div>
       </div>
       {/* 3rd element */}
-      <div className="mx-auto container flex justify-start my-10">
+      <div className="mx-auto container flex md:flex-row flex-col md:justify-start justify-center my-10 gap-10">
         <p className="text-base lg:w-5/12 ">
           The MUTANT APE YACHT CLUB is a collection of up to 20,000 Mutant Apes
           that can only be created by exposing an existing Bored Ape to a vial
           of MUTANT SERUM or by minting a Mutant Ape in the public sale.
         </p>
+
+        <div>
+          <p className="itemcount text-base">Following</p>
+          <h1 className="text-xl font-bold">10.0K</h1>
+        </div>
+        <div>
+          <p className="itemcount text-base">Followers</p>
+          <h1 className="text-xl font-bold">6.3K</h1>
+        </div>
+        <div>
+          <img src="/images/Group 552 (1).svg" alt="" className=" " />
+        </div>
+        <div>
+          <img src="/images/Group 555.svg" alt="" className=" " />
+        </div>
       </div>
       {/* 4th element */}
-      <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap">
+      {/* <div className="flex md:justify-start justify-center container mx-auto gap-10 flex-wrap">
         <div>
           <p className="itemcount text-base">items</p>
           <h1 className="text-xl font-bold">10.0K</h1>
@@ -200,19 +269,19 @@ const Aggregator = () => {
             <i className="fa-brands fa-ethereum text-black"></i> 87
           </h1>
         </div>
-      </div>
-      <div className="flex  mx-auto container flex-wrap  gap-10 pt-10 md:justify-start justify-center">
+      </div> */}
+      <div className="flex  mx-auto container flex-wrap  gap-10 pt-10 md:justify-start justify-center mb-3">
         <div
           className={`${active === 1 ? "active" : "deActive"}`}
           onClick={() => setsetactive(1)}
         >
           Collection
         </div>
-        <div className={`${active === 2 ? "active font-bold " : "deActive"}`} onClick={() => setsetactive(2)}>
-          Community
-        </div>
-        <div className={`${active === 3 ? "active" : "deActive"}`} onClick={() => setsetactive(3)}>
-          Activity
+        <div
+          className={`${active === 2 ? "active font-bold " : "deActive"}`}
+          onClick={() => setsetactive(2)}
+        >
+          Created
         </div>
       </div>
       <div className="w-auto h-auto border-b-2 mb-3 mx-auto container" />
@@ -418,31 +487,30 @@ const Aggregator = () => {
       <div className="container mx-auto my-5">
         {" "}
         <div
-          className={`${
-            isCard
+          className={`${isCard
               ? "grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-16 place-content-center"
               : "grid md:grid-cols-2 lg:grid-cols-4 gap-16 place-content-center"
-          }`}
+            }`}
         >
-          {aggrigatorItem.map((i) => (
+          {MYNFTS.length == 0 ? ("NO NFT"):( MYNFTS.map((i) => (
             <div
               className="max-w-xs max-h-full bg-white rounded-lg border border-gray-200 shadow-md"
-              key={i.id}
+              // key={i.id}
             >
               <div className="relative hover:blur-sm">
                 <img className="max-h-80 " src={i.image} alt="" />
-                <div>
+                {/* <div>
                   <img
                     className=" h-12 absolute top-0 border px-3 py-2 bg-white rounded-md"
                     src={i.icons}
                     alt="Workflow"
                   />
-                </div>
+                </div> */}
               </div>
               <div className="p-3">
                 <div className="flex gap-2">
                   <h1 className="mb-2  cardtitle text-gray-900 dark:text-white">
-                    Bored Ape Yacht Club
+                    {i.name}
                   </h1>
                   <img
                     src="/images/BadgeCheck.png"
@@ -451,27 +519,26 @@ const Aggregator = () => {
                   />
                 </div>
                 <div className="flex justify-between items-center">
-                  <div>
+                  {/* <div>
                     <h2 className="cardid text-2xl"># 111559</h2>
-                  </div>
-                  <div className="flex items-center gap-5 text-xl">
+                  </div> */}
+                  {/* <div className="flex items-center gap-5 text-xl">
                     <h1 className=" cardfloor">Floor</h1>
                     <i className="fa-brands fa-ethereum  "></i>
                     <h1 className="cardprice">70</h1>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
-          ))}
+          )))}
         </div>
       </div>
 
       {/* octopuss popup */}
       {model && (
         <div
-          className={`${
-            model ? "" : "hidden"
-          }fixed animated fadeInDown backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0`}
+          className={`${model ? "" : "hidden"
+            }fixed animated fadeInDown backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0`}
         >
           <div className="relative bg-white dark:bg-blue-darkest rounded-xl shadow-xl px-7 sm:px-10 md:px-20 py-10 max-w-2xl w-11/12 md:w-full">
             <div className="flex items-center">
@@ -558,9 +625,8 @@ const Aggregator = () => {
       )}
       {opebwallet && (
         <div
-          className={`${
-            model ? "" : "hidden"
-          }fixed animated fadeInDown backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0`}
+          className={`${model ? "" : "hidden"
+            }fixed animated fadeInDown backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0`}
         >
           <div className="relative bg-white dark:bg-blue-darkest rounded-xl shadow-xl px-7 sm:px-10 md:px-20 py-10 max-w-2xl w-11/12 md:w-full">
             <div className="flex items-center">

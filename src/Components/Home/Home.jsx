@@ -289,7 +289,7 @@ const Home = () => {
   return (
     <>
       {/* Oneplace bloges  start*/}
-      <div className="homebackgroundimage md:py-20">
+      <div className="homebackgroundimage md:py-20 overflow-x-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-3  md:py-20">
           <div className="hidden lg:flex relative justify-start">
             {" "}
