@@ -320,12 +320,12 @@ const Home = () => {
             </div>
             <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 items-center">
               <button
-                className="buttonborder-home  text-white font-bold py-2.5  px-12 2xl:text-2xl w-fit delay-200 hover:scale-[1.08] ease-in-out transition"
+                className="buttonborder-home  text-white font-bold py-2.5  px-12 2xl:text-2xl w-fit duration-300 hover:scale-[1.07] ease-in-out transition"
                 onClick={() => navigate("/upload-nft")}
               >
                 Explore
               </button>
-              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0 w-fit  delay-200 hover:scale-[1.07] ease-in-out transition">
+              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0 w-fit  duration-300 hover:scale-[1.07] ease-in-out   transition">
                 <button
                   type="button"
                   className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
@@ -908,7 +908,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
             {topnft.map((i, index) => (
               <div
-                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item duration-300 hover:scale-[1.05] ease-in-out transition hover:shadow-xl rounded-xl cursor-pointer"
+                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item duration-300 hover:scale-[1.05]  transition hover:shadow-xl rounded-xl cursor-pointer"
                 key={index}
               >
                 <div className="sc-1xf18x6-0 sc-1twd32i-0 sc-1wwz3hp-0 sc-b4hiel-0 sc-cjf6mn-0 ttmcH kKpYwv kuGBEl iVtKaT euUQqP">

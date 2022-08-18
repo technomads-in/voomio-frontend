@@ -285,15 +285,7 @@ const Header = () => {
                 {/* Modal content */}
                 <div className="bg-white rounded-lg shadow-lg">
                   <div className="flex justify-end">
-                    <button
-                      type="button"
-                      className="text-[#7B61FF] bg-transparent rounded-lg text-sm p-2  ml-auto "
-                      data-modal-toggle="crypto-modal"
-                      onClick={openModel}
-                    >
-                      <img src={close} alt="" />
-                      <span className="sr-only">Close modal</span>
-                    </button>
+                  <img src={close} alt="" onClick={openModel} className="px-5 pt-5 cursor-pointer"/>
                   </div>
                   {/* Modal header */}
                   <div className="py-4 px-6 flex gap-4 rounded-t border-b dark:border-gray-600">
