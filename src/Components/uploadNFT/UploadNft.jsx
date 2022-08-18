@@ -124,10 +124,10 @@ const UploadNft = () => {
 				</div>
 				<div className='flex items-center justify-between mt-40 flex-wrap'>
 					<div>
-						<div className='text-[#250C50] pb-2 text-lg '>Settings</div>
-						<div className='text-[#6549F6]  text-md pb-2 '>General</div>
-						<div className='text-[#6549F6]  text-md pb-2 '>Layers</div>{' '}
-						<div className='text-[#6549F6]  text-md '>Rules</div>
+						<div className='text-[#250C50] pb-2 text-lg'>Settings</div>
+						<div className='text-[#6549F6] text-md pb-2'>General</div>
+						<div className='text-[#6549F6] text-md pb-2'>Layers</div>{' '}
+						<div className='text-[#6549F6] text-md '>Rules</div>
 					</div>
 
 					<div className=''>
