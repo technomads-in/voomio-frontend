@@ -13,6 +13,22 @@
 .buttonborder {
   background: linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
   border-radius: 30px;
+  font-family: "PoppinsFonts";
+  line-height: 1.2em;
+}
+:hover.buttonborder {
+  font-family: "PoppinsFonts";
+  line-height: 1.2em;
+  background: linear-gradient(
+    92.12deg,
+    #ffffff -5.07%,
+    #6549f6 38.89%,
+    #00dad9 90.46%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .border-mobile-menu {

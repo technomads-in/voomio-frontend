@@ -181,12 +181,23 @@ const Header = () => {
             <h1 className="font-bold ">Explore</h1>
             <h1 className="font-bold">Ranking</h1>
             <h1 className="font-bold">Create</h1>
-            <button
-              className="buttonborder menufont text-white font-bold py-3 lg:px-10 md:px-5"
-              onClick={openModel}
-            >
-              Connect Wallet
-            </button>
+            <div className="homebuttonborder rounded-3xl text-center ">
+              <button
+                className="buttonborder menufont text-white font-bold py-3 lg:px-10 md:px-5 "
+                onClick={openModel}
+              >
+                Connect Wallet
+              </button>
+            </div>
+
+            {/* <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
+              <button
+                type="button"
+                className="hometitle px-12 py-2 font-bold 2xl:text-2xl "
+              >
+                Create
+              </button>
+            </div> */}
           </div>
         </div>
         {/* =================Mobile menu, show/hide based on menu state.============ */}
