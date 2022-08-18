@@ -52,51 +52,52 @@ const UploadNft = () => {
   };
 
   const handleSort = (e) => {
-    const element = document.getElementById("sort-layers");
-    element.classList.remove("text-[#6549F6]");
-    element.classList.add(`bg-[#6549F6]`);
-    element.classList.add(`text-white`);
+    const element = document.getElementById("sort-layers")
+    element.classList.remove("text-[#6549F6]")
+    element.classList.add(`bg-[#6549F6]`)
+    element.classList.add(`text-white`)
     document.getElementById("sort-img").src = "/images/sort(1).png";
-    let showHide = document.getElementById("showHidden");
-    showHide.style.display = "block";
-  };
+    let showHide = document.getElementById("showHidden")
+    showHide.style.display = 'block'
+  }
 
   const order = [
     {
       id: 1,
-      name: "Body - Lorem",
+      name: 'Body - Lorem'
     },
     {
       id: 2,
-      name: "Clothes - Lorem",
+      name: 'Clothes - Lorem'
     },
     {
       id: 3,
-      name: "Color Background",
+      name: 'Color Background'
     },
     {
       id: 4,
-      name: "Eyes",
+      name: 'Eyes'
     },
     {
       id: 5,
-      name: "Hair",
+      name: 'Hair'
     },
     {
       id: 6,
-      name: "Mouth",
+      name: 'Mouth'
     },
     {
       id: 7,
-      name: "Texture",
+      name: 'Texture'
     },
-  ];
+  ]
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const goToPreview = () => {
-    navigate("/preview");
-  };
+    navigate("/preview")
+  }
+
 
   return (
     <>
@@ -104,13 +105,18 @@ const UploadNft = () => {
         <div className=" text-5xl font-bold text-[#222222]">NFT Generator</div>
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-[#250C50] pt-6 text-lg ">Current NFT</div>
-            <div className="text-[#6549F6]  text-lg pb-16 ">Single-item</div>
+            <div className="text-[#250C50] pt-6 text-lg ">
+              Current NFT
+            </div>
+            <div className="text-[#6549F6]  text-lg pb-16 ">
+              Single-item
+            </div>
           </div>
           <div className="flex items-center gap-10">
             <div className="flex flex-col justify-center items-center">
               <img src="/images/upload.svg" alt="" />
               <img src="/images/path.svg" alt="" />
+
             </div>
             <div onClick={() => goToPreview()}>
               <img src="/images/EyeOutline.svg" alt="" />
@@ -122,11 +128,16 @@ const UploadNft = () => {
         </div>
         <div className="flex items-center justify-between mt-40 flex-wrap">
           <div>
-            <div className="text-[#250C50] pb-2 text-lg ">Settings</div>
-            <div className="text-[#6549F6]  text-md pb-2 ">General</div>
+            <div className="text-[#250C50] pb-2 text-lg ">
+              Settings
+            </div>
+            <div className="text-[#6549F6]  text-md pb-2 ">
+              General
+            </div>
             <div className="text-[#6549F6]  text-md pb-2 ">Layers</div>{" "}
             <div className="text-[#6549F6]  text-md ">Rules</div>
           </div>
+
 
           <div className="">
             {/* new */}
@@ -174,52 +185,45 @@ const UploadNft = () => {
               </form>
             </div>
 
+
+
             {useEffect(() => {
               const timer = setTimeout(() => {
-                return ``;
-              }, 1000);
+                return ``
+              }, 1000)
               clearTimeout(timer);
             }, [])}
 
             <div id="wave" className="flex flex-col items-center">
-              <div className="font-extrabold text-3xl text-[#D6C3FA]">
-                Uploading...
-              </div>
-              <Wave mask="url(#mask)" fill="#D6C3FA" speed={0.4}>
+              <div className="font-extrabold text-3xl text-[#D6C3FA]">Uploading...</div>
+              <Wave mask="url(#mask)" fill="#D6C3FA" speed={0.4} >
                 <defs>
                   <linearGradient id="gradient" gradientTransform="rotate(90)">
                     <stop offset="0" stopColor="#7B61FF" />
                     <stop offset="0.7" stopColor="#00DAD9" />
                   </linearGradient>
                   <mask id="mask">
-                    <rect
-                      x="0"
-                      y="0"
-                      width="2000"
-                      height="200"
-                      fill="url(#gradient)"
-                    />
+                    <rect x="0" y="0" width="2000" height="200" fill="url(#gradient)" />
                   </mask>
                 </defs>
               </Wave>
+
             </div>
 
+
             <div className="flex justify-center">
-              <div className="border-[#6549F6] border-4 rounded-2xl xl:w-[1000px] flex flex-col items-center justify-center py-10">
+              <div className='border-[#6549F6] border-4 rounded-2xl xl:w-[1000px] flex flex-col items-center justify-center py-10'>
                 <form
                   id="form-file-upload"
                   onDragEnter={handleDrag}
                   onSubmit={(e) => e.preventDefault()}
                 >
                   <div>
-                    <div className="flex justify-center items-center mt-3">
-                      <i className="fa-solid fa-circle-check fa-4x text-[#87FDDD]"></i>
-                    </div>
-                    <div className="font-semibold text-2xl">Success!</div>
-                    <div className="text-[#999999] font-normal text-base">
-                      Your upload has completed.
-                    </div>
+                    <div className="flex justify-center items-center mt-3"><i className="fa-solid fa-circle-check fa-4x text-[#87FDDD]"></i></div>
+                    <div className="font-semibold text-2xl" >Success!</div>
+                    <div className="text-[#999999] font-normal text-base">Your upload has completed.</div>
                   </div>
+
 
                   <div>
                     <div className="flex justify-center gap-3 mt-3 px-3">
@@ -227,41 +231,31 @@ const UploadNft = () => {
                         <div className="">Upload More</div>
                       </div>
 
-                      <div
-                        className="flex items-center justify-center border-[#6549F6] text-[#6549F6] border-2 rounded-md xl:w-36 font-medium text-base h-12 gap-2 cursor-pointer"
-                        id="sort-layers"
-                      >
+                      <div className="flex items-center justify-center border-[#6549F6] text-[#6549F6] border-2 rounded-md xl:w-36 font-medium text-base h-12 gap-2 cursor-pointer" id="sort-layers">
                         <div onClick={handleSort}>Sort Layers</div>
                         <div>
-                          <img
-                            src="/images/sort.png"
-                            id="sort-img"
-                            alt=""
-                            className="h-2 w-3"
-                          />
+                          <img src="/images/sort.png" id="sort-img" alt="" className="h-2 w-3" />
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* preview and Attributes-order */}
+
+
                 </form>
                 <div id="showHidden" className="hidden">
+
                   <div className="grid grid-cols-1 md:grid-cols-2 place-items-center md:place-items-start gap-20 mt-20 ">
                     {/* col-1 */}
                     <div className="flex flex-col gap-3">
                       <div className="text-2xl font-bold">Preview</div>
                       <div>
-                        <img
-                          src="/images/mrmonkey.png"
-                          alt=""
-                          className="h-64 w-64"
-                        />
+                        <img src="/images/mrmonkey.png" alt="" className="h-64 w-64" />
                       </div>
                       <div className="bg-[#6549F6] rounded-lg text-white flex items-center justify-center font-medium text-lg py-3">
-                        <div>
-                          Shuffle Order
-                          <i className="fa-solid fa-shuffle pl-3 "></i>
+                        <div >Shuffle Order
+                          <i className="fa-solid fa-shuffle pl-3 " ></i>
                         </div>
                       </div>
                     </div>
@@ -269,33 +263,34 @@ const UploadNft = () => {
                     {/* col-2 */}
                     <div>
                       <div className="flex flex-col gap-3">
-                        <div className="text-2xl font-bold">
-                          Attributes Order
-                        </div>
-                        {order.map((i) => (
-                          <div
-                            className="flex items-center justify-between border-[#6549F6] text-[#6549F6] border-2 rounded-md font-medium text-base h-12 gap-4 px-4 w-64 border-box"
-                            key={i.id}
-                          >
-                            <div>{i.name} </div>
+                        <div className="text-2xl font-bold">Attributes Order</div>
+                        {order.map((i) =>
+                          <div className="flex items-center justify-between border-[#6549F6] text-[#6549F6] border-2 rounded-md font-medium text-base h-12 gap-4 px-4 w-64 border-box" key={i.id}>
+                            <div >{i.name} </div>
                             <div>
-                              <img
-                                src="/images/sort.png"
-                                alt=""
-                                className="h-2 w-4"
-                              />
+                              <img src="/images/sort.png" alt="" className="h-2 w-4" />
                             </div>
                           </div>
-                        ))}
+                        )}
                       </div>
+
                     </div>
+
+
                   </div>
+
                 </div>
               </div>
+
+
+
             </div>
+
+
           </div>
         </div>
       </div>
+
     </>
   );
 };

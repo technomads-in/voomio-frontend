@@ -112,7 +112,7 @@ const Header = () => {
       <nav
         className={`${
           openMobilemenu
-            ? " bg-purple-100 text-[#250C50] py-3 drop-shadow-2xl"
+            ? " bg-[purple] text-[#250C50] py-3 drop-shadow-2xl"
             : searchbtn
             ? "bg-white py-3 drop-shadow-2xl"
             : " bg-[#250C50]  text-white py-3 drop-shadow-2xl "

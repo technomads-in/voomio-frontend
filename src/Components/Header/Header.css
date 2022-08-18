@@ -14,6 +14,7 @@
   background: linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
   border-radius: 30px;
 }
+
 .border-mobile-menu {
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
@@ -22,6 +23,7 @@
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
+
 .font-apply {
   font-family: "NewHaansFonts";
 }
