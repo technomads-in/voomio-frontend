@@ -61,65 +61,40 @@ const Home = () => {
   const cardsItems = [
     {
       id: "1",
-
       mainimage: tradingMonkey,
-
       cardmaintext: "Mutant Ape Yatch Club",
-
       verifiedimage: verified,
-
       cardsubtitle: "Floor",
-
       etereumimage: ethereum,
-
       cardprice: "70",
     },
-
     {
       id: "2",
-
       mainimage: tradingCrypto,
-
       cardmaintext: "CryptoPunks",
-
       verifiedimage: verified,
-
       cardsubtitle: "Floor",
-
       etereumimage: ethereum,
-
       cardprice: "70",
     },
 
     {
       id: "3",
-
       mainimage: tradingDoodles,
-
       cardmaintext: "Doodles",
-
       verifiedimage: verified,
-
       cardsubtitle: "Floor",
-
       etereumimage: ethereum,
-
       cardprice: "70",
     },
 
     {
       id: "4",
-
       mainimage: tradingMoonbirds,
-
       cardmaintext: "Moonbirds",
-
       verifiedimage: verified,
-
       cardsubtitle: "Floor",
-
       etereumimage: ethereum,
-
       cardprice: "70",
     },
   ];
@@ -305,11 +280,20 @@ const Home = () => {
   return (
     <>
       {/* Oneplace bloges  start*/}
-      <div className="homebackgroundimage md:py-20 overflow-x-auto">
+      <div className="homebackgroundimage md:py-20 overflow-hidden h-[90vh]">
         <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0 mt-32">
-          <div className="hidden lg:block">
+          <div className="hidden lg:block relative ">
             {" "}
-            <img src="/images/Group.svg" alt="" />
+            <img
+              src={onePlaceleft2}
+              alt=""
+              className="absolute -ml-52 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceleft1}
+              alt=""
+              className="absolute top-[340px] mx-36 one-place-slide-up-animation"
+            />
           </div>
           <div className="flex flex-col ">
             <div className="flex justify-center lg:justify-start">
@@ -329,7 +313,7 @@ const Home = () => {
             </div>
             <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
               <button
-                className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl"
+                className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl zoom-in"
                 onClick={() => navigate("/upload-nft")}
               >
                 Explore
@@ -344,8 +328,19 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex justify-end">
-            <img src="/images/Group 548.svg" alt="rectangle" />
+
+          <div className="hidden lg:flex relative justify-end">
+            {" "}
+            <img
+              src={onePlaceRight2}
+              alt="rectangle"
+              className="absolute -mx-10 top-52 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceRight1}
+              alt="rectangle"
+              className="absolute -mx-24 one-place-slide-up-animation"
+            />
           </div>
         </div>
       </div>
