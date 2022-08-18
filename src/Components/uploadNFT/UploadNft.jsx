@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Wave from 'react-wavify';
 import './UploadNft.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const UploadNft = () => {
 	// upload image
@@ -107,27 +107,65 @@ const UploadNft = () => {
 				<div className='flex items-center justify-between'>
 					<div>
 						<div className='text-[#250C50] pt-6 text-lg '>Current NFT</div>
-						<div className='text-[#6549F6]  text-lg pb-16 '>Single-item</div>
+						<div className='text-[#6549F6]  text-lg pb-16 titleFont'>Single-item</div>
 					</div>
-					<div className='flex items-center gap-10'>
-						<div className='flex flex-col justify-center items-center'>
-							<img src='/images/upload.svg' alt='' />
-							<img src='/images/path.svg' alt='' />
+					<div className="flex items-center gap-10  ">
+						<div className="flex flex-col justify-center items-center ">
+							<img src="/images/upload.svg" alt="" className="h-10 w-10" />
+							<div className="titleFont text-[#7B61FF] titleFont">Upload</div>
+							<img src="/images/path.svg" alt="" className="h-5 " />
 						</div>
-						<div onClick={() => goToPreview()}>
-							<img src='/images/EyeOutline.svg' alt='' />
+						<div className="flex flex-col justify-center items-center opacity-20">
+							<img
+								src="/images/EyeOutline.svg"
+								alt=""
+								className="h-10 w-10"
+							/>
+							<div className="titleFont text-[#7B61FF]">Preview</div>
 						</div>
-
-						<img src='/images/CogOutline.svg' alt='' />
-						<img src='/images/star.png' alt='' />
+						<div className="flex flex-col justify-center items-center opacity-20">
+							<img
+								src="/images/CogOutline.svg"
+								alt=""
+								className="h-10 w-10"
+							/>
+							<div className="titleFont text-[#7B61FF] ">Manage</div>
+						</div>
+						<div className="flex flex-col justify-center items-center opacity-20">
+							<img src="/images/star.png" alt="" className="h-10 w-10" />
+							<div className="titleFont text-[#7B61FF]">Generate</div>
+						</div>
 					</div>
 				</div>
 				<div className='flex items-center justify-between mt-40 flex-wrap'>
-					<div>
-						<div className='text-[#250C50] pb-2 text-lg'>Settings</div>
-						<div className='text-[#6549F6] text-md pb-2'>General</div>
-						<div className='text-[#6549F6] text-md pb-2'>Layers</div>{' '}
-						<div className='text-[#6549F6] text-md '>Rules</div>
+					<div className="pb-5 pt-10 ">
+						<div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer titleFont">
+							Settings
+						</div>
+						<div className=" pb-5">
+							<Link
+								to="/general"
+								className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
+							>
+								General
+							</Link>
+						</div>
+						<div className=" pb-5">
+							<Link
+								to="/general"
+								className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
+							>
+								Layers
+							</Link>
+						</div>
+						<div className=" pb-5">
+							<Link
+								to="/general"
+								className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
+							>
+								Rules
+							</Link>
+						</div>
 					</div>
 
 					<div className=''>
@@ -241,7 +279,7 @@ const UploadNft = () => {
 											<div className='flex flex-col gap-3'>
 												<div className='text-2xl font-bold'>Preview</div>
 												<div>
-													<img src='/images/mrmonkey.png' alt='' className='h-64 w-64' />
+													<img src='/monkeysimages/mrmonkey.png' alt='' className='h-64 w-64' />
 												</div>
 												<div className='bg-[#6549F6] rounded-lg text-white flex items-center justify-center font-medium text-lg py-3'>
 													<div>
@@ -262,7 +300,10 @@ const UploadNft = () => {
 														>
 															<div>{i.name} </div>
 															<div>
-																<img src='/images/sort.png' alt='' className='h-2 w-4' />
+																<svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<path fill-rule="evenodd" clip-rule="evenodd" d="M0.599609 1.4002C0.599609 1.08194 0.726038 0.776711 0.951081 0.551667C1.17612 0.326624 1.48135 0.200195 1.79961 0.200195H16.1996C16.5179 0.200195 16.8231 0.326624 17.0481 0.551667C17.2732 0.776711 17.3996 1.08194 17.3996 1.4002C17.3996 1.71846 17.2732 2.02368 17.0481 2.24872C16.8231 2.47377 16.5179 2.6002 16.1996 2.6002H1.79961C1.48135 2.6002 1.17612 2.47377 0.951081 2.24872C0.726038 2.02368 0.599609 1.71846 0.599609 1.4002ZM0.599609 8.6002C0.599609 8.28194 0.726038 7.97671 0.951081 7.75167C1.17612 7.52662 1.48135 7.4002 1.79961 7.4002H16.1996C16.5179 7.4002 16.8231 7.52662 17.0481 7.75167C17.2732 7.97671 17.3996 8.28194 17.3996 8.6002C17.3996 8.91846 17.2732 9.22368 17.0481 9.44872C16.8231 9.67377 16.5179 9.8002 16.1996 9.8002H1.79961C1.48135 9.8002 1.17612 9.67377 0.951081 9.44872C0.726038 9.22368 0.599609 8.91846 0.599609 8.6002Z" fill="#6549F6" />
+																</svg>
+
 															</div>
 														</div>
 													))}
@@ -276,6 +317,7 @@ const UploadNft = () => {
 					</div>
 				</div>
 			</div>
+
 		</>
 	);
 };

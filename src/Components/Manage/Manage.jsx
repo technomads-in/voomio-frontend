@@ -156,17 +156,17 @@ const Manage = () => {
                     </div>
                     <div className="flex items-center justify-between">
                         <div>
-                            <div className="text-[#250C50] pt-6 text-lg itemcount">
+                            <div className="text-[#250C50] pt-6 text-lg titleFont">
                                 Current NFT
                             </div>
-                            <div className="text-[#6549F6]  text-lg pb-16 itemcount">
+                            <div className="text-[#6549F6]  text-lg pb-16 titleFont">
                                 Single-item
                             </div>
                         </div>
                         <div className="flex items-center gap-10  ">
                             <div className="flex flex-col justify-center items-center opacity-20">
                                 <img src="/images/upload.svg" alt="" className="h-10 w-10" />
-                                <div className="itemcount text-[#7B61FF]">Upload</div>
+                                <div className="titleFont text-[#7B61FF]">Upload</div>
                             </div>
                             <div className="flex flex-col justify-center items-center opacity-20">
                                 <img
@@ -174,7 +174,7 @@ const Manage = () => {
                                     alt=""
                                     className="h-10 w-10"
                                 />
-                                <div className="itemcount text-[#7B61FF]">Preview</div>
+                                <div className="titleFont text-[#7B61FF]">Preview</div>
                             </div>
                             <div className="flex flex-col justify-center items-center">
                                 <img
@@ -182,12 +182,12 @@ const Manage = () => {
                                     alt=""
                                     className="h-10 w-10"
                                 />
-                                <div className="itemcount text-[#7B61FF]">Manage</div>
+                                <div className="titleFont text-[#7B61FF]">Manage</div>
                                 <img src="/images/path.svg" alt="" className="h-5 " />
                             </div>
                             <div className="flex flex-col justify-center items-center opacity-20">
                                 <img src="/images/star.png" alt="" className="h-10 w-10" />
-                                <div className="itemcount text-[#7B61FF]">Generate</div>
+                                <div className="titleFont text-[#7B61FF]">Generate</div>
                             </div>
                         </div>
                     </div>
@@ -196,14 +196,14 @@ const Manage = () => {
                         <div className="flex md:gap-10 gap-12 font-medium text-xl">
                             {/* <div className="px-5"> */}
                             <button
-                                className={`${tabActive ? "active" : "deActive"} itemcount `}
+                                className={`${tabActive ? "active" : "deActive"} titleFont `}
                                 onClick={cardClickClose}
                             >
                                 Components
                             </button>
                             {/* </div> */}
                             <button
-                                className={`${tabActiveTwo ? "active" : "deActive"} itemcount`}
+                                className={`${tabActiveTwo ? "active" : "deActive"} titleFont`}
                                 onClick={cardClickOpen}
                             >
                                 One-of-Ones
@@ -253,7 +253,7 @@ const Manage = () => {
                                             className={` ${Popup
                                                 ? "bg-white text-[#6549F6]  border-2 border-[#6549F6] "
                                                 : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white "
-                                                } itemcount  font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between w-36 `}
+                                                } titleFont  font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between w-36 `}
                                             id="menu-button"
                                             aria-expanded="true"
                                             aria-haspopup="true"
@@ -331,13 +331,13 @@ const Manage = () => {
                         <>
                             <div className="grid grid-cols-12 ">
                                 <div className="pb-5 pt-10 ">
-                                    <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer itemcount">
+                                    <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer titleFont">
                                         Settings
                                     </div>
                                     <div className=" pb-5">
                                         <Link
                                             to="/general"
-                                            className="text-[#6549F6] font-medium text-base itemcount cursor-pointer"
+                                            className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
                                         >
                                             General
                                         </Link>
@@ -345,7 +345,7 @@ const Manage = () => {
                                     <div className=" pb-5">
                                         <Link
                                             to="/general"
-                                            className="text-[#6549F6] font-medium text-base itemcount cursor-pointer"
+                                            className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
                                         >
                                             Layers
                                         </Link>
@@ -353,7 +353,7 @@ const Manage = () => {
                                     <div className=" pb-5">
                                         <Link
                                             to="/general"
-                                            className="text-[#6549F6] font-medium text-base itemcount cursor-pointer"
+                                            className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
                                         >
                                             Rules
                                         </Link>
@@ -451,7 +451,7 @@ const Manage = () => {
                                                                         fill="black"
                                                                     />
                                                                 </svg>
-                                                                <div className="pl-5 itemcount">Set Rarity</div>
+                                                                <div className="pl-5 titleFont">Set Rarity</div>
                                                             </div>
                                                             <div className="p-2 flex  hover:bg-[#F4EEFF] hover:rounded ">
                                                                 <svg
@@ -467,7 +467,7 @@ const Manage = () => {
                                                                     />
                                                                 </svg>
 
-                                                                <div className="pl-5 itemcount">
+                                                                <div className="pl-5 titleFont">
                                                                     Set Quantity
                                                                 </div>
                                                             </div>
@@ -485,7 +485,7 @@ const Manage = () => {
                                                                     />
                                                                 </svg>
 
-                                                                <div className="pl-5 itemcount">
+                                                                <div className="pl-5 titleFont">
                                                                     Set Percentage
                                                                 </div>
                                                             </div>
@@ -497,7 +497,7 @@ const Manage = () => {
                                                         alt="img"
                                                     />
                                                 </div>
-                                                <div className="itemcount">Lorem Ipsum{i.id}</div>
+                                                <div className="titleFont">Lorem Ipsum{i.id}</div>
                                                 <div className="flex justify-between">
                                                     <div className="flex">
                                                         <img className=" ml-1" src="/images/dot.png"></img>
@@ -615,7 +615,7 @@ const Manage = () => {
                                                                             fill="black"
                                                                         />
                                                                     </svg>
-                                                                    <div className="pl-5 itemcount">
+                                                                    <div className="pl-5 titleFont">
                                                                         Set Rarity
                                                                     </div>
                                                                 </div>
@@ -633,7 +633,7 @@ const Manage = () => {
                                                                         />
                                                                     </svg>
 
-                                                                    <div className="pl-5 itemcount">
+                                                                    <div className="pl-5 titleFont">
                                                                         Set Quantity
                                                                     </div>
                                                                 </div>
@@ -651,7 +651,7 @@ const Manage = () => {
                                                                         />
                                                                     </svg>
 
-                                                                    <div className="pl-5 itemcount">
+                                                                    <div className="pl-5 titleFont">
                                                                         Set Percentage
                                                                     </div>
                                                                 </div>
@@ -666,7 +666,7 @@ const Manage = () => {
                                                         <div className={`w-80 h-80 max-w-none  bg-[#${i.backcolor}] rounded-xl`}></div>
 
                                                     </div> */}
-                                                    <div className="itemcount">Lorem Ipsum{i.id}</div>
+                                                    <div className="titleFont">Lorem Ipsum{i.id}</div>
                                                     <div className="flex justify-between">
                                                         <div className="flex">
                                                             <img
@@ -709,13 +709,13 @@ const Manage = () => {
                     ) : (
                         <div className="flex gap-8">
                             <div className="pb-5 pt-44 ">
-                                <div className="text-[#250C50] font-medium text-lg pb-5 itemcount cursor-pointer">
+                                <div className="text-[#250C50] font-medium text-lg pb-5 titleFont cursor-pointer">
                                     Settings
                                 </div>
                                 <div className=" pb-5">
                                     <Link
                                         to="/general"
-                                        className="text-[#6549F6] font-medium text-base itemcount cursor-pointer"
+                                        className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
                                     >
                                         General
                                     </Link>
@@ -723,7 +723,7 @@ const Manage = () => {
                                 <div className=" pb-5">
                                     <Link
                                         to="/general"
-                                        className="text-[#6549F6] font-medium text-base itemcount cursor-pointer"
+                                        className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
                                     >
                                         Layers
                                     </Link>
@@ -731,7 +731,7 @@ const Manage = () => {
                                 <div className=" pb-5">
                                     <Link
                                         to="/general"
-                                        className="text-[#6549F6] font-medium text-base itemcount cursor-pointer"
+                                        className="text-[#6549F6] font-medium text-base titleFont cursor-pointer"
                                     >
                                         Rules
                                     </Link>
@@ -751,12 +751,12 @@ const Manage = () => {
                                             onClick={() => {
                                                 handleDrop(d);
                                             }}
-                                        // className={` ${show === d ? "bg-white text-[#6549F6]  border-2 border-[#6549F6] " : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white "} itemcount  font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between `}
+                                        // className={` ${show === d ? "bg-white text-[#6549F6]  border-2 border-[#6549F6] " : "  bg-gradient-to-r from-[#7B61FF] to-[#00DAD9] text-white "} titleFont  font-medium rounded-t-lg text-lg px-4 py-2.5 text-center inline-flex items-center  place-content-between `}
                                         >
                                             {/* */}
                                             <div
                                                 className={` ${show === d ? "text-white" : ""
-                                                    } itemcount`}
+                                                    } titleFont`}
                                             >
                                                 {i.name}
                                             </div>
