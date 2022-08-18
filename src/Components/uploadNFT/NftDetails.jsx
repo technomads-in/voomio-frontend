@@ -41,6 +41,10 @@ const NftDetails = ({ closeModal }) => {
     },
   ];
 
+  const closeBtn = () => {
+    setCreateshow(false)
+    setBtnShow(true);
+  }
   const openRule = () => {
     console.log("::::");
     setBtnShow(false);
@@ -77,7 +81,7 @@ const NftDetails = ({ closeModal }) => {
           <div className="relative rounded-lg  px-4">
             <div className="flex justify-between">
               <div className="pr-2 pt-5 flex">
-                <div className="font-bold text-xl itemcount">#1267</div>
+                <div className="font-bold text-xl titleFont">#1267</div>
                 <div className="pl-5">
                   <svg
                     width="32"
@@ -186,8 +190,8 @@ const NftDetails = ({ closeModal }) => {
                 {attributes.map((i) => {
                   return (
                     <div className="flex gap-2 justify-between text-base">
-                      <div className="font-medium pb-1 itemcount">{i.name}</div>
-                      <div className="font-normal itemcount">{i.content}</div>
+                      <div className="font-medium pb-1 titleFont">{i.name}</div>
+                      <div className="font-normal titleFont">{i.content}</div>
                     </div>
                   );
                 })}
@@ -212,11 +216,14 @@ const NftDetails = ({ closeModal }) => {
               <div className="flex justify-end my-5 relative">
                 <div
                   id="createButton"
-                  className={`${BtnShow ? "block" : ""} absolute bg-white border-2 border-[#7B61FF] flex items-center gap-2 text-[#6549F6] px-8 py-2 rounded-3xl cursor-pointer`}
+                  className={`${BtnShow ? "block" : ""} -mt-5 absolute bg-white border-2 border-[#7B61FF] flex items-center gap-2 text-[#6549F6] px-8 py-2 rounded-3xl cursor-pointer`}
                 // className="create-button bg-gradient-to-r from-[#9B53E0] to-[#8551E6] border-2 border-[#7B61FF] flex items-center gap-2 text-white px-8 py-2 rounded-3xl cursor-pointer"
                 >
-                  <i id="plusXmark" className="fa-solid fa-plus"></i>
-                  <div id="createCancel" onClick={openRule} >
+                  <div className="rotate-45">
+
+                    <i id="plusXmark" className="fa-solid fa-plus"></i>
+                  </div>
+                  <div id="createCancel" onClick={closeBtn} >
                     {/* <div className=> */}
                     Cancel
                   </div>
@@ -249,7 +256,7 @@ const NftDetails = ({ closeModal }) => {
                 </div>
               </div>
               <div className="flex justify-end pr-4 py-5">
-                <div className="create-button flex items-center w-44 gap-2 text-white px-8 py-2 rounded-3xl cursor-pointer">
+                <div className=" create-button bg-gradient-to-r from-[#9B53E0] to-[#8551E6] border-2 border-[#7B61FF] flex items-center gap-2 text-white px-8 py-2 rounded-3xl cursor-pointer">
                   <i className="fa-solid fa-plus"></i>
                   <div>Create Rule</div>
                 </div>

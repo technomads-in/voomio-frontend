@@ -271,7 +271,7 @@ const Header = () => {
       {/* Popup */}
 
       {isModel ? (
-        <div className="fixed animated fadeInDown backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0">
+        <div className="fixed  animated fadeInDown backdrop-filter backdrop-blur-sm bg-backdrop flex items-center justify-center overflow-auto z-50 inset-0">
           {/* Main modal */}
           <div className="flex justify-center pt-36 pb-4">
             <div
@@ -281,14 +281,19 @@ const Header = () => {
               aria-modal="true"
               role="dialog"
             >
-              <div className="p-4 max-w-2xl">
+              <div className="p-5 max-w-2xl">
                 {/* Modal content */}
                 <div className="bg-white rounded-lg shadow-lg">
                   <div className="flex justify-end">
-                  <img src={close} alt="" onClick={openModel} className="px-5 pt-5 cursor-pointer"/>
+                    <img
+                      src={close}
+                      alt=""
+                      onClick={openModel}
+                      className="px-5 pt-5 cursor-pointer"
+                    />
                   </div>
                   {/* Modal header */}
-                  <div className="py-4 px-6 flex gap-4 rounded-t border-b dark:border-gray-600">
+                  <div className="py-2 px-6 flex gap-4 rounded-t border-b dark:border-gray-600">
                     <div>
                       <img
                         src={Wallet}
@@ -335,7 +340,9 @@ const Header = () => {
                             Coinbase Wallet
                           </div>
                         </div>
-                        <div className="cursor-pointer"></div>
+                        <div className="mr-5 px-8 py-1 text-[#7B61FF] border-2 border-[#7B61FF] rounded-3xl cursor-pointer flex justify-center w-32">
+                          <div className="font-medium text-lg">Connect</div>
+                        </div>
                       </div>
                       <div className="border-b-[1px] border-[#D9D9D9]"></div>
                     </div>
@@ -348,8 +355,8 @@ const Header = () => {
                           </div>
                           <div className="pl-6 font-medium text-xl">Nami</div>
                         </div>
-                        <div className="mr-5 px-8 py-1 text-[#7B61FF] bg-[#F4EEFF] rounded-3xl cursor-pointer flex justify-center w-32">
-                          <div className="font-medium text-lg">cardano</div>
+                        <div className="mr-5 px-8 py-1 text-[#7B61FF] border-2 border-[#7B61FF] rounded-3xl cursor-pointer flex justify-center w-32">
+                          <div className="font-medium text-lg">Connect</div>
                         </div>
                       </div>
                       <div className="border-b-[1px] border-[#D9D9D9]"></div>
@@ -365,8 +372,8 @@ const Header = () => {
                             Phantom
                           </div>
                         </div>
-                        <div className="mr-5 px-8 py-1 text-[#7B61FF] bg-[#F4EEFF] rounded-3xl cursor-pointer flex justify-center w-32">
-                          <div className="font-medium text-lg">solana</div>
+                        <div className="mr-5 px-8 py-1 text-[#7B61FF] border-2 border-[#7B61FF] rounded-3xl cursor-pointer flex justify-center w-32">
+                          <div className="font-medium text-lg">Connect</div>
                         </div>
                       </div>
                       <div className="border-b-[1px] border-[#D9D9D9]"></div>

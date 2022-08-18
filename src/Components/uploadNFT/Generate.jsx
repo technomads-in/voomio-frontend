@@ -144,30 +144,30 @@ const Generate = () => {
                <div className=" text-5xl font-bold text-[#222222]">NFT Generator</div>
                <div className="flex items-center justify-between">
                   <div>
-                     <div className="text-[#250C50] pt-6 text-lg itemcount">
+                     <div className="text-[#250C50] pt-6 text-lg titleFont">
                         Current NFT
                      </div>
-                     <div className="text-[#6549F6]  text-lg pb-16 itemcount">
+                     <div className="text-[#6549F6]  text-lg pb-16 titleFont">
                         Single-item
                      </div>
                   </div>
                   <div className="flex items-center gap-10">
                      <div className="opacity-50 flex flex-col justify-center items-center">
                         <img src="/images/upload.svg" alt="" />
-                        <p className="text-[#6549F6]  text-lg  itemcount ">Upload</p>
+                        <p className="text-[#6549F6]  text-lg  titleFont ">Upload</p>
                      </div>
                      <div className='flex flex-col justify-center items-center opacity-50'>
                         <img src="/images/EyeOutline.svg" alt="" />
-                        <p className="text-[#6549F6]  text-lg  itemcount ">Preview</p>
+                        <p className="text-[#6549F6]  text-lg  titleFont ">Preview</p>
                      </div>
 
                      <div className="flex flex-col items-center opacity-50">
                         <img src="/images/CogOutline.svg" alt="" />
-                        <p className="text-[#6549F6]  text-lg itemcount ">Manage</p>
+                        <p className="text-[#6549F6]  text-lg titleFont ">Manage</p>
                      </div>
                      <div className="flex flex-col items-center opacity-50">
                         <img src="/images/star.png" alt="" className="" />
-                        <p className="text-[#6549F6]  text-lg  itemcount ">Generate</p>
+                        <p className="text-[#6549F6]  text-lg  titleFont ">Generate</p>
                         {/* <img src="/images/path.svg" alt="" /> */}
                      </div>
 
@@ -188,14 +188,14 @@ const Generate = () => {
                   <div className='flex gap-24'>
                      <div className="flex justify-between  flex-wrap">
                         <div>
-                           <div className="text-[#250C50] pb-2 text-lg itemcount">
+                           <div className="text-[#250C50] pb-2 text-lg titleFont">
                               Settings
                            </div>
-                           <div className="text-[#6549F6]  text-md pb-5 itemcount">
+                           <div className="text-[#6549F6]  text-md pb-5 titleFont">
                               General
                            </div>
-                           <div className="text-[#6549F6]  text-md pb-5 itemcount">Layers</div>
-                           <div className="text-[#6549F6]  text-md itemcount">Rules</div>
+                           <div className="text-[#6549F6]  text-md pb-5 titleFont">Layers</div>
+                           <div className="text-[#6549F6]  text-md titleFont">Rules</div>
                         </div>
                      </div>
                   </div>
@@ -206,7 +206,13 @@ const Generate = () => {
                      <div id='general-section'>
                         <div className="flex gap-4">
                            <div>
-                              <img src="/images/gallery.png" alt="" className="w-24 h-24" />
+                              {/* <img src="/images/gallery.png" alt="" className="w-24 h-24" /> */}
+                              <svg width="121" height="121" viewBox="0 0 121 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <circle cx="60.5" cy="60.5" r="60.5" fill="#F4EEFF" />
+                                 <circle cx="60.5007" cy="60.5" r="50.8571" stroke="#7B61FF" stroke-width="2" stroke-dasharray="6 6" />
+                                 <path d="M47 68L55.0255 59.9745C55.6818 59.3184 56.5719 58.9497 57.5 58.9497C58.4281 58.9497 59.3182 59.3184 59.9745 59.9745L68 68H47ZM64.5 64.5L67.2755 61.7245C67.9318 61.0684 68.8219 60.6997 69.75 60.6997C70.6781 60.6997 71.5682 61.0684 72.2245 61.7245L75 64.5H64.5ZM64.5 54H64.5175H64.5ZM50.5 75H71.5C72.4283 75 73.3185 74.6313 73.9749 73.9749C74.6313 73.3185 75 72.4283 75 71.5V50.5C75 49.5717 74.6313 48.6815 73.9749 48.0251C73.3185 47.3687 72.4283 47 71.5 47H50.5C49.5717 47 48.6815 47.3687 48.0251 48.0251C47.3687 48.6815 47 49.5717 47 50.5V71.5C47 72.4283 47.3687 73.3185 48.0251 73.9749C48.6815 74.6313 49.5717 75 50.5 75Z" stroke="#7B61FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+
                            </div>
 
                            <div className='flex justify-center flex-col gap-3'>
@@ -231,12 +237,16 @@ const Generate = () => {
                                        </label>
                                     ) : (
                                        <label
-                                          id="label-file-upload"
-                                          htmlFor="input-file-upload"
+
                                           className={dragActive ? "drag-active" : ""}
                                        >
                                           <div className='uploadBackground w-40 flex justify-center items-center rounded-2xl gap-1 py-1'>
-                                             <img src="/images/UploadOutline.png" alt="" className='h-5 w-5' />
+                                             {/* <img src="/images/UploadOutline.png" alt="" className='h-5 w-5' />
+                                              */}
+                                             <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10.9995 7.00031V19.0003M6.99945 15.0003C5.75241 15.0011 4.55007 14.5359 3.62834 13.696C2.7066 12.8561 2.13201 11.702 2.0173 10.4602C1.90259 9.21848 2.25605 7.97868 3.00832 6.98409C3.76059 5.98951 4.85736 5.31193 6.08345 5.08431C6.29881 3.93798 6.908 2.90295 7.80568 2.15821C8.70335 1.41347 9.83307 1.00586 10.9995 1.00586C12.1658 1.00586 13.2956 1.41347 14.1932 2.15821C15.0909 2.90295 15.7001 3.93798 15.9155 5.08431C17.1374 5.31656 18.2291 5.99578 18.9773 6.98942C19.7255 7.98307 20.0767 9.21986 19.9623 10.4584C19.8479 11.697 19.2761 12.8486 18.3585 13.6883C17.4409 14.5281 16.2433 14.9958 14.9995 15.0003H6.99945ZM7.99945 10.0003L10.9995 7.00031L7.99945 10.0003ZM10.9995 7.00031L13.9995 10.0003L10.9995 7.00031Z" stroke="#8551E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                             </svg>
+
                                              <button className="upload-button text-[#8551E6] decoration-0 font-medium" onClick={onButtonClick} >
                                                 Upload
                                              </button>
