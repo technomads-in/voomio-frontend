@@ -10,6 +10,7 @@ const GenerateToken = () => {
         console.log(":::");
         setshow(!show);
     }
+
     return (
         <>
             <div className="">
