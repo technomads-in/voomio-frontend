@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./Generate.css"
-const Generate = () => {
+import "./GenerateToken.css"
+const GenerateToken = () => {
     const [show, setshow] = useState(-1)
     const [model, setModel] = useState(false);
     const octopussPopup = () => {
@@ -252,4 +252,4 @@ const Generate = () => {
     );
 };
 
-export default Generate;
+export default GenerateToken;

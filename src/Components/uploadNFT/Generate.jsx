@@ -191,10 +191,10 @@ const Generate = () => {
                            <div className="text-[#250C50] pb-2 text-lg itemcount">
                               Settings
                            </div>
-                           <div className="text-[#6549F6]  text-md pb-2 itemcount">
+                           <div className="text-[#6549F6]  text-md pb-5 itemcount">
                               General
                            </div>
-                           <div className="text-[#6549F6]  text-md pb-2 itemcount">Layers</div>
+                           <div className="text-[#6549F6]  text-md pb-5 itemcount">Layers</div>
                            <div className="text-[#6549F6]  text-md itemcount">Rules</div>
                         </div>
                      </div>
@@ -376,7 +376,7 @@ const Generate = () => {
                                     </div>
                                  </div>
                               </div>
-                              
+
                            )}
                            <div className='flex gap-1 justify-center items-center text-[#8551E6] uploadBackground rounded-3xl w-28 py-2 px-2 cursor-pointer'>
                               <i className="fa-solid fa-plus"></i>

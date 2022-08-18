@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Manage.css"
 import "swiper/css";
 import "swiper/css/scrollbar";
+import { Link } from 'react-router-dom';
 
 const Manage = () => {
     const [isDropdown, setIsDropdown] = useState(false);
@@ -331,9 +332,17 @@ const Manage = () => {
                             <div className="grid grid-cols-12 " >
                                 <div className="pb-5 pt-10 ">
                                     <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer">Settings</div>
-                                    <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">General</div>
-                                    <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Layers</div>
-                                    <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Rules</div>
+                                    <div className=" pb-5">
+                                        <Link to="/general" className="text-[#6549F6] font-medium text-base  cursor-pointer">General</Link>
+                                    </div>
+                                    <div className=" pb-5">
+                                        <Link to="/general" className="text-[#6549F6] font-medium text-base  cursor-pointer">Layers</Link>
+
+                                    </div>
+                                    <div className=" pb-5">
+
+                                        <Link to="/general" className="text-[#6549F6] font-medium text-base  cursor-pointer">Rules</Link>
+                                    </div>
                                 </div>
 
                                 <div className="col-span-10 pt-5">
@@ -545,9 +554,17 @@ const Manage = () => {
                         <div className="flex gap-8" >
                             <div className="pb-5 pt-32 ">
                                 <div className="text-[#250C50] font-medium text-lg pb-5  cursor-pointer">Settings</div>
-                                <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">General</div>
-                                <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Layers</div>
-                                <div className="text-[#6549F6] font-medium text-base pb-5 cursor-pointer">Rules</div>
+                                <div className=" pb-5">
+                                    <Link to="/general" className="text-[#6549F6] font-medium text-base  cursor-pointer">General</Link>
+                                </div>
+                                <div className=" pb-5">
+                                    <Link to="/general" className="text-[#6549F6] font-medium text-base  cursor-pointer">Layers</Link>
+
+                                </div>
+                                <div className=" pb-5">
+
+                                    <Link to="/general" className="text-[#6549F6] font-medium text-base  cursor-pointer">Rules</Link>
+                                </div>
                             </div>
                             <div className='grid grid-cols-1 w-full pt-10'>
 

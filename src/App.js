@@ -10,7 +10,7 @@ import Manage from "./Components/Manage/Manage";
 import NftGenerator from "./Components/NftGenerator/NftGenerator";
 import UploadNft from "./Components/uploadNFT/UploadNft";
 import Preview from "./Components/uploadNFT/Preview";
-
+import GenerateToken from "./Components/Generate Token/GenerateToken";
 function App() {
   return (
     <>
@@ -34,7 +34,8 @@ function App() {
         <Route exact path="/nftgenerator" element={<NftGenerator />} />
         <Route exact path="/upload-nft" element={<UploadNft />} />
         <Route exact path="/manage" element={<Manage />} />
-        <Route exact path="/generate" element={<Generate />} />
+        <Route exact path="/generate" element={<GenerateToken />} />
+        <Route exact path="/general" element={<Generate />} />
         <Route exact path="/preview" element={<Preview />} />
       </Routes>
       <Footer />
