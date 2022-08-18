@@ -365,3 +365,52 @@
   cursor: pointer;
   outline: none;
 }
+
+/* slide animation */
+.one-place-slide-animation {
+  animation: slideDown 4s infinite;
+  -webkit-animation: slideDown 4s infinite;
+}
+
+@keyframes slideDown {
+  50% {
+    transform: translateY(5%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideDown {
+  50% {
+    -webkit-transform: translateY(5%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}
+.one-place-slide-up-animation {
+  animation: slideup 4s infinite;
+  -webkit-animation: slideup 4s infinite;
+}
+@keyframes slideup {
+  50% {
+    transform: translateY(-8%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slideup {
+  50% {
+    -webkit-transform: translateY(-8%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}

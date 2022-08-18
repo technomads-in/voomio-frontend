@@ -159,6 +159,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#FF6263",
     },
     {
       id: "2",
@@ -171,6 +172,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#DE4839",
     },
     {
       id: "3",
@@ -183,6 +185,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#BF3325",
     },
     {
       id: "4",
@@ -195,6 +198,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#E21717",
     },
     {
       id: "5",
@@ -207,6 +211,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#FF6263",
     },
   ];
 
@@ -280,8 +285,8 @@ const Home = () => {
   return (
     <>
       {/* Oneplace bloges  start*/}
-      <div className="homebackgroundimage md:py-20 overflow-hidden h-[90vh]">
-        <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0 mt-32">
+      <div className="homebackgroundimage -mt-20 md:py-20 overflow-hidden h-[110vh] lg:h-[90vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 p-3 md:p-0 mt-32">
           <div className="hidden lg:block relative ">
             {" "}
             <img
@@ -311,14 +316,14 @@ const Home = () => {
                 we’re sure you’re going to love it here.
               </h1>
             </div>
-            <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
+            <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 items-center">
               <button
-                className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl"
+                className="buttonborder-home  text-white font-bold py-2.5  px-12 2xl:text-2xl w-fit delay-200 hover:scale-[1.08] ease-in-out transition"
                 onClick={() => navigate("/upload-nft")}
               >
                 Explore
               </button>
-              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
+              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0 w-fit  delay-200 hover:scale-[1.07] ease-in-out transition">
                 <button
                   type="button"
                   className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
@@ -433,17 +438,14 @@ const Home = () => {
 
       {/* Trending card */}
       <div>
-        <div
-          className="container max-w-7xl mx-auto px-4 mt-10"
-          style={{ cursor: "auto" }}
-        >
-          <div className="flex flex-wrap justify-center mt-14">
+        <div className="container max-w-7xl mx-auto px-4 mt-10">
+          <div className="flex flex-wrap justify-center mt-14 ">
             {cardsItems.map((i, index) => (
               <div
-                className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
+                className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4  duration-300 hover:scale-[1.07] ease-in-out transition "
                 key={index}
               >
-                <div className=" relative network-box mt-16">
+                <div className=" relative network-box mt-16 hover:shadow-xl cursor-pointer">
                   <div className="absolute left-0 -top-6 ">
                     <div className="relative inline-block text-left ">
                       {/* <div className="dropdownborder cardborder rounded-3xl">
@@ -487,7 +489,7 @@ const Home = () => {
               </div>
             ))}
             <button
-              className="buttongradient my-10 text-white font-bold py-1 px-12 rounded-full"
+              className="buttongradient my-10 text-white font-bold py-1 px-12 rounded-full duration-300 hover:scale-[1.07] ease-in-out transition"
               onClick={() => navigate("/aggregator")}
             >
               Load more
@@ -511,21 +513,23 @@ const Home = () => {
           <div className="">
             <Carousel breakPoints={breakPoints}>
               {secondVideo.map((i, index) => (
-                <div
-                  className="max-w-sm rounded overflow-hidden p-2"
-                  key={index}
-                >
-                  <img
-                    className="w-full"
-                    src={i.videoimage}
-                    alt="Sunset in the mountains"
-                  />
-                  <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2 text-[#222222]">
-                      {i.videotitle}
+                <div className="duration-300 hover:scale-[1.07] ease-in-out transition rounded ">
+                  <div
+                    className="max-w-sm rounded overflow-hidden p-2 "
+                    key={index}
+                  >
+                    <img
+                      className="w-full"
+                      src={i.videoimage}
+                      alt="Sunset in the mountains"
+                    />
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-xl mb-2 text-[#222222]">
+                        {i.videotitle}
+                      </div>
+                      <p className="text-[#222222] text-base">{i.videotext}</p>
+                      <p className="text-[#222222] text-base">{i.videoview}</p>
                     </div>
-                    <p className="text-[#222222] text-base">{i.videotext}</p>
-                    <p className="text-[#222222] text-base">{i.videoview}</p>
                   </div>
                 </div>
               ))}
@@ -548,7 +552,10 @@ const Home = () => {
           <div className="">
             <Carousel breakPoints={breakPoints}>
               {topCreatorsItems.map((i, index) => (
-                <div className="rounded-xl topcreators-box" key={index}>
+                <div
+                  className="rounded-xl topcreators-box duration-300 hover:scale-[1.07] ease-in-out transition"
+                  key={index}
+                >
                   <div className="rounded-lg  bg-[#e9ae65] ">
                     <div className="px-10 py-8">
                       <div className="flex justify-center">
