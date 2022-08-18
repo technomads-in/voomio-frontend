@@ -5,24 +5,33 @@
 
 @font-face {
   font-family: "Neue Haas Grotesk Display Pro";
-  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf") format("truetype");
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Neue Haas Grotesk Display Pro1";
-  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf") format("truetype");
+  src: url("../../Assets/fonts/NeueHaasGrotesk/NeueHaasDisplay-Mediu.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "PoppinsFontsBold";
+  src: url("../../Assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+.community-font {
+  font-family: "PoppinsFontsBold";
+}
 .itemcount {
   font-family: "Neue Haas Grotesk Display Pro1";
 }
 
 /* popup */
-.popuptittle {
+.popuptitle {
   font-family: "Neue Haas Grotesk Display Pro";
 }
 
@@ -154,7 +163,6 @@ input[type="text"] {
   width: 180px;
   height: 4px;
   background: linear-gradient(93.69deg, #7b61ff 0%, #00dad9 107.12%);
-
 }
 
 /* fadein */
@@ -164,11 +172,13 @@ input[type="text"] {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-20px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
@@ -180,6 +190,7 @@ input[type="text"] {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -190,3 +201,44 @@ input[type="text"] {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
 }
+
+.active {
+  border-bottom: 8px solid #6549f6;
+  margin-bottom: -13px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  color: #6549f6;
+}
+
+.deActive {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  color: #250c50;
+}
+
+/* .dropdown-menu {
+  position: fixed;
+  top: 70px;
+  background-color: #666;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 0;
+  width: 100%;
+  -webkit-transition: max-height, 0.8s ease-in-out;
+  transition: max-height, 0.8s ease-in-out;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.display-menu {
+  max-height: 300px;
+} */

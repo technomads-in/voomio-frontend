@@ -112,10 +112,10 @@ const Header = () => {
       <nav
         className={`${
           openMobilemenu
-            ? " bg-[purple] text-[#250C50] py-3 drop-shadow-2xl"
+            ? " bg-purple-100 text-[#250C50] py-3 drop-shadow-2xl sticky top-0 z-10"
             : searchbtn
-            ? "bg-white py-3 drop-shadow-2xl"
-            : " bg-[#250C50]  text-white py-3 drop-shadow-2xl "
+            ? "bg-white py-3 drop-shadow-2xl sticky top-0 z-10"
+            : " bg-[#250C50]  text-white py-3 drop-shadow-2xl sticky top-0 z-10"
         }`}
       >
         <div className="container mx-auto flex lg:justify-center justify-between items-center  md:gap-2 lg:gap-10 lg:p-0 px-5">
@@ -168,7 +168,7 @@ const Header = () => {
               <i className="fa-solid fa-angle-down text-[#000000]"></i>
               {openDropdown ? (
                 <>
-                  <div className="border-2 border-[#6549F6] absolute top-11 rounded-md p-5 lg:flex hidden flex-col bg-white text-[#6549F6] gap-3 hover">
+                  <div className="border-2 border-[#6549F6] absolute top-11 rounded-md p-5 lg:flex hidden flex-col bg-white text-[#6549F6] gap-3 hover z-[100]">
                     <div>ETH</div>
                     <div>SOL</div>
                     <div>ADA</div>
@@ -191,7 +191,7 @@ const Header = () => {
         </div>
         {/* =================Mobile menu, show/hide based on menu state.============ */}
         {openMobilemenu && (
-          <div className=" text-center text-[#250C50] bg-purple-100 h-[100vh]  pt-20   z w-[100%] items-center ">
+          <div className=" text-center text-[#250C50] bg-purple-100  pt-20  h-[100vh]  z-50 w-[100%] items-center ">
             <div className="px-2 pt-2 pb-3 space-y-1 ">
               <a
                 href="/upload-nft"
