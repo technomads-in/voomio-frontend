@@ -1,5 +1,4 @@
 import React from "react";
-
 const NftDetails = ({ closeModal }) => {
   const attributes = [
     {
@@ -59,21 +58,20 @@ const NftDetails = ({ closeModal }) => {
     const plusXmark = document.getElementById("plusXmark");
     plusXmark.classList = "fa-solid fa-xmark";
   };
-
   return (
     <>
       <div
         id="popup-modal"
         tabindex="-1"
-        class="overflow-y-auto overflow-x-hidden fixed top-10 right-0 left-0 z-50 md:inset-0 h-modal md:h-full py-8 items-center justify-center flex transition duration-700 ease-in-out"
+        className="overflow-y-auto overflow-x-hidden fixed top-10 right-0 left-0 z-50 md:inset-0 h-modal md:h-full py-8 items-center justify-center flex transition duration-700 ease-in-out"
         aria-modal="true"
         role="dialog"
       >
-        <div class="relative w-full max-w-xl h-full md:h-auto bg-white rounded-xl shadow-2xl ">
-          <div class="relative rounded-lg shadow px-4">
+        <div className="relative w-full max-w-xl h-full md:h-auto bg-white rounded-xl shadow-2xl ">
+          <div className="relative rounded-lg shadow px-4">
             <button
               type="button"
-              class="absolute top-1 right-3 text-[#6549F6] bg-transparent rounded-lg text-sm ml-auto inline-flex items-center "
+              className="absolute top-1 right-3 text-[#6549F6] bg-transparent rounded-lg text-sm ml-auto inline-flex items-center "
               data-modal-toggle="popup-modal"
               onClick={() => {
                 closeModal(false);
@@ -81,7 +79,7 @@ const NftDetails = ({ closeModal }) => {
             >
               <svg
                 aria-hidden="true"
-                class="w-6 h-6"
+                className="w-6 h-6"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +90,7 @@ const NftDetails = ({ closeModal }) => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              <span class="sr-only">Close modal</span>
+              <span className="sr-only">Close modal</span>
             </button>
           </div>
 
@@ -158,11 +156,12 @@ const NftDetails = ({ closeModal }) => {
             </div>
             <div className="flex justify-end pr-4 py-5">
               <div className="create-button flex items-center w-44 gap-2 text-white px-8 py-2 rounded-3xl cursor-pointer">
-                <i class="fa-solid fa-plus"></i>
+                <i className="fa-solid fa-plus"></i>
                 <div>Create Rule</div>
               </div>
             </div>
           </div>
+          {}
         </div>
       </div>
     </>
