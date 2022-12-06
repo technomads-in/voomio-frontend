@@ -13,6 +13,7 @@ import tradingDoodles from "../../Assets/VoomioImages/tradingdoodles.svg";
 import tradingMoonbirds from "../../Assets/VoomioImages/tradingmoonbirds.svg";
 import ethereum from "../../Assets/Images/ethereum.png";
 import verified from "../../Assets/Images/verified.png";
+
 import "./Home.css";
 import DropDown from "../DropDown/DropDown";
 
@@ -30,23 +31,12 @@ const Home = () => {
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {
-    Aos.init();
     function handleWindowResize() {
       setWindowSize(getWindowSize());
     }
-    function onScroll() {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        document
-          .getElementById("trading-card")
-          .classList.add("trading-animation");
-      }
-    }
 
-    window.addEventListener("scroll", onScroll);
     window.addEventListener("resize", handleWindowResize);
+
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
@@ -88,6 +78,7 @@ const Home = () => {
       etereumimage: ethereum,
       cardprice: "70",
     },
+
     {
       id: "3",
       mainimage: tradingDoodles,
@@ -97,6 +88,7 @@ const Home = () => {
       etereumimage: ethereum,
       cardprice: "70",
     },
+
     {
       id: "4",
       mainimage: tradingMoonbirds,
@@ -168,6 +160,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#FF6263",
     },
     {
       id: "2",
@@ -180,6 +173,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#DE4839",
     },
     {
       id: "3",
@@ -192,6 +186,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#BF3325",
     },
     {
       id: "4",
@@ -204,6 +199,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#E21717",
     },
     {
       id: "5",
@@ -216,6 +212,7 @@ const Home = () => {
       createrFollowersText: "Followers",
       createrFollowingCollection: "15",
       createrFollowingCollectionText: "Collections",
+      backgroundColor: "#FF6263",
     },
   ];
 
@@ -285,58 +282,70 @@ const Home = () => {
       ethereumprice: "293.79",
     },
   ];
-
+  // console.log((open || 650 < getWindowSize()))
   return (
     <>
       {/* Oneplace bloges  start*/}
-      <div className="homebackgroundimage md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3  md:py-20">
-          <div className="hidden lg:flex relative justify-start">
+      <div className="homebackgroundimage -mt-20 md:py-20 overflow-hidden h-[110vh] lg:h-[90vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 p-3 md:p-0 mt-32">
+          <div className="hidden lg:block relative ">
             {" "}
             <img
               src={onePlaceleft2}
-              alt="dronze"
-              className="one-place-slide-animation -mx-60"
+              alt=""
+              className="absolute -ml-52 one-place-slide-animation"
             />
             <img
               src={onePlaceleft1}
-              alt="crypto"
-              className="absolute -bottom-16 left-28 one-place-slide-up-animation"
+              alt=""
+              className="absolute top-[340px] mx-36 one-place-slide-up-animation"
             />
           </div>
-          <div className="flex flex-col justify-center">
-            <h1 className="one-place-title text-6xl xl:text-8xl md:mt-0 mt-20">
-              One place, it’s all here.
-            </h1>
-            <p className="one-place-paragraph my-10 text-xl xl:text-2xl">
-              Voomio is an omni-friendly shop for buying and selling NFTs. With
-              everything from multi-wallet purchasing to gassless minting we’re
-              sure you’re going to love it here.
-            </p>
-            <div className="flex flex-col items-center md:flex-row gap-10">
-              <button class="one-place-button text-white  py-2.5 px-14 rounded-full 2xl:text-2xl">
+          <div className="flex flex-col ">
+            <div className="flex justify-center lg:justify-start">
+              {" "}
+              <h1 className="font-bold hometitle text-5xl  xl:text-8xl text-white mb-4  ">
+                <span className="mr-3">One</span>
+                place, <br />
+                It’s all here.
+              </h1>
+            </div>
+            <div className="flex justify-center lg:justify-start">
+              <h1 className="text-x md:text-xl w-64 lg:w-full">
+                Voomio is an omni-friendly shop for buying and selling NFTs.
+                With everything from multi-wallet purchasing to gassless minting
+                we’re sure you’re going to love it here.
+              </h1>
+            </div>
+            <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 items-center">
+              <button
+                className="buttonborder-home  text-white font-bold py-2.5  px-12 2xl:text-2xl w-fit duration-300 hover:scale-[1.07] ease-in-out transition"
+                onClick={() => navigate("/upload-nft")}
+              >
                 Explore
               </button>
-              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
+              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0 w-fit  duration-300 hover:scale-[1.07] ease-in-out   transition">
                 <button
                   type="button"
-                  className="hometitle px-12 py-2 font-bold 2xl:text-2xl "
+                  className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
                 >
                   Create
                 </button>
               </div>
             </div>
           </div>
-          <div className="relative hidden lg:flex justify-end">
-            <img
-              src={onePlaceRight1}
-              alt="dronze"
-              className="z-50 w-60 one-place-slide-animation -mx-20"
-            />
+
+          <div className="hidden lg:flex relative justify-end">
+            {" "}
             <img
               src={onePlaceRight2}
-              alt="crypto"
-              className="absolute -bottom-28 right-0 w-80 one-place-slide-up-animation -mx-14"
+              alt="rectangle"
+              className="absolute -mx-10 top-52 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceRight1}
+              alt="rectangle"
+              className="absolute -mx-24 one-place-slide-up-animation"
             />
           </div>
         </div>
@@ -346,94 +355,182 @@ const Home = () => {
       {/* Trending bloges start*/}
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-10 mb-1">
         <div className="relative flex flex-col md:flex-row justify-between h-16 mb-5">
-          <h1 className="trading-main-title pb-10">Trending</h1>
-          <DropDown
-            title={"Past 24 Hours"}
-            item1={"Past 1 Week"}
-            item2={"Past 1 Month"}
-            item3={"All"}
-          />
+          <h1 className="secondtitle font-bold pb-10">Trending</h1>
+          <div className="text-left mb-10">
+            <div className="dropdownborder rounded-2xl">
+              <button
+                type="button"
+                className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium menufont z-50 text-[#6549F6]"
+                id="menu-button"
+                aria-expanded="true"
+                aria-haspopup="true"
+                onClick={openDropdown}
+              >
+                Past 24hrs
+                {/* Heroicon name: solid/chevron-down */}
+                <svg
+                  className="-mr-1 ml-2 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            {isDropdown ? (
+              <div
+                className="origin-top-right z-50 absolute  mt-2 w-36 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dropdownborder"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabIndex={-1}
+              >
+                <div className="py-1 text-[#6549F6]" role="none">
+                  <a
+                    href="/"
+                    className="menufont block px-4 py-2 text-sm"
+                    role="menuitem"
+                    tabIndex={-1}
+                    id="menu-item-0"
+                  >
+                    Past 24hrs
+                  </a>
+                  <a
+                    href="/"
+                    className="menufont block px-4 py-2 text-sm"
+                    role="menuitem"
+                    tabIndex={-1}
+                    id="menu-item-1"
+                  >
+                    Past 24hrs
+                  </a>
+                  <a
+                    href="/"
+                    className="menufont block px-4 py-2 text-sm"
+                    role="menuitem"
+                    tabIndex={-1}
+                    id="menu-item-2"
+                  >
+                    Past 24hrs
+                  </a>
+                  <form method="POST" action="#" role="none">
+                    <button
+                      type="submit"
+                      className="menufont block w-full text-left px-4 py-2 text-sm"
+                      role="menuitem"
+                      tabIndex={-1}
+                      id="menu-item-3"
+                    >
+                      ALL
+                    </button>
+                  </form>
+                </div>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
+
       {/* Trending card */}
-      <div
-        id="trading-card"
-        className="container max-w-7xl mx-auto px-4 mt-10 "
-        style={{ cursor: "auto" }}
-      >
-        <div className="flex flex-wrap justify-center mt-14">
-          {cardsItems.map((i, index) => (
-            <div
-              className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4"
-              key={index}
-            >
-              <div className=" relative network-box mt-16">
-                <img
-                  alt="John Doe"
-                  src={i.mainimage}
-                  className="rounded-xl shadow-lg w-full h-auto align-middle border-none undefined"
-                />
-                <div className="pt-6 text-center">
-                  <div className="flex gap-2 pl-6">
-                    <h1 className="trading-title  mt-0 mb-2">
-                      {i.cardmaintext}
-                    </h1>
-                    <img src={i.verifiedimage} alt="" className="w-5 h-5" />
-                  </div>
-                  <div className="flex items-center justify-end gap-2 pr-5 pb-5">
-                    <div>
-                      <h1 className="trading-floor font-bold">
-                        {i.cardsubtitle}
-                      </h1>
+      <div>
+        <div className="container max-w-7xl mx-auto px-4 mt-10">
+          <div className="flex flex-wrap justify-center mt-14 ">
+            {cardsItems.map((i, index) => (
+              <div
+                className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4  duration-300 hover:scale-[1.07] ease-in-out transition "
+                key={index}
+              >
+                <div className=" relative network-box mt-16 hover:shadow-xl cursor-pointer">
+                  <div className="absolute left-0 -top-6 ">
+                    <div className="relative inline-block text-left ">
+                      {/* <div className="dropdownborder cardborder rounded-3xl">
+                        <div
+                          className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-sm font-medium  cardincrement"
+                          aria-expanded="true"
+                          aria-haspopup="true"
+                        >
+                          {i.sharevalue}
+                        </div>
+                      </div> */}
                     </div>
-                    <div className="flex items-center">
+                  </div>
+                  <img
+                    alt="John Doe"
+                    src={i.mainimage}
+                    className="rounded-xl shadow-lg w-full h-auto align-middle border-none undefined"
+                  />
+                  <div className="pt-6 text-center">
+                    <div className="flex gap-2 pl-6">
+                      <h1 className="text-base font-bold leading-normal mt-0 mb-2">
+                        {i.cardmaintext}
+                      </h1>
+                      <img src={i.verifiedimage} alt="" className="w-5 h-5" />
+                    </div>
+                    <div className="flex items-center justify-end gap-2 pr-5 pb-5">
                       <div>
-                        <img src={i.etereumimage} alt="etherum" />
+                        <h1 className="cardtitle font-bold">
+                          {i.cardsubtitle}
+                        </h1>
                       </div>
-                      <div className="trading-price">{i.cardprice}</div>
+                      <div className="flex items-center">
+                        <div>
+                          <img src={i.etereumimage} alt="etherum" />
+                        </div>
+                        <div className="cardprice font-bold">{i.cardprice}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-          <button
-            className="buttongradient my-10 text-white font-bold py-1 px-12 rounded-full"
-            onClick={() => navigate("/aggregator")}
-          >
-            Load more
-          </button>
+            ))}
+            <button
+              className="buttongradient my-10 text-white font-bold py-1 px-12 rounded-full duration-300 hover:scale-[1.07] ease-in-out transition"
+              onClick={() => navigate("/aggregator")}
+            >
+              Load more
+            </button>
+          </div>
         </div>
       </div>
-      {/* Trending bloges end*/}
+      {/* Trending bloges start*/}
 
       {/* Alpha bloges start*/}
+
       <div className=" md:p-20">
         <div
           className="container max-w-7xl mx-auto px-4 mt-10"
           style={{ cursor: "auto" }}
         >
-          <div className="alpha-title mb-16 px-9">Alpha</div>
-          <div
-            data-aos="fade-left"
-            data-aos-easing="linear"
-            data-aos-duration="1000"
-          >
+          <div className="font-bold text-[#222222] secondtitle mb-16 px-9">
+            Alpha
+          </div>
+
+          <div className="">
             <Carousel breakPoints={breakPoints}>
               {secondVideo.map((i, index) => (
-                <div
-                  className="max-w-sm rounded overflow-hidden p-2"
-                  key={index}
-                >
-                  <img
-                    className="w-full"
-                    src={i.videoimage}
-                    alt="Sunset in the mountains"
-                  />
-                  <div className="px-6 py-4">
-                    <div className="alpha-video-title">{i.videotitle}</div>
-                    <p className="alpha-video-text">{i.videotext}</p>
-                    <p className="alpha-video-text">{i.videoview}</p>
+                <div className="duration-300 hover:scale-[1.07] ease-in-out transition rounded ">
+                  <div
+                    className="max-w-sm rounded overflow-hidden p-2 "
+                    key={index}
+                  >
+                    <img
+                      className="w-full"
+                      src={i.videoimage}
+                      alt="Sunset in the mountains"
+                    />
+                    <div className="px-6 py-4">
+                      <div className="font-bold text-xl mb-2 text-[#222222]">
+                        {i.videotitle}
+                      </div>
+                      <p className="text-[#222222] text-base">{i.videotext}</p>
+                      <p className="text-[#222222] text-base">{i.videoview}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -449,15 +546,17 @@ const Home = () => {
           className="container max-w-7xl mx-auto  mt-10"
           style={{ cursor: "auto" }}
         >
-          <div className="  trading-main-title mb-16 px-9  ">Top Creators</div>
-          <div
-            data-aos="fade-left"
-            data-aos-easing="linear"
-            data-aos-duration="1000"
-          >
+          <div className=" font-bold text-[#222222] secondtitle mb-16 px-9  ">
+            Top Creators
+          </div>
+
+          <div className="">
             <Carousel breakPoints={breakPoints}>
               {topCreatorsItems.map((i, index) => (
-                <div className="rounded-xl topcreators-box" key={index}>
+                <div
+                  className="rounded-xl topcreators-box duration-300 hover:scale-[1.07] ease-in-out transition"
+                  key={index}
+                >
                   <div className="rounded-lg  bg-[#e9ae65] ">
                     <div className="px-10 py-8">
                       <div className="flex justify-center">
@@ -476,8 +575,8 @@ const Home = () => {
                         </h5>
                       </div>
                     </div>
-                    <div className="bg-white rounded-lg">
-                      <div className="flex justify-between lg:px-1 xl:flex-row md:flex-row lg:flex-col xl:px-7 py-2 px-6 flex-col gap-2">
+                    <div className="bg-white  rounded-lg">
+                      <div className="flex justify-between lg:px-1 xl:flex-row md:flex-row lg:flex-col xl:px-7 py-2 px-6 flex-col">
                         <div>
                           <div className="topcreatorssubtext">
                             {i.createrFollowing}
@@ -506,7 +605,7 @@ const Home = () => {
                       <div className="flex space-x-2 justify-center my-4">
                         <button
                           type="button"
-                          className=" px-14 py-2 follow text-white rounded-full  text-base font-bold"
+                          className=" px-14 py-2 follow text-white rounded-full hover:shadow-lg topcreatorsfollowing  transition duration-150 ease-in-out"
                         >
                           <i className="fa-solid fa-plus mr-2"></i>Follow
                         </button>
@@ -514,7 +613,7 @@ const Home = () => {
                       <div className="flex  space-x-2 justify-center">
                         <button
                           type="button"
-                          className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full mb-8"
+                          className="topcreatorsfollowing px-9 py-2 bg-[#DBDAE2] text-[#8551E6] rounded-full hover:shadow-lg transition duration-150 ease-in-out mb-8"
                         >
                           0x007..373xys..
                         </button>
@@ -805,10 +904,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
             {topnft.map((i, index) => (
               <div
-                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item"
+                className="sc-1pie21o-0 elyzfO sc-1xf18x6-0 sc-1twd32i-0 sc-1idymv7-0 gyFWjU kKpYwv fNIWSU TopCollections--item duration-300 hover:scale-[1.05]  transition hover:shadow-xl rounded-xl cursor-pointer"
                 key={index}
               >
                 <div className="sc-1xf18x6-0 sc-1twd32i-0 sc-1wwz3hp-0 sc-b4hiel-0 sc-cjf6mn-0 ttmcH kKpYwv kuGBEl iVtKaT euUQqP">
@@ -907,7 +1006,7 @@ const Home = () => {
             ))}
           </div>
           <div className="pb-16 mt-10">
-            <button className="flex container mx-auto w-fit justify-center buttongradient m-15 text-white font-bold py-1 px-12 rounded-full">
+            <button className="flex container mx-auto w-fit justify-center buttongradient m-15 text-white font-bold py-1 px-12 rounded-full duration-300 hover:scale-[1.07] ease-in-out">
               Load more
             </button>
           </div>
@@ -916,29 +1015,29 @@ const Home = () => {
       {/* Top NFT  bloges  end*/}
 
       {/* Gassless Minting bloges start*/}
-      <div className=" md:py-20 overflow-x-auto">
+      <div className=" md:py-20 overflow-hidden lg:h-[120vh]">
         <div className="grid grid-cols-1 lg:grid-cols-3 p-2 md:p-0">
           <div className="hidden lg:block relative">
             {" "}
             <img
               src={onePlaceleft2}
-              alt="dronze"
-              className="one-place-slide-animation -mx-60 absolute"
+              alt=""
+              className="absolute -mx-60 one-place-slide-animation"
             />
             <img
               src={onePlaceleft1}
-              alt="crypto"
-              className="absolute top-96 left-28 one-place-slide-up-animation z-50"
+              alt=""
+              className="absolute z-20 top-[340px] mx-28 one-place-slide-up-animation"
             />
             <img
               src={onePlaceRight1}
-              alt="dronze"
-              className=" w-80 one-place-slide-animation -mx-6 top-[480px] absolute z-10"
+              alt=""
+              className="absolute top-[480px] -mx-7 z-10 one-place-slide-animation"
             />
             <img
               src={onePlaceRight2}
-              alt="crypto"
-              className="absolute  w-80 one-place-slide-up-animation top-[700px] -mx-14"
+              alt=""
+              className="absolute top-[690px] -mx-28 one-place-slide-up-animation"
             />
           </div>
           <div className="flex flex-col">
@@ -999,21 +1098,42 @@ const Home = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center lg:justify-start md:flex-row my-12  md:space-x-4 ">
-              <button className="buttonborder  text-white font-bold py-2  px-12 2xl:text-2xl">
+              <button className="buttonborder-home  text-white font-bold py-2  px-12 2xl:text-2xl duration-300 hover:scale-[1.07] ease-in-out transition">
                 Explore
               </button>
-              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0">
+              <div className="homebuttonborder rounded-3xl text-center mt-3 md:mt-0 duration-300 hover:scale-[1.07] ease-in-out transition">
                 <button
                   type="button"
-                  className="hometitle px-12  py-2 font-bold 2xl:text-2xl "
+                  className="hometitle px-12  py-2 font-bold 2xl:text-2xl  "
                 >
                   Create
                 </button>
               </div>
             </div>
           </div>
-          <div className="hidden lg:flex justify-end">
-            <img src="/images/Group 548 (1).png" alt="rectangle" />
+
+          <div className="hidden lg:flex relative justify-end">
+            {" "}
+            <img
+              src={onePlaceleft2}
+              alt=""
+              className="absolute -mx-52 top-96 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceleft1}
+              alt=""
+              className="absolute z-20 top-[800px] -mx-10 one-place-slide-up-animation"
+            />
+            <img
+              src={onePlaceRight1}
+              alt=""
+              className="absolute -mx-28 z-10 one-place-slide-animation"
+            />
+            <img
+              src={onePlaceRight2}
+              alt=""
+              className="absolute top-[250px] -mx-14 one-place-slide-up-animation"
+            />
           </div>
         </div>
       </div>

@@ -1,0 +1,73 @@
+.active {
+  border-bottom: 8px solid #6549f6;
+
+  margin-bottom: -5px;
+
+  font-family: "Neue Haas Grotesk Text Pro";
+
+  font-style: normal;
+
+  font-weight: 700;
+
+  font-size: 22px;
+
+  line-height: 27px;
+
+  color: #6549f6;
+}
+
+.deActive {
+  font-family: "Neue Haas Grotesk Text Pro";
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  font-size: 24px;
+
+  line-height: 27px;
+
+  color: #250c50;
+}
+.hometitle {
+  font-family: "PoppinsFonts";
+  line-height: 1.2em;
+  background: linear-gradient(
+    92.12deg,
+    #ffffff -5.07%,
+    #6549f6 38.89%,
+    #00dad9 90.46%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.dropdown-gradient-1 {
+  border: 2px;
+
+  /* border-radius: 10px; */
+  border-style: solid;
+  border-image: linear-gradient(to right, #7b61ff, #00dad9) 1;
+}
+.outer-wrapper {
+  width: 55vw;
+  overflow-x: scroll;
+  position: relative;
+  scrollbar-color: #6549f6 #f1db9d;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+}
+
+.outer-wrapper::-webkit-scrollbar {
+  height: 10px;
+  border-radius: 10px;
+  width: 24px;
+}
+
+.outer-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  height: 10px;
+  width: 24px;
+  background-color: #6549f6;
+}
